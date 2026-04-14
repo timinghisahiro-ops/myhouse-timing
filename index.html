@@ -41,9 +41,9 @@
   .btn-primary { background: var(--gray-800); color: var(--white); padding: 1rem 2.4rem; text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; transition: background 0.2s; }
   .btn-primary:hover { background: var(--accent); }
   .btn-secondary { color: var(--gray-800); text-decoration: underline; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; }
-  .hero-right { display: flex; flex-direction: column; }
-  .hero-image-grid { flex: 1; display: flex; flex-direction: column; gap: 3px; }
-  .hero-img-top { flex: 3; overflow: hidden; background: #c9c5be; }
+  .hero-right { position: relative; min-height: calc(100vh - 80px); }
+  .hero-image-grid { position: absolute; inset: 0; display: flex; flex-direction: column; gap: 3px; }
+  .hero-img-top { overflow: hidden; background: #c9c5be; flex: 3; }
   .hero-img-top img { width: 100%; height: 100%; object-fit: cover; display: block; }
   .hero-img-bottom { flex: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
   .hero-img-cell { position: relative; overflow: hidden; background: #c9c5be; }
@@ -179,7 +179,7 @@
     .lang-btn { padding: 0.18rem 0.35rem !important; font-size: 0.5rem !important; }
     .hero { grid-template-columns: 1fr; min-height: auto; display: flex; flex-direction: column; }
     .hero-left { padding: 6rem 2rem 3rem; order: 1; }
-    .hero-right { height: 120vw; order: 2; flex-shrink: 0; display: flex; flex-direction: column; }
+    .hero-right { height: 85vw; order: 2; flex-shrink: 0; position: relative; }
     .hero-stat-band { order: 3; position: static !important; opacity: 1 !important; animation: none !important; }
     section { padding: 5rem 2rem; }
     .features-grid { grid-template-columns: 1fr; gap: 2px; }
@@ -375,6 +375,7 @@
         <p class="parking-banner-title" id="parking-title">🅿️ 駐車場のご案内</p>
         <p class="parking-banner-desc" id="parking-desc">近隣に駐車場をご用意しています。<br>詳しい場所・利用方法は駐車場案内ページをご確認ください。</p>
         <a href="parking.html" target="_blank" class="btn-parking" id="parking-btn" onclick="openParking(event)">駐車場案内を見る →</a>
+      <a href="access.html" target="_blank" class="btn-parking" id="access-btn" style="margin-top:0.8rem;display:inline-flex;" onclick="openAccess(event)">🚶 道順を見る →</a>
       </div>
     </div>
     <div class="access-map reveal">
@@ -969,6 +970,13 @@ function switchLang(lang, btn) {
   if (navBook) navBook.textContent = t['nav-book'];
 }
 
+function openAccess(e) {
+  e.preventDefault();
+  var lang = document.querySelector('.lang-btn.active')?.textContent.trim().toLowerCase() || 'ja';
+  var langMap = {'jp':'ja','en':'en','中':'zh','한':'ko'};
+  lang = langMap[lang] || lang;
+  window.open('access.html?lang=' + lang, '_blank');
+}
 function openParking(e) {
   e.preventDefault();
   window.open('parking.html?lang=' + currentLang, '_blank');
@@ -1355,6 +1363,13 @@ function switchLang(lang, btn) {
   if (navBook) navBook.textContent = t['nav-book'];
 }
 
+function openAccess(e) {
+  e.preventDefault();
+  var lang = document.querySelector('.lang-btn.active')?.textContent.trim().toLowerCase() || 'ja';
+  var langMap = {'jp':'ja','en':'en','中':'zh','한':'ko'};
+  lang = langMap[lang] || lang;
+  window.open('access.html?lang=' + lang, '_blank');
+}
 function openParking(e) {
   e.preventDefault();
   window.open('parking.html?lang=' + currentLang, '_blank');

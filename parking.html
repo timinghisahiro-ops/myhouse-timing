@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>駐車場案内 | MY HOUSE たいみんぐ</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f0efed;
+    --gray-100: #e8e6e3;
+    --gray-200: #d0cdc9;
+    --gray-400: #9b9790;
+    --gray-600: #5c5a57;
+    --gray-800: #2e2d2b;
+    --accent: #7a6f5e;
+    --accent-light: #b5aa99;
+    --white: #fafaf8;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background: var(--bg); color: var(--gray-800);
+    font-weight: 300; overflow-x: hidden;
+  }
+
+
+  .lang-switcher { display:flex; gap:0.3rem; align-items:center; }
+  .lang-btn { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.1em; padding:0.3rem 0.6rem; border:1px solid var(--gray-400); background:transparent; color:var(--gray-600); cursor:pointer; transition:all 0.2s; text-transform:uppercase; }
+  .lang-btn:hover { border-color:var(--gray-800); color:var(--gray-800); }
+  .lang-btn.active { background:var(--gray-800); color:var(--white); border-color:var(--gray-800); }
+  header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(240,239,237,0.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 300;
+    letter-spacing: 0.1em; color: var(--gray-800);
+    text-decoration: none; line-height: 1.2;
+  }
+  .logo small {
+    display: block; font-family: 'DM Mono', monospace;
+    font-size: 0.52rem; letter-spacing: 0.2em;
+    text-transform: none; color: var(--accent);
+  }
+  .back-btn {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gray-600); text-decoration: none;
+    border-bottom: 1px solid var(--gray-400);
+    padding-bottom: 2px; transition: color 0.2s;
+  }
+  .back-btn:hover { color: var(--gray-800); }
+
+  /* HERO */
+  .parking-hero {
+    padding: 110px 6rem 4rem; background: var(--gray-800);
+    position: relative; overflow: hidden;
+  }
+  .parking-hero::before {
+    content: 'P'; position: absolute; right: 3rem; top: 50%;
+    transform: translateY(-50%);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22rem; font-weight: 300;
+    color: rgba(255,255,255,0.04); line-height: 1; pointer-events: none;
+  }
+  .parking-eyebrow {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent-light); margin-bottom: 1rem; display: block;
+  }
+  .parking-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 300;
+    line-height: 1.1; color: var(--white); margin-bottom: 1rem; position: relative;
+  }
+  .parking-title em { font-style: italic; color: var(--accent-light); }
+  .parking-subtitle {
+    font-size: 0.88rem; color: rgba(255,255,255,0.55);
+    line-height: 1.9; max-width: 500px; position: relative;
+  }
+
+  .location-band {
+    background: var(--accent); padding: 1.4rem 6rem;
+    display: flex; align-items: center; gap: 1.5rem;
+  }
+  .location-band-text strong {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem; font-weight: 400; color: var(--white); display: block;
+  }
+  .location-band-text span {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.15em; color: rgba(255,255,255,0.65);
+  }
+
+  .parking-main { padding: 5rem 6rem; }
+
+  .section-label {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.25em; text-transform: uppercase;
+    color: var(--accent); margin-bottom: 0.8rem; display: block;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300;
+    color: var(--gray-800); margin-bottom: 2rem;
+  }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* MAP */
+  .map-section { margin-bottom: 5rem; }
+  .gmap-iframe {
+    width: 100%; height: 440px;
+    border: none; display: block; filter: grayscale(10%);
+  }
+  .map-caption {
+    background: var(--white); border: 1px solid var(--gray-200); border-top: none;
+    padding: 0.9rem 1.5rem;
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.12em; color: var(--gray-400);
+  }
+
+  /* 専用駐車場 */
+  .reserved-section { margin-bottom: 5rem; }
+  .reserved-card {
+    background: var(--gray-800); color: var(--white); padding: 3rem;
+    display: grid; grid-template-columns: auto 1fr;
+    gap: 3rem; align-items: start;
+    position: relative; overflow: hidden;
+  }
+  .reserved-card::after {
+    content: '🅿'; position: absolute; right: 2rem; bottom: -1.5rem;
+    font-size: 9rem; opacity: 0.05;
+  }
+  .reserved-badge {
+    background: var(--accent); padding: 1rem 1.5rem;
+    text-align: center; flex-shrink: 0;
+  }
+  .badge-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem; font-weight: 300;
+    line-height: 1; color: var(--white); display: block;
+  }
+  .badge-label {
+    font-family: 'DM Mono', monospace; font-size: 0.52rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: rgba(255,255,255,0.65); display: block; margin-top: 0.3rem;
+  }
+  .reserved-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.7rem; font-weight: 300; color: var(--white); margin-bottom: 0.4rem;
+  }
+  .reserved-address {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.1em; color: var(--accent-light); margin-bottom: 2rem;
+  }
+  .reserved-specs {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem; margin-bottom: 2rem;
+  }
+  .rspec { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 0.8rem; }
+  .rspec-key {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent-light); display: block; margin-bottom: 0.3rem;
+  }
+  .rspec-val { font-size: 0.84rem; color: var(--white); }
+  .days-label {
+    font-family: 'DM Mono', monospace; font-size: 0.55rem;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--accent-light); display: block; margin-bottom: 0.6rem;
+  }
+  .day-chips { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+  .day-chip {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    padding: 0.3rem 0.8rem;
+    border: 1px solid rgba(255,255,255,0.15); color: rgba(255,255,255,0.3);
+  }
+  .day-chip.on { background: var(--accent); border-color: var(--accent); color: var(--white); }
+  .reserved-note {
+    font-size: 0.78rem; color: rgba(255,255,255,0.4); line-height: 1.8;
+    border-top: 1px solid rgba(255,255,255,0.08); padding-top: 1rem;
+  }
+
+  /* コインパーキング */
+  .coin-section { margin-bottom: 4rem; }
+  .coin-intro {
+    font-size: 0.84rem; color: var(--gray-600); line-height: 1.9;
+    margin-bottom: 2.5rem; padding: 1.2rem 1.5rem;
+    border-left: 3px solid var(--accent-light); background: var(--gray-100);
+  }
+  .coin-list { display: flex; flex-direction: column; gap: 2px; }
+  .coin-card {
+    background: var(--white);
+    display: grid;
+    grid-template-columns: 80px 1fr auto;
+    align-items: center;
+    gap: 2rem;
+    padding: 1.8rem 2rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+    text-decoration: none;
+    color: inherit;
+  }
+  .coin-card:hover {
+    transform: translateX(4px);
+    box-shadow: 4px 0 0 var(--accent) inset;
+  }
+  .coin-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.8rem; font-weight: 300; color: var(--gray-200);
+    line-height: 1; text-align: center;
+    transition: color 0.2s; flex-shrink: 0;
+  }
+  .coin-card:hover .coin-num { color: var(--accent-light); }
+  .coin-info { flex: 1; }
+  .coin-name {
+    font-size: 0.95rem; font-weight: 400;
+    color: var(--gray-800); margin-bottom: 0.5rem; line-height: 1.3;
+  }
+  .coin-meta {
+    display: flex; flex-wrap: wrap; gap: 1rem;
+  }
+  .coin-meta-item {
+    display: flex; align-items: center; gap: 0.4rem;
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.1em; color: var(--gray-600);
+  }
+  .coin-meta-item .meta-key {
+    color: var(--accent); text-transform: uppercase;
+  }
+  .coin-note {
+    margin-top: 0.4rem;
+    font-size: 0.75rem; color: var(--gray-400);
+    font-style: italic;
+  }
+  .coin-map-arrow {
+    display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+    flex-shrink: 0;
+    background: var(--gray-800);
+    color: var(--white);
+    padding: 0.8rem 1.2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.55rem;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    transition: background 0.2s;
+    text-decoration: none;
+  }
+  .coin-map-arrow:hover { background: var(--accent); }
+  .coin-map-arrow .arrow-icon { font-size: 1.2rem; }
+
+  /* 注意事項 */
+  .notes-section { background: var(--gray-100); padding: 3rem; margin-bottom: 4rem; }
+  .notes-title {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.5rem;
+    font-weight: 300; color: var(--gray-800); margin-bottom: 1.5rem;
+  }
+  .notes-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; }
+  .notes-list li {
+    display: flex; align-items: flex-start; gap: 0.8rem;
+    font-size: 0.84rem; color: var(--gray-600); line-height: 1.7;
+  }
+  .notes-list li::before {
+    content: '—'; font-family: 'DM Mono', monospace; color: var(--accent); flex-shrink: 0;
+  }
+
+  .back-section { text-align: center; padding: 3rem 0; border-top: 1px solid var(--gray-200); }
+  .btn-back-home {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    background: var(--gray-800); color: var(--white);
+    text-decoration: none; padding: 1rem 2.2rem;
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-back-home:hover { background: var(--accent); transform: translateY(-2px); }
+
+  footer {
+    background: var(--gray-800); padding: 2.5rem 6rem;
+    display: flex; align-items: center; justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300;
+    color: var(--white); letter-spacing: 0.1em; line-height: 1.4;
+  }
+  .footer-logo small {
+    display: block; font-family: 'DM Mono', monospace; font-size: 0.55rem;
+    letter-spacing: 0.15em; color: var(--accent-light); text-transform: uppercase;
+  }
+  .footer-info {
+    font-family: 'DM Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.12em; color: rgba(255,255,255,0.3);
+    text-align: right; line-height: 1.8;
+  }
+
+  @media (max-width: 900px) {
+  header {
+    padding: 0.5rem 0.8rem;
+    flex-wrap: wrap;
+    gap: 0.3rem;
+    align-items: center;
+  }
+  .logo { flex: 1; min-width: 0; }
+  .logo img { height: 34px; }
+  .logo-text { font-size: 0.85rem !important; white-space: nowrap; }
+  .logo span { font-size: 0.85rem !important; white-space: nowrap; }
+
+  /* 言語ボタン＋戻るボタンを右側に縦配置 */
+  header > div:last-child {
+    flex-direction: column;
+    gap: 0.25rem;
+    align-items: flex-end;
+    flex-shrink: 0;
+  }
+  .back-btn { font-size: 0.55rem; }
+  .lang-switcher { display:flex !important; gap:0.2rem; align-items:center; }
+  .lang-btn { padding: 0.18rem 0.35rem; font-size: 0.5rem; }
+
+  /* Parking Heroのpadding-topを増やして被り防止 */
+  .parking-hero { padding-top: 160px !important; }
+  .parking-hero::before { font-size: 10rem; }
+  .location-band { padding: 1rem 1.5rem; }
+
+  .parking-main { padding: 3rem 1.5rem; }
+
+  /* コインパーキングカードを1列に */
+  .parking-main > div[style*="grid-template-columns:repeat(2"] { grid-template-columns: 1fr !important; }
+  div[style*="grid-template-columns:repeat(2,1fr)"] { grid-template-columns: 1fr !important; }
+
+  /* P6を通常幅に */
+  div[style*="grid-column:1/-1"] { grid-column: 1 !important; }
+
+  .reserved-card { grid-template-columns: 1fr; gap: 1.5rem; }
+  .reserved-specs { grid-template-columns: 1fr 1fr; }
+
+  .gmap-iframe { height: 280px; }
+
+  .notes-section { padding: 1.5rem; }
+
+  .coin-grid { grid-template-columns: 1fr !important; }
+
+  /* 写真グリッド：スマホは1列 */
+  .photo-grid { grid-template-columns: 1fr !important; }
+  .photo-wide { grid-column: 1 !important; aspect-ratio: 16/9 !important; }
+  .photo-item { aspect-ratio: 16/9 !important; }
+  footer { flex-direction: column; gap: 1rem; text-align: center; padding: 2rem 1.5rem; }
+  .footer-info { text-align: center; }
+
+  .lang-switcher { display:flex; gap:0.3rem; align-items:center; }
+  .lang-btn { font-family:'DM Mono',monospace; font-size:0.6rem; letter-spacing:0.1em; padding:0.3rem 0.6rem; border:1px solid var(--gray-400); background:transparent; color:var(--gray-600); cursor:pointer; transition:all 0.2s; text-transform:uppercase; }
+  .lang-btn:hover { border-color:var(--gray-800); color:var(--gray-800); }
+  .lang-btn.active { background:var(--gray-800); color:var(--white); border-color:var(--gray-800); }
+  header { padding: 1rem 1.5rem; }
+    
+  .parking-eyebrow { font-size: 0.55rem; }
+  .parking-title { font-size: 2.2rem; }
+    .parking-hero::before { font-size: 8rem; }
+    .location-band { padding: 1.2rem 2rem; }
+    .parking-main { padding: 4rem 2rem; }
+    .reserved-card { grid-template-columns: 1fr; gap: 1.5rem; }
+    .reserved-specs { grid-template-columns: 1fr 1fr; }
+    .gmap-iframe { height: 300px; }
+    .coin-card { grid-template-columns: 60px 1fr; gap: 1rem; }
+    .coin-map-arrow { display: none; }
+    .coin-card { cursor: pointer; }
+    .notes-section { padding: 2rem; }
+    .coin-grid { grid-template-columns: 1fr !important; }
+
+  /* 写真グリッド：スマホは1列 */
+  .photo-grid { grid-template-columns: 1fr !important; }
+  .photo-wide { grid-column: 1 !important; aspect-ratio: 16/9 !important; }
+  .photo-item { aspect-ratio: 16/9 !important; }
+  footer { flex-direction: column; gap: 1.5rem; padding: 2rem; }
+    .footer-info { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <a href="index.html" class="logo" style="display:flex;align-items:center;gap:0.8rem;text-decoration:none;">
+    <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:50px;width:auto;display:block;">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:var(--gray-800);line-height:1.2;white-space:nowrap;">
+      MY HOUSE たいみんぐ
+      <small style="display:block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;text-transform:none;color:var(--accent);">Parking Guide</small>
+    </span>
+  </a>
+  <div style="display:flex;align-items:center;gap:1rem;">
+    <div style="display:flex;gap:0.3rem;">
+      <button class="lang-btn active" data-lang="ja" onclick="switchParkingLang('ja',this)">JP</button>
+      <button class="lang-btn" data-lang="en" onclick="switchParkingLang('en',this)">EN</button>
+      <button class="lang-btn" data-lang="zh" onclick="switchParkingLang('zh',this)">中</button>
+      <button class="lang-btn" data-lang="ko" onclick="switchParkingLang('ko',this)">한</button>
+    </div>
+    <a href="index.html" class="back-btn" id="p-header-back">← トップに戻る</a>
+  </div>
+</header>
+
+<div class="parking-hero">
+  <span class="parking-eyebrow" id="p-eyebrow">Parking Information</span>
+  <h1 class="parking-title" id="p-title">駐車場<em>案内</em></h1>
+  <p class="parking-subtitle" id="p-subtitle">お車でお越しのゲストへ。<br>曜日によって利用できる駐車場が異なります。</p>
+</div>
+
+<div class="location-band">
+  <span style="font-size:1.4rem;">🏠</span>
+  <div class="location-band-text">
+    <strong id="p-house">MY HOUSE たいみんぐ</strong>
+    <span id="p-location-band">三重県桑名市桑名 476-52 ｜ 桑名駅徒歩3分</span>
+  </div>
+</div>
+
+<main class="parking-main">
+
+  <!-- 専用駐車場マップ（Googleマップ・Place ID確認済み） -->
+  <div class="map-section">
+    <span class="section-label" id="p-reserved-label">Reserved Parking — 日・月曜限定</span>
+    <h2 class="section-title" id="p-map-title">専用駐車場<em>マップ</em></h2>
+    <iframe class="gmap-iframe"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d300!2d136.6850208!3d35.064978!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60039a91874385e7%3A0xbbf9f9ca2de727b9!2z5qCq5byP5Lya56S-44CA5qCq5byP5Lya56S-IOOBn-OBhOOBv-OCk-OBkw!5e0!3m2!1sja!2sjp!4v1700000000020"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+      title="MY HOUSE たいみんぐ">
+    </iframe>
+    <div class="map-caption" id="p-map-caption">📍 専用駐車場：三重県桑名市桑名中央町1丁目70番 ／ 日・月曜宿泊限定・無料・2台</div>
+  </div>
+
+
+  <!-- 駐車場写真 -->
+  <div style="margin-bottom:5rem;">
+    <span class="section-label" id="p-photos-label">Photos</span>
+    <h2 class="section-title" id="p-photos-title">駐車場の<em>写真</em></h2>
+    <div class="photo-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:3px;margin-top:2rem;">
+      <div class="photo-wide" style="grid-column:1/-1;position:relative;overflow:hidden;aspect-ratio:16/9;">
+        <img src="images/parking_exterior.jpg" alt="駐車場外観" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <span style="position:absolute;bottom:0.8rem;left:0.8rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(255,255,255,0.9);text-transform:uppercase;background:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;" id="p-cap-1">外観 — じぶんカフェ隣の立体駐車場</span>
+      </div>
+      
+      <div style="position:relative;overflow:hidden;aspect-ratio:4/3;">
+        <img src="images/parking_entrance.jpg" alt="入口" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <span style="position:absolute;bottom:0.8rem;left:0.8rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(255,255,255,0.9);text-transform:uppercase;background:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;" id="p-cap-2">入口（IN / OUT）</span>
+      </div>
+      <div class="photo-wide" style="position:relative;overflow:hidden;aspect-ratio:4/3;">
+        <img src="images/parking_3f.jpg" alt="3F専用駐車場" style="width:100%;height:100%;object-fit:cover;display:block;">
+        <span style="position:absolute;bottom:0.8rem;left:0.8rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:rgba(255,255,255,0.9);text-transform:uppercase;background:rgba(0,0,0,0.4);padding:0.2rem 0.6rem;" id="p-cap-4">3F — 契約者専用駐車場（12番・14番）</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 専用駐車場 詳細 -->
+  <div class="reserved-section">
+    <span class="section-label" id="p-reserved-label2">Reserved Parking</span>
+    <h2 class="section-title" id="p-reserved-title">専用<em>駐車場</em></h2>
+    <div class="reserved-card">
+      
+      <div>
+        <h3 class="reserved-name" id="p-reserved-name">MY HOUSE たいみんぐ 専用駐車場</h3>
+        <p class="reserved-address">📍 三重県桑名市桑名中央町1丁目70番</p>
+        <div class="reserved-specs">
+          <div class="rspec">
+            <span class="rspec-key" id="p-key-fee">料金</span>
+            <span class="rspec-val" id="p-spec-fee">無料（宿泊者専用）</span>
+          </div>
+          <div class="rspec">
+            <span class="rspec-key" id="p-key-cars">台数</span>
+            <span class="rspec-val" id="p-spec-cars">2台</span>
+          </div>
+          <div class="rspec">
+            <span class="rspec-key" id="p-key-time">時間</span>
+            <span class="rspec-val" id="p-spec-time">チェックイン〜チェックアウト</span>
+          </div>
+        </div>
+        <span class="days-label" id="p-days-label">利用可能曜日</span>
+        <div class="day-chips">
+          <span class="day-chip on">日</span>
+          <span class="day-chip on">月</span>
+          <span class="day-chip">火</span>
+          <span class="day-chip">水</span>
+          <span class="day-chip">木</span>
+          <span class="day-chip">金</span>
+          <span class="day-chip">土</span>
+        </div>
+        <p class="reserved-note" id="p-reserved-note" style="background:#fff3cd;border-left:4px solid #f0a500;color:#7a5000;font-size:0.95rem;font-weight:500;padding:1rem 1.2rem;margin-top:1.5rem;">⚠️ 火〜土曜の宿泊には専用駐車場をご用意できません。<br>下記の周辺コインパーキングをご利用ください。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- コインパーキング一覧 -->
+  <div class="coin-section">
+    <span class="section-label" id="p-coin-label">Coin Parking — 火〜土曜宿泊</span>
+    <h2 class="section-title" id="p-coin-title">周辺<em>コインパーキング</em></h2>
+    <p class="coin-intro">
+      火〜土曜宿泊の場合は下記をご利用ください。施設から徒歩3〜4分圏内です。
+    </p>
+
+    <!-- 料金比較カード -->
+    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:3rem;" class="coin-grid">
+
+      <!-- P2 -->
+      <div style="background:var(--white);padding:1.8rem 2rem;position:relative;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
+          
+          <div>
+            <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">タイムズ桑名駅前第3</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">基本料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">30分 / 220円</span>
+          </div>
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">最大料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">800円（昼・夜とも）</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/タイムズ桑名駅前第３/@35.0668663,136.6864692,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+      </div>
+
+      <!-- P3 -->
+      <div style="background:var(--gray-100);padding:1.8rem 2rem;position:relative;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
+          
+          <div>
+            <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">Dパーキング サンファーレ桑名</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 入出口が異なります</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">基本料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">60分 / 200円</span>
+          </div>
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">最大料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">昼夜 各1,000円</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/Dパーキング+桑名駅前/@35.0688498,136.68434,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+      </div>
+
+      <!-- P4 -->
+      <div style="background:var(--gray-100);padding:1.8rem 2rem;position:relative;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
+          
+          <div>
+            <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">TPS桑名駅前パーキング</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 軽専用区画あり</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">基本料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">60分 / 200円</span>
+          </div>
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">最大料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">昼800円 / 夜900円</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/TPS桑名駅前パーキング/@35.0679419,136.6854,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+      </div>
+
+      <!-- P5 -->
+      <div style="background:var(--white);padding:1.8rem 2rem;position:relative;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
+          
+          <div>
+            <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">クオレ チェントロパルコ</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 高さ制限2.13m</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">基本料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">昼30分/100円・夜60分/100円</span>
+          </div>
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">最大料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">昼800円 / 夜700円</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/クオレチェントロパルコ駐車場/@35.0647601,136.685663,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+      </div>
+
+      <!-- P6 -->
+      <div style="background:var(--gray-100);padding:1.8rem 2rem;grid-column:1/-1;position:relative;">
+        <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
+          
+          <div>
+            <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">三井のリパーク 桑名駅東口第2</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 繰り返し最大あり</p>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">基本料金</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">30分 / 220円</span>
+          </div>
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">昼間最大</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">600円（6:00〜18:00）</span>
+          </div>
+          <div style="border-top:1px solid var(--gray-200);padding-top:0.6rem;">
+            <span style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:0.2rem;">夜間最大</span>
+            <span style="font-size:0.85rem;color:var(--gray-800);">900円（18:00〜6:00）</span>
+          </div>
+        </div>
+        <a href="https://www.google.com/maps/search/三井のリパーク+桑名駅東口第２+駐車場/@35.0677512,136.6848128,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 注意事項 -->  <!-- 注意事項 -->
+  <div class="notes-section">
+    <h3 class="notes-title" id="p-notes-title">🚗 ご利用にあたって</h3>
+    <ul class="notes-list">
+      <li id="note-1">専用駐車場は日曜・月曜宿泊のゲストのみご利用いただけます（2台まで）</li>
+      <li id="note-2">火〜土曜宿泊の場合は周辺コインパーキングをご利用ください</li>
+      <li id="note-3">専用駐車場はチェックイン〜チェックアウト時間内のみご利用いただけます</li>
+      <li id="note-4">コインパーキングの料金・空き状況は現地でご確認ください</li>
+      <li id="note-5">大型車・ハイルーフ車はご利用いただけない駐車場があります</li>
+      <li id="note-6">駐車場内での事故・盗難等につきましては責任を負いかねます</li>
+      <li id="note-7">ご不明な点はチェックイン時にお気軽にお申し付けください</li>
+    </ul>
+  </div>
+
+  <div class="back-section">
+    <a href="index.html" class="btn-back-home" id="p-back-btn">← MY HOUSE たいみんぐ トップへ</a>
+  </div>
+
+</main>
+
+<footer>
+  <div class="footer-logo" style="display:flex;align-items:center;gap:0.8rem;">
+    <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:36px;width:auto;">
+    <span style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:300;color:white;line-height:1.3;">
+      MY HOUSE たいみんぐ
+      <small style="display:block;font-style:italic;color:rgba(255,255,255,0.5);font-size:0.9rem;text-transform:none;">Kuwana</small>
+      <small style="display:block;font-size:0.55rem;color:rgba(255,255,255,0.3);font-family:'DM Mono',monospace;letter-spacing:0.15em;">三重県桑名市桑名 476-52</small>
+    </span>
+  </div>
+  <div class="footer-info">
+    桑名駅徒歩3分 | 最大12名 | バリアフリー<br>
+    © 2024 MY HOUSE たいみんぐ
+  </div>
+</footer>
+
+<script>
+var parkingTranslations = {
+  ja: {
+    "p-eyebrow": "Parking Information",
+    "p-title": "駐車場<em>案内</em>",
+    "p-subtitle": "お車でお越しのゲストへ。<br>曜日によって利用できる駐車場が異なります。",
+    "p-house": "MY HOUSE たいみんぐ",
+    "p-reserved-label": "Reserved Parking — 日・月曜限定",
+    "p-map-title": "専用駐車場<em>マップ</em>",
+    "p-reserved-label2": "Reserved Parking",
+    "p-reserved-title": "専用<em>駐車場</em>",
+    "p-reserved-name": "MY HOUSE たいみんぐ 専用駐車場",
+    "p-spec-fee": "無料（宿泊者専用）",
+    "p-spec-cars": "2台",
+    "p-spec-time": "チェックイン〜チェックアウト",
+    "p-days-label": "利用可能曜日",
+    "p-reserved-note": "火〜土曜の宿泊には専用駐車場をご用意できません。下記の周辺コインパーキングをご利用ください。",
+    "p-coin-label": "Coin Parking — 火〜土曜宿泊",
+    "p-coin-title": "周辺<em>コインパーキング</em>",
+    "p-coin-intro": "火〜土曜宿泊の場合は下記をご利用ください。施設から徒歩圏内です。各駐車場の「地図」ボタンを押すとGoogleマップが開きます。",
+    "p-notes-title": "🚗 ご利用にあたって",
+    "p-back-btn": "← MY HOUSE たいみんぐ トップへ",
+    "p-header-back": "← トップに戻る"
+  },
+  en: {
+    "p-eyebrow": "Parking Information",
+    "p-title": "Parking <em>Guide</em>",
+    "p-subtitle": "For guests arriving by car.<br>Available parking varies by day of the week.",
+    "p-house": "MY HOUSE Taiminng",
+    "p-reserved-label": "Reserved Parking — Sun & Mon only",
+    "p-map-title": "Reserved Parking <em>Map</em>",
+    "p-reserved-label2": "Reserved Parking",
+    "p-reserved-title": "Reserved <em>Parking</em>",
+    "p-reserved-name": "MY HOUSE Taiminng Reserved Parking",
+    "p-spec-fee": "Free (guests only)",
+    "p-spec-cars": "2 cars",
+    "p-spec-time": "Check-in to Check-out",
+    "p-days-label": "Available Days",
+    "p-reserved-note": "Reserved parking is not available for Tue–Sat stays. Please use the nearby coin parking below.",
+    "p-coin-label": "Coin Parking — Tue to Sat",
+    "p-coin-title": "Nearby <em>Coin Parking</em>",
+    "p-coin-intro": "For Tue–Sat stays, please use the options below. All are within walking distance. Click 'Map' to open in Google Maps.",
+    "p-notes-title": "🚗 Important Notes",
+    "p-back-btn": "← Back to MY HOUSE Taiminng",
+    "p-header-back": "← Back to Top"
+  },
+  zh: {
+    "p-eyebrow": "Parking Information",
+    "p-title": "停车场<em>指南</em>",
+    "p-subtitle": "致驾车前来的宾客。<br>可用停车场因星期不同而有所差异。",
+    "p-house": "MY HOUSE たいみんぐ",
+    "p-reserved-label": "专用停车场 — 仅限周日·周一",
+    "p-map-title": "专用停车场<em>地图</em>",
+    "p-reserved-label2": "专用停车场",
+    "p-reserved-title": "专用<em>停车场</em>",
+    "p-reserved-name": "MY HOUSE たいみんぐ 专用停车场",
+    "p-spec-fee": "免费（仅限住客）",
+    "p-spec-cars": "2辆",
+    "p-spec-time": "入住～退房",
+    "p-days-label": "可用日期",
+    "p-reserved-note": "周二～周六入住无法使用专用停车场。请使用下方周边收费停车场。",
+    "p-coin-label": "收费停车场 — 周二至周六",
+    "p-coin-title": "周边<em>收费停车场</em>",
+    "p-coin-intro": "周二～周六入住请使用以下停车场。均在步行范围内。点击「地图」可在Google地图中打开。",
+    "p-notes-title": "🚗 使用须知",
+    "p-back-btn": "← 返回 MY HOUSE たいみんぐ",
+    "p-header-back": "← 返回首页"
+  },
+  ko: {
+    "p-eyebrow": "Parking Information",
+    "p-title": "주차장 <em>안내</em>",
+    "p-subtitle": "자동차로 오시는 게스트분께.<br>이용 가능한 주차장은 요일에 따라 다릅니다.",
+    "p-house": "MY HOUSE たいみんぐ",
+    "p-reserved-label": "전용 주차장 — 일·월요일 한정",
+    "p-map-title": "전용 주차장 <em>지도</em>",
+    "p-reserved-label2": "전용 주차장",
+    "p-reserved-title": "전용 <em>주차장</em>",
+    "p-reserved-name": "MY HOUSE たいみんぐ 전용 주차장",
+    "p-spec-fee": "무료（숙박자 전용）",
+    "p-spec-cars": "2대",
+    "p-spec-time": "체크인~체크아웃",
+    "p-days-label": "이용 가능 요일",
+    "p-reserved-note": "화~토요일 숙박에는 전용 주차장을 이용하실 수 없습니다. 아래 주변 코인 주차장을 이용해 주세요.",
+    "p-coin-label": "코인 주차장 — 화~토요일",
+    "p-coin-title": "주변 <em>코인 주차장</em>",
+    "p-coin-intro": "화~토요일 숙박의 경우 아래를 이용해 주세요. 시설에서 도보 거리입니다. 각 주차장의 「지도」버튼을 누르면 Google 지도가 열립니다.",
+    "p-notes-title": "🚗 이용 안내",
+    "p-back-btn": "← MY HOUSE たいみんぐ 홈으로",
+    "p-header-back": "← 홈으로 돌아가기"
+  }
+};
+
+// URLのlangパラメータを読み取って自動切替
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var lang = params.get('lang') || 'ja';
+  applyParkingLang(lang);
+  // ボタンのactive状態
+  var btn = document.querySelector('.lang-btn[data-lang="' + lang + '"]');
+  if (btn) btn.classList.add('active');
+})();
+
+function applyParkingLang(lang) {
+  var t = parkingTranslations[lang] || parkingTranslations['ja'];
+  var ids = Object.keys(t);
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    if (el) el.innerHTML = t[ids[i]];
+  }
+}
+
+function switchParkingLang(lang, btn) {
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  applyParkingLang(lang);
+}
+
+// 追加翻訳
+var parkingExtra = {
+  ja: {
+    "p-location-band": "三重県桑名市桑名 476-52 ｜ 桑名駅徒歩3分",
+    "p-map-caption": "📍 専用駐車場：三重県桑名市桑名中央町1丁目70番 ／ 日・月曜宿泊限定・無料・2台",
+    "p-key-fee": "料金", "p-key-cars": "台数", "p-key-time": "時間",
+    "p2-name": "タイムズ桑名駅前第3", "p3-name": "Dパーキング サンファーレ桑名",
+    "p4-name": "TPS桑名駅前パーキング", "p5-name": "クオレ チェントロパルコ",
+    "p2-map-btn": "地図を開く", "p3-map-btn": "地図を開く", "p4-map-btn": "地図を開く",
+    "p5-map-btn": "地図を開く", "p6-map-btn": "地図を開く",
+    "mk-addr1": "住所", "mk-addr2": "住所", "mk-addr3": "住所", "mk-addr4": "住所", "mk-addr5": "住所",
+    "mk-hrs1": "営業", "mk-hrs2": "営業", "mk-hrs3": "営業",
+    "mk-tel1": "電話", "mk-tel2": "電話",
+    "p3-note": "入口と出口が異なります", "p4-note": "軽専用区画あり",
+    "p6-key-basic": "基本料金", "p6-basic": "30分 / 220円",
+    "p6-key-day": "昼間最大", "p6-day": "600円（6:00〜18:00）",
+    "p6-key-night": "夜間最大", "p6-night": "900円（18:00〜6:00）",
+    "note-1": "専用駐車場は日曜・月曜宿泊のゲストのみご利用いただけます（2台まで）",
+    "note-2": "火〜土曜宿泊の場合は周辺コインパーキングをご利用ください",
+    "note-3": "専用駐車場はチェックイン〜チェックアウト時間内のみご利用いただけます",
+    "note-4": "コインパーキングの料金・空き状況は現地でご確認ください",
+    "note-5": "大型車・ハイルーフ車はご利用いただけない駐車場があります",
+    "note-6": "駐車場内での事故・盗難等につきましては責任を負いかねます",
+    "note-7": "ご不明な点はチェックイン時にお気軽にお申し付けください",
+    "p-cap-4": "3F — 契約者専用駐車場（12番・14番）",
+    "p-cap-3": "高さ制限 2.1m",
+    "p-cap-2": "入口（IN / OUT）",
+    "p-cap-1": "外観 — じぶんカフェ隣の立体駐車場",
+    "p-photos-title": "駐車場の<em>写真</em>",
+    "p-photos-label": "Photos"
+  },
+  en: {
+    "p-location-band": "476-52 Kuwana, Kuwana City, Mie | 3 min walk from Kuwana Station",
+    "p-map-caption": "📍 Reserved Parking: 1-70 Kuwana Chuo-machi, Kuwana City / Sun & Mon only · Free · 2 cars",
+    "p-key-fee": "Fee", "p-key-cars": "Cars", "p-key-time": "Hours",
+    "p2-name": "Times Kuwana Ekimae No.3", "p3-name": "D-Parking Sunfaire Kuwana",
+    "p4-name": "TPS Kuwana Ekimae Parking", "p5-name": "Cuore Centro Parco",
+    "p2-map-btn": "Open Map", "p3-map-btn": "Open Map", "p4-map-btn": "Open Map",
+    "p5-map-btn": "Open Map", "p6-map-btn": "Open Map",
+    "mk-addr1": "Address", "mk-addr2": "Address", "mk-addr3": "Address", "mk-addr4": "Address", "mk-addr5": "Address",
+    "mk-hrs1": "Hours", "mk-hrs2": "Hours", "mk-hrs3": "Hours",
+    "mk-tel1": "Phone", "mk-tel2": "Phone",
+    "p3-note": "Entry and exit are separate", "p4-note": "Compact car spaces available",
+    "p6-key-basic": "Base Rate", "p6-basic": "30 min / ¥220",
+    "p6-key-day": "Day Max", "p6-day": "¥600 (6:00–18:00)",
+    "p6-key-night": "Night Max", "p6-night": "¥900 (18:00–6:00)",
+    "note-1": "Reserved parking is for Sun & Mon guests only (max 2 cars)",
+    "note-2": "For Tue–Sat stays, please use the nearby coin parking",
+    "note-3": "Reserved parking is available only during check-in to check-out hours",
+    "note-4": "Please check rates and availability on-site",
+    "note-5": "Some lots may not accommodate large or high-roof vehicles",
+    "note-6": "We are not responsible for accidents or theft in parking areas",
+    "note-7": "If you have any questions, please ask at check-in",
+    "p-cap-4": "3F — Reserved parking (Spots 12 & 14)",
+    "p-cap-3": "Height limit 2.1m",
+    "p-cap-2": "Entrance (IN / OUT)",
+    "p-cap-1": "Exterior — Multi-story lot next to Jibun Cafe",
+    "p-photos-title": "Parking <em>Photos</em>",
+    "p-photos-label": "Photos"
+  },
+  zh: {
+    "p-location-band": "三重县桑名市桑名 476-52 ｜ 距桑名站步行3分钟",
+    "p-map-caption": "📍 专用停车场：三重县桑名市桑名中央町1丁目70番 ／ 仅限周日·周一・免费・2辆",
+    "p-key-fee": "费用", "p-key-cars": "车位", "p-key-time": "时间",
+    "p2-name": "Times桑名站前第3", "p3-name": "D停车场 Sunfaire桑名",
+    "p4-name": "TPS桑名站前停车场", "p5-name": "Cuore Centro Parco",
+    "p2-map-btn": "打开地图", "p3-map-btn": "打开地图", "p4-map-btn": "打开地图",
+    "p5-map-btn": "打开地图", "p6-map-btn": "打开地图",
+    "mk-addr1": "地址", "mk-addr2": "地址", "mk-addr3": "地址", "mk-addr4": "地址", "mk-addr5": "地址",
+    "mk-hrs1": "营业", "mk-hrs2": "营业", "mk-hrs3": "营业",
+    "mk-tel1": "电话", "mk-tel2": "电话",
+    "p3-note": "入口和出口不同", "p4-note": "有轻型车专用区",
+    "p6-key-basic": "基本费用", "p6-basic": "30分 / 220日元",
+    "p6-key-day": "白天最高", "p6-day": "600日元（6:00〜18:00）",
+    "p6-key-night": "夜间最高", "p6-night": "900日元（18:00〜6:00）",
+    "note-1": "专用停车场仅供周日·周一入住的客人使用（最多2辆）",
+    "note-2": "周二至周六入住请使用周边收费停车场",
+    "note-3": "专用停车场仅在入住至退房时间内可用",
+    "note-4": "收费停车场的费用和空位请现场确认",
+    "note-5": "部分停车场不可停放大型车・高顶车",
+    "note-6": "停车场内发生的事故・盗窃等概不负责",
+    "note-7": "如有疑问请在办理入住时随时告知",
+    "p-cap-4": "3楼 — 合约专用停车场（12号・14号）",
+    "p-cap-3": "限高 2.1m",
+    "p-cap-2": "入口（IN / OUT）",
+    "p-cap-1": "外观 — 位于自分咖啡旁的立体停车场",
+    "p-photos-title": "停车场<em>照片</em>",
+    "p-photos-label": "Photos"
+  },
+  ko: {
+    "p-location-band": "미에현 구와나시 구와나 476-52 ｜ 구와나역 도보 3분",
+    "p-map-caption": "📍 전용 주차장：미에현 구와나시 구와나 중앙초 1丁目 70番 ／ 일·월요일 한정・무료・2대",
+    "p-key-fee": "요금", "p-key-cars": "대수", "p-key-time": "시간",
+    "p2-name": "타임즈 구와나역전 3호", "p3-name": "D파킹 선페어 구와나",
+    "p4-name": "TPS 구와나역전 파킹", "p5-name": "Cuore Centro Parco",
+    "p2-map-btn": "지도 열기", "p3-map-btn": "지도 열기", "p4-map-btn": "지도 열기",
+    "p5-map-btn": "지도 열기", "p6-map-btn": "지도 열기",
+    "mk-addr1": "주소", "mk-addr2": "주소", "mk-addr3": "주소", "mk-addr4": "주소", "mk-addr5": "주소",
+    "mk-hrs1": "영업", "mk-hrs2": "영업", "mk-hrs3": "영업",
+    "mk-tel1": "전화", "mk-tel2": "전화",
+    "p3-note": "입구와 출구가 다릅니다", "p4-note": "경차 전용 구역 있음",
+    "p6-key-basic": "기본 요금", "p6-basic": "30분 / 220엔",
+    "p6-key-day": "주간 최대", "p6-day": "600엔（6:00〜18:00）",
+    "p6-key-night": "야간 최대", "p6-night": "900엔（18:00〜6:00）",
+    "note-1": "전용 주차장은 일·월요일 숙박 게스트만 이용 가능합니다（최대 2대）",
+    "note-2": "화~토요일 숙박의 경우 주변 코인 주차장을 이용해 주세요",
+    "note-3": "전용 주차장은 체크인~체크아웃 시간 내에만 이용 가능합니다",
+    "note-4": "코인 주차장의 요금・공석 상황은 현장에서 확인해 주세요",
+    "note-5": "대형차・하이루프 차량은 이용 불가한 주차장이 있습니다",
+    "note-6": "주차장 내 사고・도난 등에 대해서는 책임지지 않습니다",
+    "note-7": "궁금한 점은 체크인 시 편하게 말씀해 주세요",
+    "p-cap-4": "3F — 계약자 전용 주차장（12번・14번）",
+    "p-cap-3": "높이 제한 2.1m",
+    "p-cap-2": "입구（IN / OUT）",
+    "p-cap-1": "외관 — 지분 카페 옆 입체 주차장",
+    "p-photos-title": "주차장 <em>사진</em>",
+    "p-photos-label": "Photos"
+  }
+};
+
+// applyParkingLangを拡張してextraも適用
+var _origApply = applyParkingLang;
+applyParkingLang = function(lang) {
+  _origApply(lang);
+  var t2 = parkingExtra[lang] || parkingExtra['ja'];
+  var ids = Object.keys(t2);
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    if (el) el.innerHTML = t2[ids[i]];
+  }
+};
+
+</script>
+</body>
+</html>

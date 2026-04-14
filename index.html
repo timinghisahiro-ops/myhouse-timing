@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MY HOUSE たいみんぐ | 桑名駅徒歩3分・一棟貸し民泊</title>
+  <meta name="description" content="三重県桑名市の一棟貸し民泊。桑名駅徒歩3分、最大12名、バリアフリー。名古屋・ナガシマ・伊勢神宮へのアクセス抜群。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+  <style>
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #f0efed; --white: #ffffff; --gray-100: #f5f4f2; --gray-200: #e8e6e2;
+    --gray-400: #c8c5bf; --gray-600: #8a8680; --gray-700: #5a5750; --gray-800: #2e2d2b;
+    --accent: #7a6f5e; --accent-light: #b8a898; --white: #fff;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--gray-800); overflow-x: hidden; }
+
+  /* LANG BTN */
+  .lang-switcher { display: flex; gap: 0.3rem; align-items: center; }
+  .lang-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.3rem 0.6rem; border: 1px solid var(--gray-400); background: transparent; color: var(--gray-600); cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
+  .lang-btn:hover { border-color: var(--gray-800); color: var(--gray-800); }
+  .lang-btn.active { background: var(--gray-800); color: var(--white); border-color: var(--gray-800); }
+
+  /* HEADER */
+  header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 3rem; background: rgba(240,239,237,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
+  .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+  .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; letter-spacing: 0.08em; color: var(--gray-800); line-height: 1.2; white-space: nowrap; }
+  .logo-kuwana { display: block; font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; color: var(--accent); font-style: normal; }
+
+  /* HERO */
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: 1fr auto; padding-top: 80px; }
+  .hero-left { padding: 6rem 3rem 3rem 6rem; display: flex; flex-direction: column; justify-content: center; }
+  .hero-eyebrow { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 2rem; }
+  .hero-title { font-family: 'Cormorant Garamond', serif; font-size: 4.5rem; font-weight: 300; line-height: 1.1; margin-bottom: 2rem; }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-sub { font-size: 0.88rem; line-height: 1.9; color: var(--gray-600); margin-bottom: 3rem; }
+  .hero-cta { display: flex; gap: 1.5rem; align-items: center; }
+  .btn-primary { background: var(--gray-800); color: var(--white); padding: 1rem 2.4rem; text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.15em; transition: background 0.2s; }
+  .btn-primary:hover { background: var(--accent); }
+  .btn-secondary { color: var(--gray-800); text-decoration: underline; font-family: 'DM Mono', monospace; font-size: 0.7rem; letter-spacing: 0.1em; }
+  .hero-right { display: flex; flex-direction: column; }
+  .hero-image-grid { flex: 1; display: flex; flex-direction: column; gap: 3px; }
+  .hero-img-top { flex: 3; overflow: hidden; background: #c9c5be; }
+  .hero-img-top img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .hero-img-bottom { flex: 2; display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .hero-img-cell { position: relative; overflow: hidden; background: #c9c5be; }
+  .hero-img-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .photo-label { position: absolute; bottom: 0.6rem; left: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: white; background: rgba(0,0,0,0.4); padding: 0.15rem 0.5rem; }
+  .hero-stat-band { grid-column: 1 / -1; background: var(--accent); display: flex; opacity: 1; }
+  .stat-item { flex: 1; padding: 1.4rem 1.5rem; border-right: 1px solid rgba(255,255,255,0.15); text-align: center; position: relative; }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 300; color: var(--white); display: block; line-height: 1; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: block; margin-top: 0.5rem; }
+
+  /* FEATURES */
+  .features { background: var(--gray-800); padding: 7rem 6rem; }
+  .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; margin-top: 2rem; }
+  .feature-card { background: rgba(255,255,255,0.04); padding: 3rem 2.5rem; border-top: 1px solid rgba(255,255,255,0.08); }
+  .feature-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(255,255,255,0.15); display: block; line-height: 1; margin-bottom: 1.5rem; }
+  .feature-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 1rem; }
+  .feature-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--white); margin-bottom: 1rem; }
+  .feature-desc { font-size: 0.82rem; line-height: 1.9; color: rgba(255,255,255,0.55); }
+
+  /* ROOM */
+  .room { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg); }
+  .room-content { padding: 7rem 5rem; }
+  .room-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 2.5rem; }
+  .spec-item { padding: 0.8rem 0; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; }
+  .spec-key { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+  .spec-val { font-size: 0.82rem; color: var(--gray-800); }
+  .room-visual { display: grid; grid-template-rows: 1fr 1fr; }
+  .room-visual-top { overflow: hidden; }
+  .room-visual-top img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .room-visual-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 3px; }
+  .room-visual-cell { position: relative; overflow: hidden; }
+  .room-visual-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .room-visual-label { position: absolute; bottom: 0.6rem; left: 0.6rem; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: white; background: rgba(0,0,0,0.4); padding: 0.15rem 0.5rem; }
+
+  /* SECTION COMMON */
+  section { padding: 7rem 6rem; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block; }
+  .section-title { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; line-height: 1.2; margin-bottom: 1.5rem; }
+  .section-title em { font-style: italic; color: var(--accent); }
+
+  /* ACCESS */
+  .access { background: var(--gray-800); }
+  .access .section-label { color: rgba(255,255,255,0.4); }
+  .access .section-title { color: var(--white); }
+  .access .section-title em { color: var(--accent-light); }
+  .access-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; }
+  .access-address { font-size: 0.85rem; color: rgba(255,255,255,0.6); line-height: 1.8; margin-bottom: 2rem; }
+  .transport-list { list-style: none; display: flex; flex-direction: column; gap: 0.8rem; margin-bottom: 3rem; }
+  .transport-item { display: flex; align-items: center; gap: 1.2rem; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+  .transport-icon { width: 36px; height: 36px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0; }
+  .transport-time { color: var(--accent-light); margin-left: 0.3rem; }
+  .parking-banner { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); padding: 2rem; }
+  .parking-banner-label { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent-light); display: block; margin-bottom: 0.5rem; }
+  .parking-banner-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); margin-bottom: 0.6rem; }
+  .parking-banner-desc { font-size: 0.78rem; color: rgba(255,255,255,0.5); line-height: 1.8; margin-bottom: 1.2rem; }
+  .btn-parking { display: inline-flex; align-items: center; gap: 0.5rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--accent-light); text-decoration: none; border: 1px solid rgba(255,255,255,0.2); padding: 0.6rem 1.2rem; transition: all 0.2s; }
+  .btn-parking:hover { border-color: var(--accent-light); color: var(--white); }
+  .gmap-iframe { width: 100%; height: 400px; border: 0; display: block; }
+
+  /* FLOORPLAN */
+  .floorplan-section { background: var(--white); padding: 7rem 6rem; }
+
+  /* GALLERY */
+  .gallery { background: var(--gray-800); padding: 7rem 6rem; }
+  .gallery .section-label { color: rgba(255,255,255,0.4); }
+  .gallery .section-title { color: var(--white); }
+  .gallery .section-title em { color: var(--accent-light); }
+  .gallery-masonry { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin-top: 3rem; }
+  .g-item { position: relative; overflow: hidden; background: var(--gray-700); }
+  .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+  .g-item:hover img { transform: scale(1.04); }
+  .g-item-label { position: absolute; bottom: 0.7rem; left: 0.7rem; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.4); padding: 0.2rem 0.6rem; }
+  .g-1 { grid-column: 1/8; grid-row: 1; aspect-ratio: 16/10; }
+  .g-2 { grid-column: 8/13; grid-row: 1; aspect-ratio: 4/3; }
+  .g-3 { grid-column: 1/5; grid-row: 2; aspect-ratio: 4/3; }
+  .g-4 { grid-column: 5/9; grid-row: 2; aspect-ratio: 4/3; }
+  .g-5 { grid-column: 9/13; grid-row: 2; aspect-ratio: 4/3; }
+  .g-6 { grid-column: 1/6; grid-row: 3; aspect-ratio: 4/3; }
+  .g-7 { grid-column: 6/13; grid-row: 3; aspect-ratio: 16/10; }
+  .g-8 { grid-column: 1/5; grid-row: 4; aspect-ratio: 4/3; }
+  .g-9 { grid-column: 5/9; grid-row: 4; aspect-ratio: 4/3; }
+  .g-10 { grid-column: 9/13; grid-row: 4; aspect-ratio: 4/3; }
+
+  /* AMENITIES */
+  .amenities { background: var(--white); }
+  .amenity-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 4rem; }
+  .amenity-cat { background: var(--gray-100); padding: 2.2rem 2rem; }
+  .amenity-cat-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--gray-200); }
+  .amenity-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
+  .amenity-list li { font-size: 0.82rem; color: var(--gray-600); line-height: 1.6; display: flex; align-items: flex-start; gap: 0.6rem; }
+  .amenity-icon { font-size: 0.9rem; flex-shrink: 0; }
+
+  /* RULES */
+  .rules { background: var(--bg); }
+  .rules-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 4rem; }
+  .rule-card { background: var(--gray-100); padding: 2rem 1.8rem; text-align: center; }
+  .rule-icon { font-size: 2rem; display: block; margin-bottom: 1rem; }
+  .rule-title { font-size: 0.85rem; font-weight: 400; color: var(--gray-800); margin-bottom: 0.5rem; }
+  .rule-detail { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; color: var(--gray-600); }
+  .rule-wide { background: var(--white); padding: 2rem 2.5rem; margin: 2px 0; display: grid; grid-template-columns: 200px 1fr; gap: 2rem; align-items: start; }
+  .rule-wide-header { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 0.5rem; }
+  .rule-wide-body { display: flex; flex-direction: column; gap: 0.8rem; border-left: 2px solid var(--gray-200); padding-left: 2rem; }
+  .rule-item { display: flex; align-items: flex-start; gap: 0.8rem; font-size: 0.83rem; line-height: 1.8; color: var(--gray-600); }
+  .rule-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; margin-top: 0.6rem; }
+
+  /* BOOKING */
+  .booking { background: var(--gray-800); padding: 7rem 6rem; text-align: center; }
+  .booking-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; color: var(--white); margin-bottom: 1rem; }
+  .booking-sub { font-size: 0.85rem; color: rgba(255,255,255,0.5); margin-bottom: 3rem; }
+  .booking-btns { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+  .btn-book-airbnb { display: inline-flex; align-items: center; gap: 0.8rem; background: var(--white); padding: 1rem 2.2rem; text-decoration: none; }
+  .btn-book-booking { display: inline-flex; align-items: center; gap: 0.8rem; background: #003580; padding: 1rem 2.2rem; text-decoration: none; }
+
+  /* FOOTER */
+  footer { background: var(--gray-800); padding: 2.5rem 6rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); }
+  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); letter-spacing: 0.1em; line-height: 1.4; }
+  .footer-logo small { display: block; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.3); }
+  .footer-info { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.9; }
+
+  /* REVEAL */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* ── RESPONSIVE 900px ── */
+  @media (max-width: 900px) {
+    header { padding: 0.5rem 0.8rem; flex-wrap: nowrap; gap: 0.5rem; justify-content: space-between; }
+    .logo { flex: 1; min-width: 0; overflow: hidden; }
+    .logo img { height: 34px; }
+    .logo-text { font-size: 0.85rem !important; white-space: nowrap; }
+    .logo-kuwana { font-size: 0.45rem !important; }
+    .lang-switcher { display: flex !important; gap: 0.2rem; flex-shrink: 0; }
+    .lang-btn { padding: 0.18rem 0.35rem !important; font-size: 0.5rem !important; }
+    .hero { grid-template-columns: 1fr; min-height: auto; display: flex; flex-direction: column; }
+    .hero-left { padding: 6rem 2rem 3rem; order: 1; }
+    .hero-right { height: 120vw; order: 2; flex-shrink: 0; display: flex; flex-direction: column; }
+    .hero-stat-band { order: 3; position: static !important; opacity: 1 !important; animation: none !important; }
+    section { padding: 5rem 2rem; }
+    .features-grid { grid-template-columns: 1fr; gap: 2px; }
+    .room { grid-template-columns: 1fr; }
+    .room-content { padding: 4rem 2rem; }
+    .access-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .rules-grid { grid-template-columns: 1fr 1fr; }
+    .rule-wide { grid-template-columns: 1fr; gap: 1rem; }
+    .rule-wide-body { border-left: none; border-top: 2px solid var(--gray-200); padding-left: 0; padding-top: 1rem; }
+    .amenity-grid { grid-template-columns: 1fr 1fr; }
+    .booking { padding: 5rem 2rem; }
+    .booking-btns { flex-direction: column; align-items: center; }
+    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+    .footer-info { text-align: center; }
+    .gallery { padding: 5rem 1.5rem; }
+    .gallery-masonry { grid-template-columns: 1fr 1fr; gap: 3px; }
+    .g-1 { grid-column: 1/3; grid-row: auto; aspect-ratio: 16/9; }
+    .g-2,.g-3,.g-4,.g-5,.g-6,.g-8,.g-9,.g-10 { grid-column: span 1; grid-row: auto; aspect-ratio: 4/3; }
+    .g-7 { grid-column: 1/3; grid-row: auto; aspect-ratio: 16/9; }
+    .floorplan-section { padding: 5rem 2rem; }
+    .coin-grid { grid-template-columns: 1fr !important; }
+    .room-specs { grid-template-columns: 1fr 1fr; }
+  }
+
+  /* ── RESPONSIVE 600px ── */
+  @media (max-width: 600px) {
+    .amenity-grid { grid-template-columns: 1fr; }
+    .rules-grid { grid-template-columns: 1fr 1fr; }
+    .hero-title { font-size: 2.4rem; }
+    .booking-title { font-size: 2rem; }
+    .stat-num { font-size: 1.2rem; }
+    .stat-label { font-size: 0.48rem; }
+    .rule-wide { padding: 1.5rem 1.2rem; }
+    .gallery-masonry { grid-template-columns: 1fr; }
+    .g-1,.g-7 { grid-column: 1; aspect-ratio: 4/3; }
+    .g-2,.g-3,.g-4,.g-5,.g-6,.g-8,.g-9,.g-10 { grid-column: 1; }
+    .floorplan-section { padding: 4rem 1.5rem !important; }
+    .floorplan-section .reveal { padding: 0; }
+    .floorplan-img-wrap { margin-top: 2rem; overflow: hidden; width: 100%; box-sizing: border-box; }
+    .floorplan-img-wrap img { width: 100%; height: auto; display: block; max-width: 100%; box-sizing: border-box; }
+    .floorplan-img-wrap p { padding: 0.8rem 0; text-align: center; font-size: 0.55rem; }
+    .amenities .section-title { font-size: 1.8rem; }
+  }
+
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <a href="#" class="logo">
+    <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:56px;width:auto;display:block;">
+    <span class="logo-text">MY HOUSE たいみんぐ<small class="logo-kuwana">Kuwana</small></span>
+  </a>
+  <div style="display:flex;align-items:center;gap:0.3rem;" class="lang-switcher">
+    <button class="lang-btn active" onclick="switchLang('ja', this)">JP</button>
+    <button class="lang-btn" onclick="switchLang('en', this)">EN</button>
+    <button class="lang-btn" onclick="switchLang('zh', this)">中</button>
+    <button class="lang-btn" onclick="switchLang('ko', this)">한</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-left">
+    <p class="hero-eyebrow" id="hero-eyebrow">Kuwana, Mie — Est. 2025</p>
+    <h1 class="hero-title" id="hero-title">
+      Stay close.<br>
+      Feel <em>at home.</em>
+    </h1>
+    <p class="hero-sub" id="hero-sub">
+      桑名駅から徒歩3分。<br>
+      最大12名が泊まれる広々とした一棟貸し。<br>
+      バリアフリー設計で、どなたでも安心してお過ごしいただけます。
+    </p>
+    <div class="hero-cta">
+      <a href="#booking" class="btn-primary" id="hero-cta-primary">予約を見る →</a>
+      <a href="#room" class="btn-secondary" id="hero-cta-secondary">施設を見る</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-image-grid">
+      <div class="hero-img-top" style="position:relative;">
+        <img src="images/hero_entrance.jpg" alt="玄関">
+        <span class="photo-label" style="position:absolute;bottom:0.6rem;left:0.6rem;">Entrance</span>
+      </div>
+      <div class="hero-img-bottom">
+        <div class="hero-img-cell">
+          <img src="images/hero_living.jpg" alt="リビング">
+          <span class="photo-label">Living</span>
+        </div>
+        <div class="hero-img-cell">
+          <img src="images/hero_dining.jpg" alt="食器">
+          <span class="photo-label">Dining</span>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+
+  <div class="hero-stat-band">
+      <div class="stat-item">
+        <span class="stat-num">12</span>
+        <span class="stat-label" id="stat-barrier">Max Guests</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">3</span>
+        <span class="stat-label">Min. Kuwana Sta.</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">全館</span>
+        <span class="stat-label">Barrier-Free</span>
+      </div>
+    </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features" id="features">
+  <div class="features-grid">
+    <div class="feature-card reveal">
+      <span class="feature-num">01</span>
+      <span class="feature-tag">Kuwana Station 3min</span>
+      <h3 class="feature-title" id="feat1-title">駅チカ・好立地</h3>
+      <p class="feature-desc" id="feat1-desc">桑名駅から徒歩わずか3分。名古屋・ナガシマスパーランド・伊勢神宮・鈴鹿サーキット・レゴランド・白川郷へのアクセスも抜群。観光の拠点として最適です。</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-num">02</span>
+      <span class="feature-tag">Wheelchair Accessible</span>
+      <h3 class="feature-title" id="feat2-title">バリアフリー設計</h3>
+      <p class="feature-desc" id="feat2-desc">全館フラット設計で段差なし。車椅子の方も安心してご利用いただけます。</p>
+    </div>
+    <div class="feature-card reveal">
+      <span class="feature-num">03</span>
+      <span class="feature-tag">Up to 12 Guests</span>
+      <h3 class="feature-title" id="feat3-title">一棟まるごと貸切</h3>
+      <p class="feature-desc" id="feat3-desc">最大12名まで宿泊可能な一棟貸し。プライベート空間でグループ旅行や家族旅行をお楽しみいただけます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ROOM -->
+<div class="room" id="room">
+  <div class="room-content">
+    <div class="reveal">
+      <p class="section-label" id="room-label">The Space</p>
+      <h2 class="section-title" id="room-title">快適な<em>空間</em></h2>
+      <p style="font-size:0.85rem;line-height:1.9;color:var(--gray-600);max-width:400px;margin-bottom:2rem;" id="room-desc">広々としたリビング・ダイニング・キッチンを完備。ご家族やグループで、まるで自宅のようにくつろいでいただけます。</p>
+    </div>
+    <div class="room-specs reveal">
+      <div class="spec-item"><span class="spec-key">Capacity</span><span class="spec-val" id="spec-capacity">最大 12名</span></div>
+      <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val" id="spec-type">一棟貸切</span></div>
+      <div class="spec-item"><span class="spec-key">Accessibility</span><span class="spec-val" id="spec-access">バリアフリー</span></div>
+      <div class="spec-item"><span class="spec-key">Pets</span><span class="spec-val" id="spec-pets">ペット不可</span></div>
+      <div class="spec-item"><span class="spec-key">Kitchen</span><span class="spec-val" id="spec-kitchen">フルキッチン完備</span></div>
+      <div class="spec-item"><span class="spec-key">WiFi</span><span class="spec-val" id="spec-wifi">無料 Wi-Fi</span></div>
+    </div>
+  </div>
+  <div class="room-visual">
+    <div class="room-visual-top" style="position:relative;">
+      <img src="images/room_bedroom1f.jpg" alt="1Fベッドルーム">
+      <span class="room-visual-label">1F Bedroom</span>
+    </div>
+    <div class="room-visual-bottom">
+      <div class="room-visual-cell">
+        <img src="images/room_bedroom2f.jpg" alt="2Fベッドルーム">
+        <span class="room-visual-label">2F Bedroom</span>
+      </div>
+      <div class="room-visual-cell">
+        <img src="images/room_kitchen.jpg" alt="キッチン">
+        <span class="room-visual-label">Kitchen</span>
+      </div>
+    </div>
+  </div></div>
+
+<!-- ACCESS -->
+<section class="access" id="access">
+  <div class="access-grid">
+    <div class="access-info reveal">
+      <p class="section-label" id="access-label">Location & Access</p>
+      <h2 class="section-title" id="access-title">アクセス</h2>
+      <p class="access-address" id="access-address">三重県桑名市<br>桑名 476-52</p>
+      <ul class="transport-list">
+        <li class="transport-item"><span class="transport-icon">🚶</span><div><span id="trans-station">桑名駅から</span><span class="transport-time" id="time-station"> ── 徒歩 3分</span></div></li>
+        <li class="transport-item"><span class="transport-icon">🚃</span><div><span id="trans-nagoya">名古屋駅から</span><span class="transport-time" id="time-nagoya"> ── 電車 約30分</span></div></li>
+        <li class="transport-item"><span class="transport-icon">🎡</span><div><span id="trans-nagashima">ナガシマスパーランドへ</span><span class="transport-time" id="time-nagashima"> ── 車 約15分</span></div></li>
+        <li class="transport-item"><span class="transport-icon">🏎️</span><div><span id="trans-suzuka">鈴鹿サーキットへ</span><span class="transport-time" id="time-suzuka"> ── 車 約45分</span></div></li>
+        <li class="transport-item"><span class="transport-icon">⛩️</span><div><span id="trans-ise">伊勢神宮へ</span><span class="transport-time" id="time-ise"> ── 車 約75分</span></div></li>
+        <li class="transport-item"><span class="transport-icon">🧱</span><div><span id="trans-lego">レゴランドへ</span><span class="transport-time" id="time-lego"> ── 車 約25分</span></div></li>
+        <li class="transport-item"><span class="transport-icon">🏔️</span><div><span id="trans-shirakawa">白川郷へ</span><span class="transport-time" id="time-shirakawa"> ── 車 約2時間30分</span></div></li>
+      </ul>
+      <div class="parking-banner reveal">
+        <span class="parking-banner-label">Parking Guide</span>
+        <p class="parking-banner-title" id="parking-title">🅿️ 駐車場のご案内</p>
+        <p class="parking-banner-desc" id="parking-desc">近隣に駐車場をご用意しています。<br>詳しい場所・利用方法は駐車場案内ページをご確認ください。</p>
+        <a href="parking.html" target="_blank" class="btn-parking" id="parking-btn" onclick="openParking(event)">駐車場案内を見る →</a>
+      </div>
+    </div>
+    <div class="access-map reveal">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d500!2d136.6855687!3d35.0661023!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60039b54b7487dab%3A0x428efb94dcb0ed06!2sMY%20HOUSE%20%E3%81%9F%E3%81%84%E3%81%BF%E3%82%93%E3%81%90!5e0!3m2!1sja!2sjp!4v1712900000002" width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy" class="gmap-iframe"> width="100%" height="400" style="border:0;display:block;" allowfullscreen="" loading="lazy" class="gmap-iframe"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- FLOORPLAN -->
+<section id="floorplan" class="floorplan-section">
+  <div class="reveal">
+    <p class="section-label" id="floor-label">Floor Plan</p>
+    <h2 class="section-title" id="floor-title">間取り図</h2>
+  </div>
+  <div class="reveal floorplan-img-wrap" style="margin-top:3rem;max-width:960px;margin-left:auto;margin-right:auto;">
+    <img src="images/floorplan.png" alt="MY HOUSE たいみんぐ 間取り図 1F・2F" style="width:100%;height:auto;display:block;border:1px solid var(--gray-200);">
+    <p style="font-family<!-- GALLERY -->
+<section class="gallery" id="gallery">
+  <div class="reveal">
+    <p class="section-label">Gallery</p>
+    <h2 class="section-title">施設<em>ギャラリー</em></h2>
+  </div>
+  <div class="gallery-masonry reveal">
+    <div class="g-item g-1">
+      <img src="images/gallery_lavatory.jpg" alt="洗面所">
+      <span class="g-item-label">Lavatory</span>
+    </div>
+
+    <div class="g-item g-2">
+      <img src="images/gallery_towel.jpg" alt="タオル・歯ブラシ">
+      <span class="g-item-label">Towels</span>
+    </div>
+
+    <div class="g-item g-3">
+      <img src="images/gallery_amenity.jpg" alt="アメニティ">
+      <span class="g-item-label">Amenities</span>
+    </div>
+
+    <div class="g-item g-4">
+      <img src="images/gallery_playroom.jpg" alt="子供部屋">
+      <span class="g-item-label">Kids Room</span>
+    </div>
+
+    <div class="g-item g-5">
+      <img src="images/gallery_babybed.jpg" alt="ベビーベッド">
+      <span class="g-item-label">Baby Bed</span>
+    </div>
+
+    <div class="g-item g-6">
+      <img src="images/gallery_pots.jpg" alt="鍋・フライパン">
+      <span class="g-item-label">Cookware</span>
+    </div>
+
+    <div class="g-item g-7">
+      <img src="images/gallery_tools.jpg" alt="調理器具">
+      <span class="g-item-label">Kitchen Tools</span>
+    </div>
+
+    <div class="g-item g-8">
+      <img src="images/gallery_cutlery.jpg" alt="カトラリー">
+      <span class="g-item-label">Cutlery</span>
+    </div>
+
+    <div class="g-item g-9">
+      <img src="images/gallery_rice_cooker.jpg" alt="炊飯器">
+      <span class="g-item-label">Rice Cooker</span>
+    </div>
+
+    <div class="g-item g-10">
+      <img src="images/gallery_coffee.jpg" alt="コーヒー・ケトル">
+      <span class="g-item-label">Coffee & Kettle</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section class="amenities" id="amenities">
+  <div class="reveal">
+    <p class="section-label" id="amenity-label">Amenities</p>
+    <h2 class="section-title" id="amenity-title">アメニティ<em>一覧</em></h2>
+  </div>
+  <div class="amenity-grid reveal">
+    <div class="amenity-cat">
+      <p class="amenity-cat-label">Bath & Body</p>
+      <ul class="amenity-list">
+        <li><span class="amenity-icon">🛁</span><span id="am-towel">バスタオル・フェイスタオル</span></li>
+        <li><span class="amenity-icon">🪥</span><span id="am-toothbrush">歯ブラシ</span></li>
+        <li><span class="amenity-icon">🧴</span><span id="am-shampoo">シャンプー・コンディショナー</span></li>
+        <li><span class="amenity-icon">🧼</span><span id="am-soap">洗顔・ボディソープ</span></li>
+        <li><span class="amenity-icon">💨</span><span id="am-dryer">ReFa ドライヤー</span></li>
+      </ul>
+    </div>
+    <div class="amenity-cat">
+      <p class="amenity-cat-label">Kitchen</p>
+      <ul class="amenity-list">
+        <li><span class="amenity-icon">🍳</span><span id="am-kitchen">フルキッチン・調理器具一式</span></li>
+        <li><span class="amenity-icon">🍚</span><span id="am-rice">炊飯器（BALMUDA）</span></li>
+        <li><span class="amenity-icon">☕</span><span id="am-kettle">電気ケトル</span></li>
+        <li><span class="amenity-icon">♨️</span><span id="am-microwave">電子レンジ</span></li>
+        <li><span class="amenity-icon">❄️</span><span id="am-fridge">冷蔵庫</span></li>
+        <li><span class="amenity-icon">☕</span><span id="am-coffee">コーヒー（無料）</span></li>
+      </ul>
+    </div>
+    <div class="amenity-cat">
+      <p class="amenity-cat-label">Living</p>
+      <ul class="amenity-list">
+        <li><span class="amenity-icon">📶</span><span id="am-wifi">無料 Wi-Fi</span></li>
+        <li><span class="amenity-icon">📺</span><span id="am-tv">65インチ 大型テレビ</span></li>
+        <li><span class="amenity-icon">💧</span><span id="am-water">ペットボトルの水（無料）</span></li>
+        <li><span class="amenity-icon">🧹</span><span id="am-vacuum">掃除機</span></li>
+        <li><span class="amenity-icon">❄️</span><span id="am-ac">エアコン</span></li>
+        <li><span class="amenity-icon">🌬️</span><span id="am-airpurifier">空気清浄機</span></li>
+      </ul>
+    </div>
+    <div class="amenity-cat">
+      <p class="amenity-cat-label">Laundry & Family</p>
+      <ul class="amenity-list">
+        <li><span class="amenity-icon">👕</span><span id="am-washer">乾燥機能付き洗濯機</span></li>
+        <li><span class="amenity-icon">🧸</span><span id="am-playroom">子供用プレイルーム</span></li>
+        <li><span class="amenity-icon">🍼</span><span id="am-babybed">ベビーベッド</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- RULES -->
+<section class="rules" id="rules">
+  <div class="reveal">
+    <p class="section-label" id="rules-label">House Rules</p>
+    <h2 class="section-title" id="rules-title">ハウス<em>ルール</em></h2>
+  </div>
+  <div class="rules-grid reveal" style="margin-bottom:2px;">
+    <div class="rule-card"><span class="rule-icon">🕐</span><p class="rule-title" id="rule-checkin">チェックイン</p><p class="rule-detail" id="rule-checkin-time">16:00〜</p></div>
+    <div class="rule-card"><span class="rule-icon">🕙</span><p class="rule-title" id="rule-checkout-label">チェックアウト</p><p class="rule-detail" id="rule-checkout-time">〜10:00</p></div>
+    <div class="rule-card"><span class="rule-icon">🚭</span><p class="rule-title" id="rule-nosmoking">禁煙</p><p class="rule-detail" id="rule-nosmoking-detail">館内全面禁煙</p></div>
+    <div class="rule-card"><span class="rule-icon">🐾</span><p class="rule-title" id="rule-pets-label">ペット</p><p class="rule-detail" id="rule-pets-detail">ペット不可</p></div>
+  </div>
+  <div class="rule-wide reveal">
+    <div class="rule-wide-header"><span class="rule-icon" style="font-size:1.5rem;">🧹</span><p class="rule-title" style="font-size:1rem;" id="checkout-title">チェックアウト時のお願い</p></div>
+    <div class="rule-wide-body">
+      <div class="rule-item"><span class="rule-dot"></span><p id="checkout-1">お部屋を簡単に片付けてからチェックアウトをお願いします</p></div>
+      <div class="rule-item"><span class="rule-dot"></span><p id="checkout-2">エアコン・電気はすべて消してください（空気清浄機はそのままでOKです）</p></div>
+    </div>
+  </div>
+  <div class="rules-grid reveal" style="margin-top:2px;grid-template-columns:repeat(2,1fr);">
+    <div class="rule-card"><span class="rule-icon">🔒</span><p class="rule-title" id="rule-lock">夜間の施錠</p><p class="rule-detail" id="rule-lock-detail">就寝時は必ず鍵をかけてください</p></div>
+    <div class="rule-card"><span class="rule-icon">🍺</span><p class="rule-title" id="rule-drink">お酒のご利用</p><p class="rule-detail" id="rule-drink-detail">節度ある飲酒をお願いします。過度な飲酒はご遠慮ください</p></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="reveal">
+    <p class="section-label" id="contact-label">Contact</p>
+    <h2 class="section-title" id="contact-title">お問い合わせ</h2>
+    <p style="font-size:0.85rem;color:var(--gray-600);text-align:center;margin-top:0.5rem;" id="contact-sub">ご不明な点がございましたら、お気軽にご連絡ください。</p>
+  </div>
+  <form class="contact-form reveal" action="https://formspree.io/f/xkoknnwy" method="POST">
+    <input type="hidden" name="_replyto" value="timing.hisahiro@gmail.com">
+    <input type="hidden" name="_subject" value="【MY HOUSE たいみんぐ】お問い合わせ">
+    <div class="form-group">
+      <label for="name" id="form-name-label">お名前</label>
+      <input type="text" id="name" name="name" placeholder="山田 太郎" required>
+    </div>
+    <div class="form-group">
+      <label for="email" id="form-email-label">メールアドレス</label>
+      <input type="email" id="email" name="email" placeholder="example@email.com" required>
+    </div>
+    <div class="form-group">
+      <label for="message" id="form-message-label">お問い合わせ内容</label>
+      <textarea id="message" name="message" placeholder="ご質問・ご要望をご記入ください" required></textarea>
+    </div>
+    <button type="submit" class="btn-submit" id="form-submit">送信する →</button>
+    <p class="form-note" id="form-note">通常2営業日以内にご返信いたします。<br>予約はAirbnb・Booking.comよりお願いします。</p>
+  </form>
+</section>
+
+<!-- BOOKING -->
+<section class="booking" id="booking">
+  <p class="section-label" id="book-label">Reserve Your Stay</p>
+  <h2 class="booking-title" id="book-title">ご予約はこちら</h2>
+  <p class="booking-sub" id="book-sub">Airbnb または Booking.com からご予約いただけます</p>
+  <div class="booking-btns">
+    <a href="https://www.airbnb.jp/h/myhousetiming" target="_blank" class="btn-book-airbnb">
+      <span style="display:block;font-family:'Arial',sans-serif;font-size:1.3rem;font-weight:700;color:#FF385C;letter-spacing:-0.03em;line-height:1;">airbnb</span>
+      <span style="font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;font-weight:400;color:#FF385C;" id="book-airbnb-text">で予約する</span>
+    </a>
+    <a href="https://www.booking.com/hotel/jp/my-housetaimingu-kuwana-sta.ja.html" target="_blank" class="btn-book-booking">
+      <span style="display:block;font-family:'Arial',sans-serif;font-size:1.2rem;font-weight:700;color:white;letter-spacing:-0.02em;line-height:1;">Booking<span style="color:#FFD700;">.</span>com</span>
+      <span style="font-family:'Noto Sans JP',sans-serif;font-size:0.85rem;font-weight:400;color:white;" id="book-booking-text">で予約する</span>
+    </a>
+  </div>
+  <div style="margin-top:2rem;">
+    <a href="#contact" style="display:inline-flex;align-items:center;gap:0.6rem;font-family:'DM Mono',monospace;font-size:0.7rem;letter-spacing:0.15em;color:rgba(255,255,255,0.6);border:1px solid rgba(255,255,255,0.3);padding:0.8rem 2rem;text-decoration:none;transition:all 0.2s;text-transform:uppercase;" onmouseover="this.style.color='white';this.style.borderColor='white'" onmouseout="this.style.color='rgba(255,255,255,0.6)';this.style.borderColor='rgba(255,255,255,0.3)'" id="btn-contact">✉ お問い合わせ</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo" style="display:flex;align-items:center;gap:0.8rem;">
+    <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:36px;width:auto;">
+    <span style="white-space:nowrap;font-size:0.85rem;">MY HOUSE たいみんぐ<small style="display:block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);">Kuwana</small></span>
+  </div>
+  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1rem;">
+    <div style="display:flex;gap:1.2rem;align-items:center;">
+      <a href="https://www.instagram.com/myhouse_kuwana" target="_blank" aria-label="Instagram"><svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig-footer" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig-footer)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg></a>
+      <a href="https://www.tiktok.com/@my.house717" target="_blank" aria-label="TikTok"><svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#010101"/><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z" fill="#ffffff"/></svg></a>
+    </div>
+    <div class="footer-info">
+      三重県桑名市桑名 476-52<br>
+      桑名駅徒歩3分 | 最大12名 | バリアフリー<br>
+      © 2025 MY HOUSE たいみんぐ
+    </div>
+  </div>
+</footer>
+<script>
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => io.observe(r));
+
+</script>
+
+<script>
+var translations = {
+  ja: {
+    "hero-eyebrow": "Kuwana, Mie — Est. 2025",
+    "hero-title": "Stay close.<br>Feel <em>at home.</em>",
+    "hero-sub": "桑名駅から徒歩3分。<br>最大12名が泊まれる広々とした一棟貸し。<br>バリアフリー設計で、どなたでも安心してお過ごしいただけます。",
+    "hero-cta-primary": "予約を見る →",
+    "hero-cta-secondary": "施設を見る",
+    "feat-label": "Why Timing",
+    "feat-title": "選ばれる<em>3つの理由</em>",
+    "feat1-title": "駅チカ・好立地",
+    "feat1-desc": "桑名駅から徒歩わずか3分。名古屋・ナガシマスパーランド・伊勢神宮・鈴鹿サーキットへのアクセスも抜群。観光の拠点として最適です。",
+    "feat2-title": "バリアフリー設計",
+    "feat2-desc": "全館フラット設計で段差なし。車椅子の方も安心してご利用いただけます。",
+    "feat3-title": "一棟まるごと貸切",
+    "feat3-desc": "最大12名まで宿泊可能な一棟貸し。プライベート空間でグループ旅行や家族旅行をお楽しみいただけます。",
+    "room-label": "The Space",
+    "room-title": "快適な<em>空間</em>",
+    "room-desc": "広々としたリビング・ダイニング・キッチンを完備。ご家族やグループで、まるで自宅のようにくつろいでいただけます。",
+    "amenity-label": "Amenities",
+    "amenity-title": "アメニティ<em>一覧</em>",
+    "access-label": "Location & Access",
+    "access-title": "アクセス",
+    "access-address": "三重県桑名市<br>桑名 476-52",
+    "rules-label": "House Rules",
+    "rules-title": "ハウス<em>ルール</em>",
+    "checkout-title": "チェックアウト時のお願い",
+    "checkout-1": "お部屋を簡単に片付けてからチェックアウトをお願いします",
+    "checkout-2": "エアコン・電気はすべて消してください（空気清浄機はそのままでOKです）",
+    "book-label": "Reserve Your Stay",
+    "book-title": "ご予約はこちら",
+    "book-sub": "Airbnb または Booking.com からご予約いただけます",
+    "book-airbnb-text": "で予約する",
+    "book-booking-text": "で予約する",
+    "nav-book": "予約する",
+    "spec-capacity": "最大 12名",
+    "spec-type": "一棟貸切",
+    "spec-access": "バリアフリー",
+    "spec-pets": "ペット不可",
+    "spec-kitchen": "フルキッチン完備",
+    "spec-wifi": "無料 Wi-Fi",
+    "rule-checkin": "チェックイン",
+    "rule-checkout-label": "チェックアウト",
+    "rule-nosmoking": "禁煙",
+    "rule-pets-label": "ペット",
+    "rule-lock": "夜間の施錠",
+    "rule-drink": "お酒のご利用",
+    "rule-checkin-time": "16:00〜",
+    "rule-checkout-time": "〜10:00",
+    "rule-nosmoking-detail": "館内全面禁煙",
+    "rule-pets-detail": "ペット不可",
+    "rule-lock-detail": "就寝時は必ず鍵をかけてください",
+    "rule-drink-detail": "節度ある飲酒をお願いします。過度な飲酒はご遠慮ください",
+    "trans-station": "桑名駅から",
+    "trans-nagoya": "名古屋駅から",
+    "trans-nagashima": "ナガシマスパーランドへ",
+    "trans-suzuka": "鈴鹿サーキットへ",
+    "trans-ise": "伊勢神宮へ",
+    "time-station": " ── 徒歩 3分",
+    "time-nagoya": " ── 電車 約30分",
+    "time-nagashima": " ── 車 約15分",
+    "time-suzuka": " ── 車 約45分",
+    "time-ise": " ── 車 約75分",
+    "parking-title": "🅿️ 駐車場のご案内",
+    "parking-desc": "近隣に駐車場をご用意しています。<br>詳しい場所・利用方法は駐車場案内ページをご確認ください。",
+    "parking-btn": "駐車場案内を見る →",
+    "am-towel": "バスタオル・フェイスタオル",
+    "am-toothbrush": "歯ブラシ",
+    "am-shampoo": "シャンプー・コンディショナー",
+    "am-soap": "洗顔・ボディソープ",
+    "am-dryer": "ReFa ドライヤー",
+    "am-kitchen": "フルキッチン・調理器具一式",
+    "am-rice": "炊飯器（BALMUDA）",
+    "am-kettle": "電気ケトル",
+    "am-microwave": "電子レンジ",
+    "am-fridge": "冷蔵庫",
+    "am-coffee": "コーヒー（無料）",
+    "am-wifi": "無料 Wi-Fi",
+    "am-tv": "65インチ 大型テレビ",
+    "am-water": "ペットボトルの水（無料）",
+    "am-vacuum": "掃除機",
+    "am-ac": "エアコン",
+    "am-airpurifier": "空気清浄機",
+    "am-washer": "乾燥機能付き洗濯機",
+    "am-playroom": "子供用プレイルーム",
+    "am-babybed": "ベビーベッド",
+    "stat-barrier": "Barrier-Free"
+  },
+  en: {
+    "hero-eyebrow": "Kuwana, Mie — Est. 2025",
+    "hero-title": "Stay close.<br>Feel <em>at home.</em>",
+    "hero-sub": "3 min walk from Kuwana Station.<br>Entire house for up to 12 guests.<br>Fully barrier-free for everyone.",
+    "hero-cta-primary": "View Listings →",
+    "hero-cta-secondary": "See the Space",
+    "feat-label": "Why Timing",
+    "feat-title": "<em>3 Reasons</em> Guests Choose Us",
+    "feat1-title": "Perfect Location",
+    "feat1-desc": "Just 3 min from Kuwana Station. Easy access to Nagoya, Nagashima Spa Land, Ise Jingu & Suzuka Circuit.",
+    "feat2-title": "Barrier-Free Design",
+    "feat2-desc": "Fully flat, step-free layout. Wheelchair accessible. Perfect for families and groups.",
+    "feat3-title": "Entire Home Rental",
+    "feat3-desc": "Private entire house for up to 12 guests. Perfect for group trips and family stays.",
+    "room-label": "The Space",
+    "room-title": "Comfortable <em>Space</em>",
+    "room-desc": "Spacious living, dining & full kitchen. Relax just like home with your family or group.",
+    "amenity-label": "Amenities",
+    "amenity-title": "Full <em>Amenities</em>",
+    "access-label": "Location & Access",
+    "access-title": "Access",
+    "access-address": "Kuwana, Mie<br>476-52 Kuwana",
+    "rules-label": "House Rules",
+    "rules-title": "House <em>Rules</em>",
+    "checkout-title": "Checkout Requests",
+    "checkout-1": "Please tidy up the room before checkout.",
+    "checkout-2": "Please turn off all lights and AC. (Air purifier can stay on.)",
+    "book-label": "Reserve Your Stay",
+    "book-title": "Book Your Stay",
+    "book-sub": "Available on Airbnb or Booking.com",
+    "book-airbnb-text": "Book on",
+    "book-booking-text": "Book on",
+    "nav-book": "Book Now",
+    "spec-capacity": "Up to 12 guests",
+    "spec-type": "Entire home",
+    "spec-access": "Barrier-Free",
+    "spec-pets": "No pets",
+    "spec-kitchen": "Full kitchen",
+    "spec-wifi": "Free Wi-Fi",
+    "rule-checkin": "Check-in",
+    "rule-checkout-label": "Check-out",
+    "rule-nosmoking": "No Smoking",
+    "rule-pets-label": "Pets",
+    "rule-lock": "Night Security",
+    "rule-drink": "Alcohol",
+    "rule-checkin-time": "From 16:00",
+    "rule-checkout-time": "By 10:00",
+    "rule-nosmoking-detail": "No smoking indoors",
+    "rule-pets-detail": "No pets allowed",
+    "rule-lock-detail": "Please lock the door before sleeping",
+    "rule-drink-detail": "Please drink responsibly. Excessive drinking is not allowed.",
+    "trans-station": "From Kuwana Station",
+    "trans-nagoya": "From Nagoya Station",
+    "trans-nagashima": "To Nagashima Spa Land",
+    "trans-suzuka": "To Suzuka Circuit",
+    "trans-ise": "To Ise Jingu",
+    "time-station": " ── 3 min walk",
+    "time-nagoya": " ── ~30 min by train",
+    "time-nagashima": " ── ~15 min by car",
+    "time-suzuka": " ── ~45 min by car",
+    "time-ise": " ── ~75 min by car",
+    "parking-title": "🅿️ Parking Guide",
+    "parking-desc": "Parking is available nearby.<br>Please check the parking guide page for details.",
+    "parking-btn": "View Parking Info →",
+    "am-towel": "Bath & face towels",
+    "am-toothbrush": "Toothbrush",
+    "am-shampoo": "Shampoo & conditioner",
+    "am-soap": "Face wash & body soap",
+    "am-dryer": "ReFa hair dryer",
+    "am-kitchen": "Full kitchen & cookware",
+    "am-rice": "Rice cooker (BALMUDA)",
+    "am-kettle": "Electric kettle (BALMUDA)",
+    "am-microwave": "Microwave",
+    "am-fridge": "Refrigerator",
+    "am-coffee": "Coffee (free)",
+    "am-wifi": "Free Wi-Fi",
+    "am-tv": "65-inch large TV",
+    "am-water": "Bottled water (free)",
+    "am-vacuum": "Vacuum cleaner",
+    "am-ac": "Air conditioning",
+    "am-airpurifier": "Air purifier",
+    "am-washer": "Washer/dryer combo",
+    "am-playroom": "Kids play room",
+    "am-babybed": "Baby cot",
+    "stat-barrier": "Barrier-Free"
+  },
+  zh: {
+    "hero-eyebrow": "三重县桑名市 — 2025年开业",
+    "hero-title": "就在附近，<br>感受<em>家的温暖</em>",
+    "hero-sub": "距桑名站步行仅3分钟。<br>可容纳最多12人的整栋出租。<br>全无障碍设计，所有人都能安心入住。",
+    "hero-cta-primary": "查看预订 →",
+    "hero-cta-secondary": "了解设施",
+    "feat-label": "Why Timing",
+    "feat-title": "选择我们的<em>3大理由</em>",
+    "feat1-title": "交通便利",
+    "feat1-desc": "距桑名站步行仅3分钟。名古屋、长岛温泉乐园、伊势神宫、铃鹿赛车场均可轻松到达。",
+    "feat2-title": "无障碍设计",
+    "feat2-desc": "全屋无台阶设计，轮椅可通行。适合家庭出游和团体旅行。",
+    "feat3-title": "整栋包租",
+    "feat3-desc": "最多可入住12人的整栋出租，私人空间，适合团体和家庭旅行。",
+    "room-label": "The Space",
+    "room-title": "舒适的<em>空间</em>",
+    "room-desc": "宽敞的客厅、餐厅和完整厨房。与家人或朋友一起，如在家中般舒适。",
+    "amenity-label": "Amenities",
+    "amenity-title": "设施<em>一览</em>",
+    "access-label": "Location & Access",
+    "access-title": "交通指南",
+    "access-address": "三重县桑名市<br>桑名 476-52",
+    "rules-label": "House Rules",
+    "rules-title": "住宿<em>规则</em>",
+    "checkout-title": "退房须知",
+    "checkout-1": "退房前请简单整理房间。",
+    "checkout-2": "请关闭所有空调和电灯。（空气净化机可保持开启）",
+    "book-label": "Reserve Your Stay",
+    "book-title": "立即预订",
+    "book-sub": "可通过 Airbnb 或 Booking.com 预订",
+    "book-airbnb-text": "在此预订",
+    "book-booking-text": "在此预订",
+    "nav-book": "立即预订",
+    "spec-capacity": "最多12人",
+    "spec-type": "整栋出租",
+    "spec-access": "无障碍",
+    "spec-pets": "不允许宠物",
+    "spec-kitchen": "完整厨房",
+    "spec-wifi": "免费 Wi-Fi",
+    "rule-checkin": "入住",
+    "rule-checkout-label": "退房",
+    "rule-nosmoking": "禁烟",
+    "rule-pets-label": "宠物",
+    "rule-lock": "夜间锁门",
+    "rule-drink": "饮酒规定",
+    "rule-checkin-time": "16:00 以后",
+    "rule-checkout-time": "10:00 以前",
+    "rule-nosmoking-detail": "室内全面禁烟",
+    "rule-pets-detail": "不允许携带宠物",
+    "rule-lock-detail": "就寝时请务必锁门",
+    "rule-drink-detail": "请适度饮酒，禁止过度饮酒。",
+    "trans-station": "从桑名站出发",
+    "trans-nagoya": "从名古屋站出发",
+    "trans-nagashima": "前往长岛温泉乐园",
+    "trans-suzuka": "前往铃鹿赛车场",
+    "trans-ise": "前往伊势神宫",
+    "time-station": " ── 步行3分钟",
+    "time-nagoya": " ── 电车约30分钟",
+    "time-nagashima": " ── 驾车约15分钟",
+    "time-suzuka": " ── 驾车约45分钟",
+    "time-ise": " ── 驾车约75分钟",
+    "parking-title": "🅿️ 停车场指南",
+    "parking-desc": "附近有停车场可供使用。<br>详细位置及使用方法请查看停车场指南页面。",
+    "parking-btn": "查看停车场信息 →",
+    "am-towel": "浴巾・毛巾",
+    "am-toothbrush": "牙刷",
+    "am-shampoo": "洗发水・护发素",
+    "am-soap": "洗面奶・沐浴露",
+    "am-dryer": "ReFa 吹风机",
+    "am-kitchen": "完整厨房・厨具一套",
+    "am-rice": "电饭锅（BALMUDA）",
+    "am-kettle": "电热水壶",
+    "am-microwave": "微波炉",
+    "am-fridge": "冰箱",
+    "am-coffee": "咖啡（免费）",
+    "am-wifi": "免费 Wi-Fi",
+    "am-tv": "65英寸大屏电视",
+    "am-water": "瓶装水（免费）",
+    "am-vacuum": "吸尘器",
+    "am-ac": "空调",
+    "am-airpurifier": "空气净化器",
+    "am-washer": "洗烘一体机",
+    "am-playroom": "儿童游乐室",
+    "am-babybed": "婴儿床",
+    "stat-barrier": "无障碍"
+  },
+  ko: {
+    "hero-eyebrow": "미에현 구와나시 — 2025년 오픈",
+    "hero-title": "가까이에서,<br><em>집처럼</em> 편안하게",
+    "hero-sub": "구와나역에서 도보 3분.<br>최대 12명이 머물 수 있는 단독 주택.<br>배리어프리 설계로 누구나 편안하게 이용하실 수 있습니다.",
+    "hero-cta-primary": "예약 보기 →",
+    "hero-cta-secondary": "시설 보기",
+    "feat-label": "Why Timing",
+    "feat-title": "선택받는 <em>3가지 이유</em>",
+    "feat1-title": "역 근처 · 좋은 입지",
+    "feat1-desc": "구와나역에서 도보 3분. 나고야, 나가시마 스파랜드, 이세진구, 스즈카 서킷 접근도 편리합니다.",
+    "feat2-title": "배리어프리 설계",
+    "feat2-desc": "전관 플랫 설계로 단차 없음. 휠체어도 이용 가능. 가족 여행·그룹 여행에 최적입니다.",
+    "feat3-title": "전체 단독 대여",
+    "feat3-desc": "최대 12명까지 숙박 가능한 단독 주택 대여. 프라이빗 공간에서 그룹·가족 여행을 즐기세요.",
+    "room-label": "The Space",
+    "room-title": "쾌적한 <em>공간</em>",
+    "room-desc": "넓은 거실·다이닝·주방 완비. 가족이나 그룹과 함께 집처럼 편안하게 쉬세요.",
+    "amenity-label": "Amenities",
+    "amenity-title": "어메니티 <em>일람</em>",
+    "access-label": "Location & Access",
+    "access-title": "오시는 길",
+    "access-address": "미에현 구와나시<br>구와나 476-52",
+    "rules-label": "House Rules",
+    "rules-title": "하우스 <em>룰</em>",
+    "checkout-title": "체크아웃 시 부탁드립니다",
+    "checkout-1": "체크아웃 전에 방을 간단히 정리해 주세요.",
+    "checkout-2": "에어컨과 전등은 모두 꺼주세요. (공기청정기는 그대로 두셔도 됩니다.)",
+    "book-label": "Reserve Your Stay",
+    "book-title": "예약하기",
+    "book-sub": "Airbnb 또는 Booking.com에서 예약하실 수 있습니다",
+    "book-airbnb-text": "에서 예약",
+    "book-booking-text": "에서 예약",
+    "nav-book": "예약하기",
+    "spec-capacity": "최대 12명",
+    "spec-type": "단독 주택",
+    "spec-access": "배리어프리",
+    "spec-pets": "반려동물 불가",
+    "spec-kitchen": "풀 키친",
+    "spec-wifi": "무료 Wi-Fi",
+    "rule-checkin": "체크인",
+    "rule-checkout-label": "체크아웃",
+    "rule-nosmoking": "금연",
+    "rule-pets-label": "반려동물",
+    "rule-lock": "야간 잠금",
+    "rule-drink": "음주 규정",
+    "rule-checkin-time": "16:00 이후",
+    "rule-checkout-time": "10:00 이전",
+    "rule-nosmoking-detail": "실내 전면 금연",
+    "rule-pets-detail": "반려동물 불가",
+    "rule-lock-detail": "취침 시 반드시 잠금 해주세요",
+    "rule-drink-detail": "절도 있는 음주를 부탁드립니다. 과도한 음주는 삼가주세요.",
+    "trans-station": "구와나역에서",
+    "trans-nagoya": "나고야역에서",
+    "trans-nagashima": "나가시마 스파랜드까지",
+    "trans-suzuka": "스즈카 서킷까지",
+    "trans-ise": "이세진구까지",
+    "time-station": " ── 도보 3분",
+    "time-nagoya": " ── 전철 약 30분",
+    "time-nagashima": " ── 자동차 약 15분",
+    "time-suzuka": " ── 자동차 약 45분",
+    "time-ise": " ── 자동차 약 75분",
+    "parking-title": "🅿️ 주차장 안내",
+    "parking-desc": "인근에 주차장을 준비해 드리고 있습니다.<br>자세한 위치 및 이용 방법은 주차장 안내 페이지를 확인해 주세요.",
+    "parking-btn": "주차장 안내 보기 →",
+    "am-towel": "바스타월·페이스타월",
+    "am-toothbrush": "칫솔",
+    "am-shampoo": "샴푸·컨디셔너",
+    "am-soap": "세안제·바디소프",
+    "am-dryer": "ReFa 드라이어",
+    "am-kitchen": "풀 키친·조리도구 일식",
+    "am-rice": "밥솥 (BALMUDA)",
+    "am-kettle": "전기 케틀 (BALMUDA)",
+    "am-microwave": "전자레인지",
+    "am-fridge": "냉장고",
+    "am-coffee": "커피 (무료)",
+    "am-wifi": "무료 Wi-Fi",
+    "am-tv": "65인치 대형 TV",
+    "am-water": "생수 (무료)",
+    "am-vacuum": "청소기",
+    "am-ac": "에어컨",
+    "am-airpurifier": "공기청정기",
+    "am-washer": "건조기능 세탁기",
+    "am-playroom": "어린이 놀이방",
+    "am-babybed": "아기 침대",
+    "stat-barrier": "배리어프리"
+  }
+};
+
+var currentLang = 'ja';
+
+function switchLang(lang, btn) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  var t = translations[lang];
+  var ids = Object.keys(t);
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    if (el) el.innerHTML = t[ids[i]];
+  }
+  var navBook = document.querySelector('.nav-book');
+  if (navBook) navBook.textContent = t['nav-book'];
+}
+
+function openParking(e) {
+  e.preventDefault();
+  window.open('parking.html?lang=' + currentLang, '_blank');
+}
+
+</script>
+
+
+<script>
+
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(r => io.observe(r));
+
+</script>
+
+<script>
+var translations = {
+  ja: {
+    "hero-eyebrow": "Kuwana, Mie — Est. 2025",
+    "hero-title": "Stay close.<br>Feel <em>at home.</em>",
+    "hero-sub": "桑名駅から徒歩3分。<br>最大12名が泊まれる広々とした一棟貸し。<br>バリアフリー設計で、どなたでも安心してお過ごしいただけます。",
+    "hero-cta-primary": "予約を見る →",
+    "hero-cta-secondary": "施設を見る",
+    "feat-label": "Why Timing",
+    "feat-title": "選ばれる<em>3つの理由</em>",
+    "feat1-title": "駅チカ・好立地",
+    "feat1-desc": "桑名駅から徒歩わずか3分。名古屋・ナガシマスパーランド・伊勢神宮・鈴鹿サーキットへのアクセスも抜群。観光の拠点として最適です。",
+    "feat2-title": "バリアフリー設計",
+    "feat2-desc": "全館フラット設計で段差なし。車椅子の方も安心してご利用いただけます。",
+    "feat3-title": "一棟まるごと貸切",
+    "feat3-desc": "最大12名まで宿泊可能な一棟貸し。プライベート空間でグループ旅行や家族旅行をお楽しみいただけます。",
+    "room-label": "The Space",
+    "room-title": "快適な<em>空間</em>",
+    "room-desc": "広々としたリビング・ダイニング・キッチンを完備。ご家族やグループで、まるで自宅のようにくつろいでいただけます。",
+    "amenity-label": "Amenities",
+    "amenity-title": "アメニティ<em>一覧</em>",
+    "access-label": "Location & Access",
+    "access-title": "アクセス",
+    "access-address": "三重県桑名市<br>桑名 476-52",
+    "rules-label": "House Rules",
+    "rules-title": "ハウス<em>ルール</em>",
+    "checkout-title": "チェックアウト時のお願い",
+    "checkout-1": "お部屋を簡単に片付けてからチェックアウトをお願いします",
+    "checkout-2": "エアコン・電気はすべて消してください（空気清浄機はそのままでOKです）",
+    "book-label": "Reserve Your Stay",
+    "book-title": "ご予約はこちら",
+    "book-sub": "Airbnb または Booking.com からご予約いただけます",
+    "book-airbnb-text": "で予約する",
+    "book-booking-text": "で予約する",
+    "nav-book": "予約する",
+    "spec-capacity": "最大 12名",
+    "spec-type": "一棟貸切",
+    "spec-access": "バリアフリー",
+    "spec-pets": "ペット不可",
+    "spec-kitchen": "フルキッチン完備",
+    "spec-wifi": "無料 Wi-Fi",
+    "rule-checkin": "チェックイン",
+    "rule-checkout-label": "チェックアウト",
+    "rule-nosmoking": "禁煙",
+    "rule-pets-label": "ペット",
+    "rule-lock": "夜間の施錠",
+    "rule-drink": "お酒のご利用",
+    "rule-checkin-time": "16:00〜",
+    "rule-checkout-time": "〜10:00",
+    "rule-nosmoking-detail": "館内全面禁煙",
+    "rule-pets-detail": "ペット不可",
+    "rule-lock-detail": "就寝時は必ず鍵をかけてください",
+    "rule-drink-detail": "節度ある飲酒をお願いします。過度な飲酒はご遠慮ください",
+    "trans-station": "桑名駅から",
+    "trans-nagoya": "名古屋駅から",
+    "trans-nagashima": "ナガシマスパーランドへ",
+    "trans-suzuka": "鈴鹿サーキットへ",
+    "trans-ise": "伊勢神宮へ",
+    "time-station": " ── 徒歩 3分",
+    "time-nagoya": " ── 電車 約30分",
+    "time-nagashima": " ── 車 約15分",
+    "time-suzuka": " ── 車 約45分",
+    "time-ise": " ── 車 約75分",
+    "parking-title": "🅿️ 駐車場のご案内",
+    "parking-desc": "近隣に駐車場をご用意しています。<br>詳しい場所・利用方法は駐車場案内ページをご確認ください。",
+    "parking-btn": "駐車場案内を見る →",
+    "am-towel": "バスタオル・フェイスタオル",
+    "am-toothbrush": "歯ブラシ",
+    "am-shampoo": "シャンプー・コンディショナー",
+    "am-soap": "洗顔・ボディソープ",
+    "am-dryer": "ReFa ドライヤー",
+    "am-kitchen": "フルキッチン・調理器具一式",
+    "am-rice": "炊飯器（BALMUDA）",
+    "am-kettle": "電気ケトル",
+    "am-microwave": "電子レンジ",
+    "am-fridge": "冷蔵庫",
+    "am-coffee": "コーヒー（無料）",
+    "am-wifi": "無料 Wi-Fi",
+    "am-tv": "65インチ 大型テレビ",
+    "am-water": "ペットボトルの水（無料）",
+    "am-vacuum": "掃除機",
+    "am-ac": "エアコン",
+    "am-airpurifier": "空気清浄機",
+    "am-washer": "乾燥機能付き洗濯機",
+    "am-playroom": "子供用プレイルーム",
+    "am-babybed": "ベビーベッド",
+    "stat-barrier": "Barrier-Free"
+  },
+  en: {
+    "hero-eyebrow": "Kuwana, Mie — Est. 2025",
+    "hero-title": "Stay close.<br>Feel <em>at home.</em>",
+    "hero-sub": "3 min walk from Kuwana Station.<br>Entire house for up to 12 guests.<br>Fully barrier-free for everyone.",
+    "hero-cta-primary": "View Listings →",
+    "hero-cta-secondary": "See the Space",
+    "feat-label": "Why Timing",
+    "feat-title": "<em>3 Reasons</em> Guests Choose Us",
+    "feat1-title": "Perfect Location",
+    "feat1-desc": "Just 3 min from Kuwana Station. Easy access to Nagoya, Nagashima Spa Land, Ise Jingu & Suzuka Circuit.",
+    "feat2-title": "Barrier-Free Design",
+    "feat2-desc": "Fully flat, step-free layout. Wheelchair accessible. Perfect for families and groups.",
+    "feat3-title": "Entire Home Rental",
+    "feat3-desc": "Private entire house for up to 12 guests. Perfect for group trips and family stays.",
+    "room-label": "The Space",
+    "room-title": "Comfortable <em>Space</em>",
+    "room-desc": "Spacious living, dining & full kitchen. Relax just like home with your family or group.",
+    "amenity-label": "Amenities",
+    "amenity-title": "Full <em>Amenities</em>",
+    "access-label": "Location & Access",
+    "access-title": "Access",
+    "access-address": "Kuwana, Mie<br>476-52 Kuwana",
+    "rules-label": "House Rules",
+    "rules-title": "House <em>Rules</em>",
+    "checkout-title": "Checkout Requests",
+    "checkout-1": "Please tidy up the room before checkout.",
+    "checkout-2": "Please turn off all lights and AC. (Air purifier can stay on.)",
+    "book-label": "Reserve Your Stay",
+    "book-title": "Book Your Stay",
+    "book-sub": "Available on Airbnb or Booking.com",
+    "book-airbnb-text": "Book on",
+    "book-booking-text": "Book on",
+    "nav-book": "Book Now",
+    "spec-capacity": "Up to 12 guests",
+    "spec-type": "Entire home",
+    "spec-access": "Barrier-Free",
+    "spec-pets": "No pets",
+    "spec-kitchen": "Full kitchen",
+    "spec-wifi": "Free Wi-Fi",
+    "rule-checkin": "Check-in",
+    "rule-checkout-label": "Check-out",
+    "rule-nosmoking": "No Smoking",
+    "rule-pets-label": "Pets",
+    "rule-lock": "Night Security",
+    "rule-drink": "Alcohol",
+    "rule-checkin-time": "From 16:00",
+    "rule-checkout-time": "By 10:00",
+    "rule-nosmoking-detail": "No smoking indoors",
+    "rule-pets-detail": "No pets allowed",
+    "rule-lock-detail": "Please lock the door before sleeping",
+    "rule-drink-detail": "Please drink responsibly. Excessive drinking is not allowed.",
+    "trans-station": "From Kuwana Station",
+    "trans-nagoya": "From Nagoya Station",
+    "trans-nagashima": "To Nagashima Spa Land",
+    "trans-suzuka": "To Suzuka Circuit",
+    "trans-ise": "To Ise Jingu",
+    "time-station": " ── 3 min walk",
+    "time-nagoya": " ── ~30 min by train",
+    "time-nagashima": " ── ~15 min by car",
+    "time-suzuka": " ── ~45 min by car",
+    "time-ise": " ── ~75 min by car",
+    "parking-title": "🅿️ Parking Guide",
+    "parking-desc": "Parking is available nearby.<br>Please check the parking guide page for details.",
+    "parking-btn": "View Parking Info →",
+    "am-towel": "Bath & face towels",
+    "am-toothbrush": "Toothbrush",
+    "am-shampoo": "Shampoo & conditioner",
+    "am-soap": "Face wash & body soap",
+    "am-dryer": "ReFa hair dryer",
+    "am-kitchen": "Full kitchen & cookware",
+    "am-rice": "Rice cooker (BALMUDA)",
+    "am-kettle": "Electric kettle (BALMUDA)",
+    "am-microwave": "Microwave",
+    "am-fridge": "Refrigerator",
+    "am-coffee": "Coffee (free)",
+    "am-wifi": "Free Wi-Fi",
+    "am-tv": "65-inch large TV",
+    "am-water": "Bottled water (free)",
+    "am-vacuum": "Vacuum cleaner",
+    "am-ac": "Air conditioning",
+    "am-airpurifier": "Air purifier",
+    "am-washer": "Washer/dryer combo",
+    "am-playroom": "Kids play room",
+    "am-babybed": "Baby cot",
+    "stat-barrier": "Barrier-Free"
+  },
+  zh: {
+    "hero-eyebrow": "三重县桑名市 — 2025年开业",
+    "hero-title": "就在附近，<br>感受<em>家的温暖</em>",
+    "hero-sub": "距桑名站步行仅3分钟。<br>可容纳最多12人的整栋出租。<br>全无障碍设计，所有人都能安心入住。",
+    "hero-cta-primary": "查看预订 →",
+    "hero-cta-secondary": "了解设施",
+    "feat-label": "Why Timing",
+    "feat-title": "选择我们的<em>3大理由</em>",
+    "feat1-title": "交通便利",
+    "feat1-desc": "距桑名站步行仅3分钟。名古屋、长岛温泉乐园、伊势神宫、铃鹿赛车场均可轻松到达。",
+    "feat2-title": "无障碍设计",
+    "feat2-desc": "全屋无台阶设计，轮椅可通行。适合家庭出游和团体旅行。",
+    "feat3-title": "整栋包租",
+    "feat3-desc": "最多可入住12人的整栋出租，私人空间，适合团体和家庭旅行。",
+    "room-label": "The Space",
+    "room-title": "舒适的<em>空间</em>",
+    "room-desc": "宽敞的客厅、餐厅和完整厨房。与家人或朋友一起，如在家中般舒适。",
+    "amenity-label": "Amenities",
+    "amenity-title": "设施<em>一览</em>",
+    "access-label": "Location & Access",
+    "access-title": "交通指南",
+    "access-address": "三重县桑名市<br>桑名 476-52",
+    "rules-label": "House Rules",
+    "rules-title": "住宿<em>规则</em>",
+    "checkout-title": "退房须知",
+    "checkout-1": "退房前请简单整理房间。",
+    "checkout-2": "请关闭所有空调和电灯。（空气净化机可保持开启）",
+    "book-label": "Reserve Your Stay",
+    "book-title": "立即预订",
+    "book-sub": "可通过 Airbnb 或 Booking.com 预订",
+    "book-airbnb-text": "在此预订",
+    "book-booking-text": "在此预订",
+    "nav-book": "立即预订",
+    "spec-capacity": "最多12人",
+    "spec-type": "整栋出租",
+    "spec-access": "无障碍",
+    "spec-pets": "不允许宠物",
+    "spec-kitchen": "完整厨房",
+    "spec-wifi": "免费 Wi-Fi",
+    "rule-checkin": "入住",
+    "rule-checkout-label": "退房",
+    "rule-nosmoking": "禁烟",
+    "rule-pets-label": "宠物",
+    "rule-lock": "夜间锁门",
+    "rule-drink": "饮酒规定",
+    "rule-checkin-time": "16:00 以后",
+    "rule-checkout-time": "10:00 以前",
+    "rule-nosmoking-detail": "室内全面禁烟",
+    "rule-pets-detail": "不允许携带宠物",
+    "rule-lock-detail": "就寝时请务必锁门",
+    "rule-drink-detail": "请适度饮酒，禁止过度饮酒。",
+    "trans-station": "从桑名站出发",
+    "trans-nagoya": "从名古屋站出发",
+    "trans-nagashima": "前往长岛温泉乐园",
+    "trans-suzuka": "前往铃鹿赛车场",
+    "trans-ise": "前往伊势神宫",
+    "time-station": " ── 步行3分钟",
+    "time-nagoya": " ── 电车约30分钟",
+    "time-nagashima": " ── 驾车约15分钟",
+    "time-suzuka": " ── 驾车约45分钟",
+    "time-ise": " ── 驾车约75分钟",
+    "parking-title": "🅿️ 停车场指南",
+    "parking-desc": "附近有停车场可供使用。<br>详细位置及使用方法请查看停车场指南页面。",
+    "parking-btn": "查看停车场信息 →",
+    "am-towel": "浴巾・毛巾",
+    "am-toothbrush": "牙刷",
+    "am-shampoo": "洗发水・护发素",
+    "am-soap": "洗面奶・沐浴露",
+    "am-dryer": "ReFa 吹风机",
+    "am-kitchen": "完整厨房・厨具一套",
+    "am-rice": "电饭锅（BALMUDA）",
+    "am-kettle": "电热水壶",
+    "am-microwave": "微波炉",
+    "am-fridge": "冰箱",
+    "am-coffee": "咖啡（免费）",
+    "am-wifi": "免费 Wi-Fi",
+    "am-tv": "65英寸大屏电视",
+    "am-water": "瓶装水（免费）",
+    "am-vacuum": "吸尘器",
+    "am-ac": "空调",
+    "am-airpurifier": "空气净化器",
+    "am-washer": "洗烘一体机",
+    "am-playroom": "儿童游乐室",
+    "am-babybed": "婴儿床",
+    "stat-barrier": "无障碍"
+  },
+  ko: {
+    "hero-eyebrow": "미에현 구와나시 — 2025년 오픈",
+    "hero-title": "가까이에서,<br><em>집처럼</em> 편안하게",
+    "hero-sub": "구와나역에서 도보 3분.<br>최대 12명이 머물 수 있는 단독 주택.<br>배리어프리 설계로 누구나 편안하게 이용하실 수 있습니다.",
+    "hero-cta-primary": "예약 보기 →",
+    "hero-cta-secondary": "시설 보기",
+    "feat-label": "Why Timing",
+    "feat-title": "선택받는 <em>3가지 이유</em>",
+    "feat1-title": "역 근처 · 좋은 입지",
+    "feat1-desc": "구와나역에서 도보 3분. 나고야, 나가시마 스파랜드, 이세진구, 스즈카 서킷 접근도 편리합니다.",
+    "feat2-title": "배리어프리 설계",
+    "feat2-desc": "전관 플랫 설계로 단차 없음. 휠체어도 이용 가능. 가족 여행·그룹 여행에 최적입니다.",
+    "feat3-title": "전체 단독 대여",
+    "feat3-desc": "최대 12명까지 숙박 가능한 단독 주택 대여. 프라이빗 공간에서 그룹·가족 여행을 즐기세요.",
+    "room-label": "The Space",
+    "room-title": "쾌적한 <em>공간</em>",
+    "room-desc": "넓은 거실·다이닝·주방 완비. 가족이나 그룹과 함께 집처럼 편안하게 쉬세요.",
+    "amenity-label": "Amenities",
+    "amenity-title": "어메니티 <em>일람</em>",
+    "access-label": "Location & Access",
+    "access-title": "오시는 길",
+    "access-address": "미에현 구와나시<br>구와나 476-52",
+    "rules-label": "House Rules",
+    "rules-title": "하우스 <em>룰</em>",
+    "checkout-title": "체크아웃 시 부탁드립니다",
+    "checkout-1": "체크아웃 전에 방을 간단히 정리해 주세요.",
+    "checkout-2": "에어컨과 전등은 모두 꺼주세요. (공기청정기는 그대로 두셔도 됩니다.)",
+    "book-label": "Reserve Your Stay",
+    "book-title": "예약하기",
+    "book-sub": "Airbnb 또는 Booking.com에서 예약하실 수 있습니다",
+    "book-airbnb-text": "에서 예약",
+    "book-booking-text": "에서 예약",
+    "nav-book": "예약하기",
+    "spec-capacity": "최대 12명",
+    "spec-type": "단독 주택",
+    "spec-access": "배리어프리",
+    "spec-pets": "반려동물 불가",
+    "spec-kitchen": "풀 키친",
+    "spec-wifi": "무료 Wi-Fi",
+    "rule-checkin": "체크인",
+    "rule-checkout-label": "체크아웃",
+    "rule-nosmoking": "금연",
+    "rule-pets-label": "반려동물",
+    "rule-lock": "야간 잠금",
+    "rule-drink": "음주 규정",
+    "rule-checkin-time": "16:00 이후",
+    "rule-checkout-time": "10:00 이전",
+    "rule-nosmoking-detail": "실내 전면 금연",
+    "rule-pets-detail": "반려동물 불가",
+    "rule-lock-detail": "취침 시 반드시 잠금 해주세요",
+    "rule-drink-detail": "절도 있는 음주를 부탁드립니다. 과도한 음주는 삼가주세요.",
+    "trans-station": "구와나역에서",
+    "trans-nagoya": "나고야역에서",
+    "trans-nagashima": "나가시마 스파랜드까지",
+    "trans-suzuka": "스즈카 서킷까지",
+    "trans-ise": "이세진구까지",
+    "time-station": " ── 도보 3분",
+    "time-nagoya": " ── 전철 약 30분",
+    "time-nagashima": " ── 자동차 약 15분",
+    "time-suzuka": " ── 자동차 약 45분",
+    "time-ise": " ── 자동차 약 75분",
+    "parking-title": "🅿️ 주차장 안내",
+    "parking-desc": "인근에 주차장을 준비해 드리고 있습니다.<br>자세한 위치 및 이용 방법은 주차장 안내 페이지를 확인해 주세요.",
+    "parking-btn": "주차장 안내 보기 →",
+    "am-towel": "바스타월·페이스타월",
+    "am-toothbrush": "칫솔",
+    "am-shampoo": "샴푸·컨디셔너",
+    "am-soap": "세안제·바디소프",
+    "am-dryer": "ReFa 드라이어",
+    "am-kitchen": "풀 키친·조리도구 일식",
+    "am-rice": "밥솥 (BALMUDA)",
+    "am-kettle": "전기 케틀 (BALMUDA)",
+    "am-microwave": "전자레인지",
+    "am-fridge": "냉장고",
+    "am-coffee": "커피 (무료)",
+    "am-wifi": "무료 Wi-Fi",
+    "am-tv": "65인치 대형 TV",
+    "am-water": "생수 (무료)",
+    "am-vacuum": "청소기",
+    "am-ac": "에어컨",
+    "am-airpurifier": "공기청정기",
+    "am-washer": "건조기능 세탁기",
+    "am-playroom": "어린이 놀이방",
+    "am-babybed": "아기 침대",
+    "stat-barrier": "배리어프리"
+  }
+};
+
+var currentLang = 'ja';
+
+function switchLang(lang, btn) {
+  currentLang = lang;
+  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  var t = translations[lang];
+  var ids = Object.keys(t);
+  for (var i = 0; i < ids.length; i++) {
+    var el = document.getElementById(ids[i]);
+    if (el) el.innerHTML = t[ids[i]];
+  }
+  var navBook = document.querySelector('.nav-book');
+  if (navBook) navBook.textContent = t['nav-book'];
+}
+
+function openParking(e) {
+  e.preventDefault();
+  window.open('parking.html?lang=' + currentLang, '_blank');
+}
+
+</script>
+
+</body>
+</html>

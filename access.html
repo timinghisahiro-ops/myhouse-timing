@@ -19,6 +19,12 @@
 
     /* HEADER */
     header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; background: rgba(240,239,237,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
+    .header-top { display: contents; }
+    .header-sub { display: contents; }
+    .header-sub .back-link, .header-sub .lang-switcher { margin-left: 0; }
+    @media (min-width: 901px) {
+      .header-sub { display: flex; align-items: center; gap: 1.5rem; }
+    }
     .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
     .lang-switcher { display: flex; gap: 0.3rem; }
     .lang-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.3rem 0.6rem; border: 1px solid var(--gray-400); background: transparent; color: var(--gray-600); cursor: pointer; transition: all 0.2s; }
@@ -72,15 +78,30 @@
 
     /* RESPONSIVE */
     @media (max-width: 900px) {
-      header { padding: 0.8rem 1rem; }
-      .access-hero { padding: 6rem 2rem 3rem; }
+      header {
+        padding: 0;
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--gray-200);
+      }
+      .header-sub {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5rem 1rem;
+      }
+      .access-hero { padding: 8rem 1.5rem 3rem; }
       .hero-title { font-size: 2.2rem; }
-      .map-section, .route-section, .photos-section { padding: 4rem 1.5rem; }
+      .tab-section { padding: 3rem 1.5rem; }
+      .tab-btn { padding: 0.8rem 1rem; font-size: 0.6rem; }
       .map-info { flex-direction: column; gap: 1rem; }
-      .photos-grid { grid-template-columns: 1fr 1fr; }
-      .route-step { grid-template-columns: 40px 1fr; }
-      .step-num { font-size: 1.2rem; }
-      footer { flex-direction: column; gap: 1.5rem; text-align: center; }
+      footer { flex-direction: column; gap: 1.5rem; text-align: center; padding: 2rem 1.5rem; }
       .footer-info { text-align: center; }
     }
     @media (max-width: 600px) {
@@ -91,14 +112,16 @@
 <body>
 
 <header>
-  <a href="index.html" class="logo">
-    <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:44px;width:auto;display:block;">
-    <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:var(--gray-800);line-height:1.2;white-space:nowrap;">
-      MY HOUSE たいみんぐ
-      <small style="display:block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;color:var(--accent);">Kuwana</small>
-    </span>
-  </a>
-  <div style="display:flex;align-items:center;gap:1.5rem;">
+  <div class="header-top">
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:44px;width:auto;display:block;">
+      <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:300;color:var(--gray-800);line-height:1.2;white-space:nowrap;">
+        MY HOUSE たいみんぐ
+        <small style="display:block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;color:var(--accent);">Kuwana</small>
+      </span>
+    </a>
+  </div>
+  <div class="header-sub">
     <a href="index.html" class="back-link">← トップへ戻る</a>
     <div class="lang-switcher">
       <button class="lang-btn active" onclick="switchLang('ja',this)">JP</button>

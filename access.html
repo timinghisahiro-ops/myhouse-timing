@@ -34,11 +34,19 @@
     .hero-title em { font-style: italic; color: var(--accent-light); }
     .hero-sub { font-size: 0.88rem; color: rgba(255,255,255,0.55); line-height: 1.9; }
 
-    /* MAP */
-    .map-section { padding: 5rem 6rem; background: var(--white); }
+    /* TABS */
+    .tab-section { padding: 5rem 6rem; background: var(--white); }
     .section-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block; }
     .section-title { font-family: 'Cormorant Garamond', serif; font-size: 2.5rem; font-weight: 300; margin-bottom: 2rem; }
     .section-title em { font-style: italic; color: var(--accent); }
+    .tab-nav { display: flex; gap: 0; border-bottom: 2px solid var(--gray-200); margin-bottom: 3rem; }
+    .tab-btn { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.8rem 2rem; border: none; background: transparent; color: var(--gray-600); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -2px; transition: all 0.2s; }
+    .tab-btn:hover { color: var(--gray-800); }
+    .tab-btn.active { color: var(--gray-800); border-bottom-color: var(--gray-800); }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; }
+
+    /* MAP */
     .map-wrap { width: 100%; border-radius: 2px; overflow: hidden; border: 1px solid var(--gray-200); }
     .map-wrap iframe { width: 100%; height: 400px; border: 0; display: block; }
     .map-info { display: flex; gap: 3rem; margin-top: 2rem; }
@@ -47,21 +55,12 @@
     .map-text { font-size: 0.85rem; line-height: 1.6; }
     .map-text strong { display: block; font-size: 0.7rem; font-family: 'DM Mono', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.2rem; }
 
-    /* ROUTE */
-    .route-section { padding: 5rem 6rem; background: var(--bg); }
-    .route-steps { display: flex; flex-direction: column; gap: 3px; margin-top: 3rem; }
-    .route-step { display: grid; grid-template-columns: 60px 1fr; background: var(--white); overflow: hidden; }
-    .step-num { background: var(--gray-800); display: flex; align-items: center; justify-content: center; font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: rgba(255,255,255,0.4); }
-    .step-img { width: 100%; aspect-ratio: 16/9; object-fit: cover; display: block; }
-    .step-content { padding: 0; }
-    .step-img-wrap { overflow: hidden; }
+    /* ROUTE GUIDE */
+    .route-guide { display: flex; flex-direction: column; gap: 1.5rem; }
+    .route-img { width: 100%; max-width: 720px; margin: 0 auto; display: block; border: 1px solid var(--gray-200); }
 
     /* PHOTOS GRID */
-    .photos-section { padding: 5rem 6rem; background: var(--gray-800); }
-    .photos-section .section-label { color: rgba(255,255,255,0.4); }
-    .photos-section .section-title { color: var(--white); }
-    .photos-section .section-title em { color: var(--accent-light); }
-    .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; margin-top: 3rem; }
+    .photos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3px; }
     .photo-item { position: relative; overflow: hidden; aspect-ratio: 4/3; }
     .photo-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
     .photo-item:hover img { transform: scale(1.04); }
@@ -117,70 +116,59 @@
   <p class="hero-sub" id="access-hero-sub">桑名駅東口を出てすぐ。わかりやすい一本道です。</p>
 </section>
 
-<!-- MAP -->
-<section class="map-section">
-  <span class="section-label" id="map-label">Route Map</span>
-  <h2 class="section-title" id="map-title">Googleマップで<em>ルート確認</em></h2>
-  <div class="map-wrap">
-    <iframe
-      src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d400!2d136.685!3d35.0655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x60039a896f3c5555%3A0x1!2z5qGc5ZCN6駅!3m2!1d35.0638!2d136.6845!4m5!1s0x60039b54b7487dab%3A0x428efb94dcb0ed06!2sMY%20HOUSE%20%E3%81%9F%E3%81%84%E3%81%BF%E3%82%93%E3%81%90!3m2!1d35.0661023!2d136.6855687!5e0!3m2!1sja!2sjp!4v1712900000003"
-      allowfullscreen=""
-      loading="lazy">
-    </iframe>
-  </div>
-  <div class="map-info">
-    <div class="map-item">
-      <div class="map-icon">🚶</div>
-      <div class="map-text">
-        <strong id="walk-label">徒歩</strong>
-        <span id="walk-time">約3分（約250m）</span>
-      </div>
-    </div>
-    <div class="map-item">
-      <div class="map-icon">📍</div>
-      <div class="map-text">
-        <strong id="addr-label">住所</strong>
-        <span>三重県桑名市桑名 476-52</span>
-      </div>
-    </div>
-    <div class="map-item">
-      <div class="map-icon">🗺️</div>
-      <div class="map-text">
-        <strong id="gmap-label">Googleマップで開く</strong>
-        <a href="https://maps.app.goo.gl/c5a7J1XYvBGn9uvX7" target="_blank" style="color:var(--accent);font-size:0.82rem;" id="gmap-link">ルートを確認する →</a>
-      </div>
-    </div>
-  </div>
-</section>
+<!-- TAB SECTION -->
+<section class="tab-section">
+  <span class="section-label">Access Guide</span>
+  <h2 class="section-title" id="tab-title">アクセス<em>ガイド</em></h2>
 
-<!-- ROUTE PHOTOS -->
-<section class="photos-section">
-  <span class="section-label" id="route-label">Photo Guide</span>
-  <h2 class="section-title" id="route-title">写真で見る<em>道順</em></h2>
-  <div class="photos-grid">
-    <div class="photo-item">
-      <img src="images/1.jpg" alt="道順 Step 1">
-      <span class="photo-num">STEP 01</span>
+  <div class="tab-nav">
+    <button class="tab-btn active" onclick="switchTab('map', this)" id="tab-btn-map">🗺️ &nbsp;Googleマップ</button>
+    <button class="tab-btn" onclick="switchTab('route', this)" id="tab-btn-route">📸 &nbsp;桑名駅からの道順</button>
+  </div>
+
+  <!-- TAB 1: MAP -->
+  <div class="tab-pane active" id="tab-map">
+    <div class="map-wrap">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d400!2d136.685!3d35.0655!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e2!4m5!1s0x60039a896f3c5555%3A0x1!2z5qGc5ZCN6駅!3m2!1d35.0638!2d136.6845!4m5!1s0x60039b54b7487dab%3A0x428efb94dcb0ed06!2sMY%20HOUSE%20%E3%81%9F%E3%81%84%E3%81%BF%E3%82%93%E3%81%90!3m2!1d35.0661023!2d136.6855687!5e0!3m2!1sja!2sjp!4v1712900000003"
+        allowfullscreen=""
+        loading="lazy">
+      </iframe>
     </div>
-    <div class="photo-item">
-      <img src="images/2.jpg" alt="道順 Step 2">
-      <span class="photo-num">STEP 02</span>
+    <div class="map-info">
+      <div class="map-item">
+        <div class="map-icon">🚶</div>
+        <div class="map-text">
+          <strong id="walk-label">徒歩</strong>
+          <span id="walk-time">約3分（約250m）</span>
+        </div>
+      </div>
+      <div class="map-item">
+        <div class="map-icon">📍</div>
+        <div class="map-text">
+          <strong id="addr-label">住所</strong>
+          <span>三重県桑名市桑名 476-52</span>
+        </div>
+      </div>
+      <div class="map-item">
+        <div class="map-icon">🗺️</div>
+        <div class="map-text">
+          <strong id="gmap-label">Googleマップで開く</strong>
+          <a href="https://maps.app.goo.gl/c5a7J1XYvBGn9uvX7" target="_blank" style="color:var(--accent);font-size:0.82rem;" id="gmap-link">ルートを確認する →</a>
+        </div>
+      </div>
     </div>
-    <div class="photo-item">
-      <img src="images/3.jpg" alt="道順 Step 3">
-      <span class="photo-num">STEP 03</span>
-    </div>
-    <div class="photo-item">
-      <img src="images/4.jpg" alt="道順 Step 4">
-      <span class="photo-num">STEP 04</span>
-    </div>
-    <div class="photo-item">
-      <img src="images/5.jpg" alt="道順 Step 5">
-      <span class="photo-num">STEP 05</span>
-    </div>
-    <div class="photo-item">
-      <img src="images/6.jpg" alt="道順 Step 6">
-      <span class="photo-num">STEP 06</span>
+  </div>
+
+  <!-- TAB 2: PHOTO ROUTE GUIDE -->
+  <div class="tab-pane" id="tab-route">
+    <div class="route-guide">
+      <img src="images/route_01.jpg" alt="道順①近鉄・JR出口" class="route-img">
+      <img src="images/route_02.jpg" alt="道順②直進" class="route-img">
+      <img src="images/route_03.jpg" alt="道順③階段を降りる" class="route-img">
+      <img src="images/route_04.jpg" alt="道順④⑤左折・交番" class="route-img">
+      <img src="images/route_05.jpg" alt="道順⑥⑦信号・直進" class="route-img">
+      <img src="images/route_06.jpg" alt="道順⑧ローソン・到着" class="route-img">
     </div>
   </div>
 </section>
@@ -256,6 +244,13 @@ var translations = {
     "route-title": "사진으로 보는<em>길 안내</em>"
   }
 };
+
+function switchTab(tab, btn) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active');
+}
 
 function switchLang(lang, btn) {
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.remove('active'));

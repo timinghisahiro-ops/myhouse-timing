@@ -495,16 +495,33 @@
     <span class="section-label" id="p-coin-label">Coin Parking — 火〜土曜宿泊</span>
     <h2 class="section-title" id="p-coin-title">周辺<em>コインパーキング</em></h2>
     <p class="coin-intro">
-      火〜土曜宿泊の場合は下記をご利用ください。施設から徒歩3〜4分圏内です。
+      火〜土曜宿泊の場合は下記をご利用ください。施設から徒歩3〜4分圏内です。カードをタップすると地図に反映されます。
     </p>
+
+    <!-- コインパーキング インタラクティブマップ -->
+    <div id="coin-map-wrap" style="margin-bottom:2.5rem;">
+      <div style="background:var(--gray-800);color:var(--white);padding:0.8rem 1.5rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;">
+        <span>🅿</span>
+        <span id="coin-map-name">MY HOUSE たいみんぐ 周辺のコインパーキング</span>
+        <div style="margin-left:auto;display:flex;gap:0.8rem;align-items:center;">
+          <button onclick="resetCoinMap()" style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:0.25rem 0.7rem;cursor:pointer;" id="coin-map-reset-btn">全体表示</button>
+          <a id="coin-map-open-link" href="https://www.google.com/maps/search/コインパーキング/@35.0665,136.6855,16z" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.6rem;letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:1px;">Google マップで開く →</a>
+        </div>
+      </div>
+      <iframe id="coin-map-iframe"
+        src="https://maps.google.com/maps?q=コインパーキング&ll=35.0665,136.6855&z=16&output=embed"
+        width="100%" height="460" style="border:none;display:block;"
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+        title="コインパーキングマップ">
+      </iframe>
+    </div>
 
     <!-- 料金比較カード -->
     <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-bottom:3rem;" class="coin-grid">
 
       <!-- P2 -->
-      <div style="background:var(--white);padding:1.8rem 2rem;position:relative;">
+      <div class="coin-select-card" onclick="selectCoinParking(this,'タイムズ桑名駅前第3','35.0668663','136.6864692','https://www.google.com/maps/search/タイムズ桑名駅前第３/@35.0668663,136.6864692,18z')" style="background:var(--white);padding:1.8rem 2rem;position:relative;cursor:pointer;transition:box-shadow 0.2s,border 0.2s;border:2px solid transparent;">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
-          
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">タイムズ桑名駅前第3</p>
             <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間</p>
@@ -520,13 +537,12 @@
             <span style="font-size:0.85rem;color:var(--gray-800);">800円（昼・夜とも）</span>
           </div>
         </div>
-        <a href="https://www.google.com/maps/search/タイムズ桑名駅前第３/@35.0668663,136.6864692,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);">📍 地図で見る</span>
       </div>
 
       <!-- P3 -->
-      <div style="background:var(--gray-100);padding:1.8rem 2rem;position:relative;">
+      <div class="coin-select-card" onclick="selectCoinParking(this,'Dパーキング サンファーレ桑名','35.0688498','136.68434','https://www.google.com/maps/search/Dパーキング+桑名駅前/@35.0688498,136.68434,18z')" style="background:var(--gray-100);padding:1.8rem 2rem;position:relative;cursor:pointer;transition:box-shadow 0.2s,border 0.2s;border:2px solid transparent;">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
-          
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">Dパーキング サンファーレ桑名</p>
             <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 入出口が異なります</p>
@@ -542,13 +558,12 @@
             <span style="font-size:0.85rem;color:var(--gray-800);">昼夜 各1,000円</span>
           </div>
         </div>
-        <a href="https://www.google.com/maps/search/Dパーキング+桑名駅前/@35.0688498,136.68434,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);">📍 地図で見る</span>
       </div>
 
       <!-- P4 -->
-      <div style="background:var(--gray-100);padding:1.8rem 2rem;position:relative;">
+      <div class="coin-select-card" onclick="selectCoinParking(this,'TPS桑名駅前パーキング','35.0679419','136.6854','https://www.google.com/maps/search/TPS桑名駅前パーキング/@35.0679419,136.6854,18z')" style="background:var(--gray-100);padding:1.8rem 2rem;position:relative;cursor:pointer;transition:box-shadow 0.2s,border 0.2s;border:2px solid transparent;">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
-          
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">TPS桑名駅前パーキング</p>
             <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 軽専用区画あり</p>
@@ -564,13 +579,12 @@
             <span style="font-size:0.85rem;color:var(--gray-800);">昼800円 / 夜900円</span>
           </div>
         </div>
-        <a href="https://www.google.com/maps/search/TPS桑名駅前パーキング/@35.0679419,136.6854,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);">📍 地図で見る</span>
       </div>
 
       <!-- P5 -->
-      <div style="background:var(--white);padding:1.8rem 2rem;position:relative;">
+      <div class="coin-select-card" onclick="selectCoinParking(this,'クオレ チェントロパルコ','35.0647601','136.685663','https://www.google.com/maps/search/クオレチェントロパルコ駐車場/@35.0647601,136.685663,18z')" style="background:var(--white);padding:1.8rem 2rem;position:relative;cursor:pointer;transition:box-shadow 0.2s,border 0.2s;border:2px solid transparent;">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
-          
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">クオレ チェントロパルコ</p>
             <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 高さ制限2.13m</p>
@@ -586,13 +600,12 @@
             <span style="font-size:0.85rem;color:var(--gray-800);">昼800円 / 夜700円</span>
           </div>
         </div>
-        <a href="https://www.google.com/maps/search/クオレチェントロパルコ駐車場/@35.0647601,136.685663,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);">📍 地図で見る</span>
       </div>
 
       <!-- P6 -->
-      <div style="background:var(--gray-100);padding:1.8rem 2rem;grid-column:1/-1;position:relative;">
+      <div class="coin-select-card" onclick="selectCoinParking(this,'三井のリパーク 桑名駅東口第2','35.0677512','136.6848128','https://www.google.com/maps/search/三井のリパーク+桑名駅東口第２+駐車場/@35.0677512,136.6848128,18z')" style="background:var(--gray-100);padding:1.8rem 2rem;grid-column:1/-1;position:relative;cursor:pointer;transition:box-shadow 0.2s,border 0.2s;border:2px solid transparent;">
         <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.2rem;">
-          
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">三井のリパーク 桑名駅東口第2</p>
             <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 繰り返し最大あり</p>
@@ -612,10 +625,11 @@
             <span style="font-size:0.85rem;color:var(--gray-800);">900円（18:00〜6:00）</span>
           </div>
         </div>
-        <a href="https://www.google.com/maps/search/三井のリパーク+桑名駅東口第２+駐車場/@35.0677512,136.6848128,18z" target="_blank" style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);text-decoration:none;border-bottom:1px solid var(--accent-light);padding-bottom:1px;">地図を開く →</a>
+        <span style="display:inline-flex;align-items:center;gap:0.4rem;font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--accent);">📍 地図で見る</span>
       </div>
 
     </div>
+
   </div>
 
   <!-- 注意事項 -->  <!-- 注意事項 -->
@@ -654,6 +668,39 @@
 </footer>
 
 <script>
+function selectCoinParking(card, name, lat, lng, mapsUrl) {
+  document.querySelectorAll('.coin-select-card').forEach(function(c) {
+    c.style.border = '2px solid transparent';
+    c.style.boxShadow = 'none';
+  });
+  card.style.border = '2px solid var(--accent)';
+  card.style.boxShadow = '0 4px 16px rgba(122,111,94,0.15)';
+
+  var iframe = document.getElementById('coin-map-iframe');
+  var label = document.getElementById('coin-map-name');
+  var openLink = document.getElementById('coin-map-open-link');
+
+  iframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(name) + '&ll=' + lat + ',' + lng + '&z=18&output=embed';
+  label.textContent = '📍 ' + name;
+  openLink.href = mapsUrl;
+
+  document.getElementById('coin-map-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function resetCoinMap() {
+  document.querySelectorAll('.coin-select-card').forEach(function(c) {
+    c.style.border = '2px solid transparent';
+    c.style.boxShadow = 'none';
+  });
+  var iframe = document.getElementById('coin-map-iframe');
+  var label = document.getElementById('coin-map-name');
+  var openLink = document.getElementById('coin-map-open-link');
+
+  iframe.src = 'https://maps.google.com/maps?q=コインパーキング&ll=35.0665,136.6855&z=16&output=embed';
+  label.textContent = 'MY HOUSE たいみんぐ 周辺のコインパーキング';
+  openLink.href = 'https://www.google.com/maps/search/コインパーキング/@35.0665,136.6855,16z';
+}
+
 var parkingTranslations = {
   ja: {
     "p-eyebrow": "Parking Information",

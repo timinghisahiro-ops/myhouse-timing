@@ -501,18 +501,18 @@
     <!-- コインパーキング インタラクティブマップ -->
     <div id="coin-map-wrap" style="margin-bottom:2.5rem;">
       <div style="background:var(--gray-800);color:var(--white);padding:0.8rem 1.5rem;font-family:'DM Mono',monospace;font-size:0.65rem;letter-spacing:0.15em;display:flex;align-items:center;gap:0.8rem;flex-wrap:wrap;">
-        <span>🅿</span>
-        <span id="coin-map-name">MY HOUSE たいみんぐ 周辺のコインパーキング</span>
+        <span>🏠</span>
+        <span id="coin-map-name">MY HOUSE たいみんぐ ／ カードを押すと駐車場までのルートを表示</span>
         <div style="margin-left:auto;display:flex;gap:0.8rem;align-items:center;">
-          <button onclick="resetCoinMap()" style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:0.25rem 0.7rem;cursor:pointer;" id="coin-map-reset-btn">全体表示</button>
-          <a id="coin-map-open-link" href="https://www.google.com/maps/search/コインパーキング/@35.0665,136.6855,16z" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.6rem;letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:1px;">Google マップで開く →</a>
+          <button onclick="resetCoinMap()" style="font-family:'DM Mono',monospace;font-size:0.55rem;letter-spacing:0.1em;background:rgba(255,255,255,0.1);color:rgba(255,255,255,0.7);border:1px solid rgba(255,255,255,0.2);padding:0.25rem 0.7rem;cursor:pointer;">施設を表示</button>
+          <a id="coin-map-open-link" href="https://www.google.com/maps/place/三重県桑名市桑名476-52" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.6rem;letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:1px;">Google マップで開く →</a>
         </div>
       </div>
       <iframe id="coin-map-iframe"
-        src="https://maps.google.com/maps?q=コインパーキング&ll=35.0665,136.6855&z=16&output=embed"
+        src="https://maps.google.com/maps?q=三重県桑名市桑名476-52&z=17&output=embed"
         width="100%" height="460" style="border:none;display:block;"
         allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="コインパーキングマップ">
+        title="MY HOUSE たいみんぐ マップ">
       </iframe>
     </div>
 
@@ -668,6 +668,9 @@
 </footer>
 
 <script>
+var TIMING_ADDR = '三重県桑名市桑名476-52';
+var TIMING_MAPS_URL = 'https://www.google.com/maps/place/三重県桑名市桑名476-52';
+
 function selectCoinParking(card, name, lat, lng, mapsUrl) {
   document.querySelectorAll('.coin-select-card').forEach(function(c) {
     c.style.border = '2px solid transparent';
@@ -680,9 +683,10 @@ function selectCoinParking(card, name, lat, lng, mapsUrl) {
   var label = document.getElementById('coin-map-name');
   var openLink = document.getElementById('coin-map-open-link');
 
-  iframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(name) + '&ll=' + lat + ',' + lng + '&z=18&output=embed';
-  label.textContent = '📍 ' + name;
-  openLink.href = mapsUrl;
+  // たいみんぐ → 駐車場のルートを表示（施設は常にピン留め）
+  iframe.src = 'https://maps.google.com/maps?saddr=' + encodeURIComponent(TIMING_ADDR) + '&daddr=' + encodeURIComponent(name + ' 桑名') + '&output=embed';
+  label.textContent = '🏠 MY HOUSE たいみんぐ  →  🅿 ' + name;
+  openLink.href = 'https://www.google.com/maps/dir/' + encodeURIComponent(TIMING_ADDR) + '/' + encodeURIComponent(name);
 
   document.getElementById('coin-map-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -696,9 +700,9 @@ function resetCoinMap() {
   var label = document.getElementById('coin-map-name');
   var openLink = document.getElementById('coin-map-open-link');
 
-  iframe.src = 'https://maps.google.com/maps?q=コインパーキング&ll=35.0665,136.6855&z=16&output=embed';
-  label.textContent = 'MY HOUSE たいみんぐ 周辺のコインパーキング';
-  openLink.href = 'https://www.google.com/maps/search/コインパーキング/@35.0665,136.6855,16z';
+  iframe.src = 'https://maps.google.com/maps?q=' + encodeURIComponent(TIMING_ADDR) + '&z=17&output=embed';
+  label.textContent = 'MY HOUSE たいみんぐ ／ カードを押すと駐車場までのルートを表示';
+  openLink.href = TIMING_MAPS_URL;
 }
 
 var parkingTranslations = {

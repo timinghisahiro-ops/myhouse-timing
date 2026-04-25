@@ -168,6 +168,15 @@
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
+  /* IN-APP BROWSER BANNER */
+  .inapp-banner { display: none; position: fixed; bottom: 0; left: 0; right: 0; z-index: 9999; background: var(--gray-800); color: white; padding: 1rem 1.2rem; text-align: center; box-shadow: 0 -4px 20px rgba(0,0,0,0.3); }
+  .inapp-banner p { font-size: 0.78rem; margin-bottom: 0.8rem; color: rgba(255,255,255,0.8); line-height: 1.6; }
+  .inapp-banner-btns { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+  .inapp-btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.65rem 1.4rem; font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-decoration: none; border-radius: 2px; font-weight: 400; }
+  .inapp-btn-safari { background: #006FFF; color: white; }
+  .inapp-btn-chrome { background: white; color: var(--gray-800); }
+  .inapp-banner-close { position: absolute; top: 0.6rem; right: 0.8rem; background: none; border: none; color: rgba(255,255,255,0.4); font-size: 1.1rem; cursor: pointer; line-height: 1; }
+
   /* CONTACT MODAL */
   .contact-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 2000; align-items: center; justify-content: center; padding: 1rem; }
   .contact-modal-overlay.open { display: flex; }
@@ -259,6 +268,16 @@
   </style>
 </head>
 <body>
+
+<!-- IN-APP BROWSER BANNER -->
+<div class="inapp-banner" id="inappBanner">
+  <button class="inapp-banner-close" onclick="document.getElementById('inappBanner').style.display='none'">×</button>
+  <p>📸 画像が表示されない場合は、外部ブラウザでお開きください</p>
+  <div class="inapp-banner-btns">
+    <a class="inapp-btn inapp-btn-safari" id="safariBtn" href="#">🧭 Safariで開く</a>
+    <a class="inapp-btn inapp-btn-chrome" id="chromeBtn" href="#">🌐 Chromeで開く</a>
+  </div>
+</div>
 
 <!-- HEADER -->
 <header>
@@ -632,6 +651,20 @@
   </div>
 </footer>
 <script>
+
+  // アプリ内ブラウザ検知・バナー表示
+  (function() {
+    var ua = navigator.userAgent;
+    var isIOS = /iPhone|iPad|iPod/.test(ua);
+    var isInApp = isIOS && !/Safari\//.test(ua);
+    if (isInApp) {
+      var banner = document.getElementById('inappBanner');
+      banner.style.display = 'block';
+      var url = encodeURIComponent(location.href);
+      document.getElementById('safariBtn').href = 'x-safari-' + location.href;
+      document.getElementById('chromeBtn').href = location.href.replace('https://', 'googlechromes://').replace('http://', 'googlechrome://');
+    }
+  })();
 
   function openContact() {
     document.getElementById('contactModal').classList.add('open');

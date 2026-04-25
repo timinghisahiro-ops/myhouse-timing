@@ -658,16 +658,34 @@
 
   // アプリ内ブラウザ検知・バナー表示
   (function() {
+    function showBanner() {
+      var banner = document.getElementById('inappBanner');
+      if (banner.style.display === 'block') return;
+      banner.style.display = 'block';
+      var url = location.href;
+      document.getElementById('safariBtn').href = 'x-safari-' + url;
+      document.getElementById('chromeBtn').href = url.replace('https://', 'googlechromes://').replace('http://', 'googlechrome://');
+    }
+
+    // ① UAで判定（iOS・Android 両対応）
     var ua = navigator.userAgent;
     var isIOS = /iPhone|iPad|iPod/.test(ua);
-    var isInApp = isIOS && !/Safari\//.test(ua);
-    if (isInApp) {
-      var banner = document.getElementById('inappBanner');
-      banner.style.display = 'block';
-      var url = encodeURIComponent(location.href);
-      document.getElementById('safariBtn').href = 'x-safari-' + location.href;
-      document.getElementById('chromeBtn').href = location.href.replace('https://', 'googlechromes://').replace('http://', 'googlechrome://');
+    var isAndroid = /Android/.test(ua);
+    var isIOSInApp = isIOS && !/Safari\//.test(ua);
+    var isAndroidInApp = isAndroid && /wv\)/.test(ua);
+    if (isIOSInApp || isAndroidInApp) {
+      showBanner();
     }
+
+    // ② 画像が2枚以上読めなかった場合も表示（UAで見逃した場合の保険）
+    window.addEventListener('load', function() {
+      var imgs = document.querySelectorAll('img[src]');
+      var failed = 0;
+      imgs.forEach(function(img) {
+        if (!img.complete || img.naturalWidth === 0) failed++;
+      });
+      if (failed >= 2) showBanner();
+    });
   })();
 
   function openContact() {

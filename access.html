@@ -16,6 +16,7 @@
     }
     html { scroll-behavior: smooth; }
     body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--gray-800); overflow-x: hidden; }
+    img { max-width: 100%; height: auto; display: block; }
 
     /* HEADER */
     header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; align-items: center; justify-content: space-between; padding: 1rem 3rem; background: rgba(240,239,237,0.98); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
@@ -106,6 +107,10 @@
     }
     @media (max-width: 600px) {
       .photos-grid { grid-template-columns: 1fr; }
+      .map-wrap iframe { height: 280px; }
+      .route-img { width: 100%; height: auto; }
+      .access-hero { padding: 9rem 1.2rem 2.5rem; }
+      .tab-btn { padding: 0.7rem 0.8rem; font-size: 0.58rem; letter-spacing: 0.05em; }
     }
   </style>
 </head>

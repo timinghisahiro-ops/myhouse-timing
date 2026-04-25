@@ -6,6 +6,8 @@
 <title>駐車場案内 | MY HOUSE たいみんぐ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Noto+Sans+JP:wght@300;400&family=DM+Mono:wght@300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <style>
   :root {
     --bg: #f0efed;
@@ -508,12 +510,7 @@
           <a id="coin-map-open-link" href="https://www.google.com/maps/place/三重県桑名市桑名476-52" target="_blank" style="color:rgba(255,255,255,0.8);font-size:0.6rem;letter-spacing:0.1em;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.4);padding-bottom:1px;">Google マップで開く →</a>
         </div>
       </div>
-      <iframe id="coin-map-iframe"
-        src="https://maps.google.com/maps?q=MY+HOUSE+たいみんぐ+桑名&ll=35.064978,136.6850208&z=17&output=embed"
-        width="100%" height="460" style="border:none;display:block;"
-        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
-        title="MY HOUSE たいみんぐ マップ">
-      </iframe>
+      <div id="leaflet-map" style="width:100%;height:460px;"></div>
     </div>
 
     <!-- 料金比較カード -->
@@ -673,8 +670,58 @@
 </footer>
 
 <script>
-var TIMING_ADDR = '三重県桑名市桑名476-52';
-var TIMING_MAPS_URL = 'https://www.google.com/maps/place/三重県桑名市桑名476-52';
+// ===== Leaflet マップ =====
+var coinMap, timingMarker, parkingMarkers = [];
+
+var HOUSE_LAT = 35.064978, HOUSE_LNG = 136.6850208;
+
+var parkingData = [
+  { name: 'タイムズ桑名駅前第3',       lat: 35.0668663, lng: 136.6864692 },
+  { name: 'Dパーキング サンファーレ桑名', lat: 35.0688498, lng: 136.68434  },
+  { name: 'TPS桑名駅前パーキング',      lat: 35.0679419, lng: 136.6854   },
+  { name: 'クオレ チェントロパルコ',     lat: 35.0647601, lng: 136.685663 },
+  { name: '三井のリパーク 桑名駅東口第2', lat: 35.0677512, lng: 136.6848128}
+];
+
+function makePIcon(active) {
+  var bg = active ? '#e05a00' : '#1a73e8';
+  var size = active ? 44 : 36;
+  return L.divIcon({
+    html: '<div style="background:' + bg + ';color:#fff;width:' + size + 'px;height:' + size + 'px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:' + (active?1.1:0.95) + 'rem;box-shadow:0 3px 8px rgba(0,0,0,0.35);border:2px solid #fff;font-family:sans-serif;transition:all .2s;">P</div>',
+    className: '', iconSize: [size, size], iconAnchor: [size/2, size/2]
+  });
+}
+
+function initCoinMap() {
+  coinMap = L.map('leaflet-map', { zoomControl: true, scrollWheelZoom: false });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+  }).addTo(coinMap);
+
+  // MY HOUSE たいみんぐ ピン
+  var houseIcon = L.divIcon({
+    html: '<div style="background:#7a6f5e;color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 3px 10px rgba(0,0,0,0.4);border:3px solid #fff;">🏠</div>',
+    className: '', iconSize: [48, 48], iconAnchor: [24, 24]
+  });
+  timingMarker = L.marker([HOUSE_LAT, HOUSE_LNG], { icon: houseIcon }).addTo(coinMap);
+  timingMarker.bindPopup('<strong>MY HOUSE たいみんぐ</strong><br>三重県桑名市桑名 476-52');
+
+  // コインパーキング Pピン
+  parkingData.forEach(function(p, i) {
+    var m = L.marker([p.lat, p.lng], { icon: makePIcon(false) }).addTo(coinMap);
+    m.bindPopup('<strong>' + p.name + '</strong>');
+    m._parkingIndex = i;
+    parkingMarkers.push(m);
+  });
+
+  coinMap.fitBounds([
+    [HOUSE_LAT, HOUSE_LNG],
+    [35.0688498, 136.68434],
+    [35.0647601, 136.685663]
+  ], { padding: [40, 40] });
+}
+
+window.addEventListener('load', initCoinMap);
 
 function selectCoinParking(card, name, lat, lng, mapsUrl) {
   document.querySelectorAll('.coin-select-card').forEach(function(c) {
@@ -684,14 +731,19 @@ function selectCoinParking(card, name, lat, lng, mapsUrl) {
   card.style.border = '2px solid var(--accent)';
   card.style.boxShadow = '0 4px 16px rgba(122,111,94,0.15)';
 
-  var iframe = document.getElementById('coin-map-iframe');
-  var label = document.getElementById('coin-map-name');
-  var openLink = document.getElementById('coin-map-open-link');
+  document.getElementById('coin-map-name').textContent = '🏠 MY HOUSE たいみんぐ  →  🅿 ' + name;
+  document.getElementById('coin-map-open-link').href = 'https://www.google.com/maps/dir/三重県桑名市桑名476-52/' + encodeURIComponent(name);
 
-  // たいみんぐ → 駐車場のルートを表示（施設は常にピン留め）
-  iframe.src = 'https://maps.google.com/maps?saddr=' + encodeURIComponent(TIMING_ADDR) + '&daddr=' + encodeURIComponent(name + ' 桑名') + '&output=embed';
-  label.textContent = '🏠 MY HOUSE たいみんぐ  →  🅿 ' + name;
-  openLink.href = 'https://www.google.com/maps/dir/' + encodeURIComponent(TIMING_ADDR) + '/' + encodeURIComponent(name);
+  // Pマーカーの色をリセット → 選択中だけオレンジ
+  parkingMarkers.forEach(function(m) { m.setIcon(makePIcon(false)); });
+  var idx = parkingData.findIndex(function(p) { return p.name === name; });
+  if (idx >= 0) {
+    parkingMarkers[idx].setIcon(makePIcon(true));
+    parkingMarkers[idx].openPopup();
+  }
+
+  // たいみんぐ＋選択駐車場が両方見えるようにズーム
+  coinMap.fitBounds([[HOUSE_LAT, HOUSE_LNG], [parseFloat(lat), parseFloat(lng)]], { padding: [60, 60] });
 
   document.getElementById('coin-map-wrap').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
@@ -701,13 +753,14 @@ function resetCoinMap() {
     c.style.border = '2px solid transparent';
     c.style.boxShadow = 'none';
   });
-  var iframe = document.getElementById('coin-map-iframe');
-  var label = document.getElementById('coin-map-name');
-  var openLink = document.getElementById('coin-map-open-link');
-
-  iframe.src = 'https://maps.google.com/maps?q=MY+HOUSE+たいみんぐ+桑名&ll=35.064978,136.6850208&z=17&output=embed';
-  label.textContent = 'MY HOUSE たいみんぐ ／ カードを押すと駐車場までのルートを表示';
-  openLink.href = TIMING_MAPS_URL;
+  parkingMarkers.forEach(function(m) { m.setIcon(makePIcon(false)); });
+  document.getElementById('coin-map-name').textContent = 'MY HOUSE たいみんぐ ／ カードを押すと駐車場を表示';
+  document.getElementById('coin-map-open-link').href = 'https://www.google.com/maps/place/三重県桑名市桑名476-52';
+  coinMap.fitBounds([
+    [HOUSE_LAT, HOUSE_LNG],
+    [35.0688498, 136.68434],
+    [35.0647601, 136.685663]
+  ], { padding: [40, 40] });
 }
 
 var parkingTranslations = {

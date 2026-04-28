@@ -316,9 +316,29 @@
     .stat-num { font-size: 1.2rem; }
     .stat-label { font-size: 0.48rem; }
     .rule-wide { padding: 1.5rem 1.2rem; }
-    .gallery-masonry { grid-template-columns: 1fr; }
-    .g-1,.g-7,.g-11,.g-12,.g-16 { grid-column: 1; aspect-ratio: 4/3; }
-    .g-2,.g-3,.g-4,.g-5,.g-6,.g-8,.g-9,.g-10,.g-13,.g-14,.g-15 { grid-column: 1; }
+    .gallery-masonry {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      gap: 8px;
+      padding-bottom: 1rem;
+      scrollbar-width: none;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+    .gallery-masonry::-webkit-scrollbar { display: none; }
+    .g-item {
+      flex: 0 0 78vw;
+      aspect-ratio: 4/3;
+      scroll-snap-align: start;
+      grid-column: unset !important;
+      grid-row: unset !important;
+    }
+    .g-1,.g-7,.g-11,.g-12,.g-16 { aspect-ratio: 4/3; }
     .floorplan-section { padding: 4rem 1.5rem !important; }
     .floorplan-section .reveal { padding: 0; }
     .floorplan-img-wrap { margin-top: 2rem; overflow: hidden; width: 100%; box-sizing: border-box; }

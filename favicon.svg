@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="#7a6f5e" rx="16"/>
+  <!-- 屋根 -->
+  <polyline points="12,52 50,16 88,52" stroke="white" stroke-width="5" fill="none" stroke-linejoin="round"/>
+  <!-- 壁 -->
+  <rect x="22" y="52" width="56" height="34" stroke="white" stroke-width="5" fill="none"/>
+  <!-- ドア -->
+  <rect x="40" y="62" width="20" height="24" stroke="white" stroke-width="4" fill="none"/>
+</svg>

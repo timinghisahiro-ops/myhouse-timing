@@ -110,11 +110,15 @@
   .stat-label { font-family: 'DM Mono', monospace; font-size: 0.5rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(255,255,255,0.7); display: block; margin-top: 0.5rem; }
 
   /* FEATURES */
-  .features { background: var(--white); padding: 7rem 6rem; }
-  .features-header { margin-bottom: 3rem; }
-  .features-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 2px; }
-  .feature-card { background: var(--gray-100); padding: 3rem 2.5rem; border-top: 2px solid var(--accent-light); transition: transform 0.2s; }
-  .feature-card:hover { transform: translateY(-4px); }
+  .features { background: var(--white); padding: 7rem 0 7rem 6rem; overflow: hidden; }
+  .features-header { margin-bottom: 3rem; padding-right: 6rem; }
+  .features-grid { display: flex; gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding-right: 6rem; padding-bottom: 1.5rem; cursor: grab; }
+  .features-grid:active { cursor: grabbing; }
+  .features-grid::-webkit-scrollbar { height: 4px; }
+  .features-grid::-webkit-scrollbar-track { background: var(--gray-200); }
+  .features-grid::-webkit-scrollbar-thumb { background: var(--accent-light); border-radius: 2px; }
+  .feature-card { background: var(--gray-100); padding: 3rem 2.5rem; border-top: 2px solid var(--accent-light); transition: border-color 0.2s; scroll-snap-align: start; flex: 0 0 320px; min-width: 320px; }
+  .feature-card:hover { border-color: var(--accent); }
   .feature-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(0,0,0,0.07); display: block; line-height: 1; margin-bottom: 1.5rem; }
   .feature-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 1rem; }
   .feature-title { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: var(--gray-800); margin-bottom: 1rem; }
@@ -301,7 +305,10 @@
     .hero-right { height: 85vw; order: 2; flex-shrink: 0; position: relative; }
     .hero-stat-band { order: 3; position: static !important; opacity: 1 !important; animation: none !important; }
     section { padding: 5rem 2rem; }
-    .features-grid { grid-template-columns: 1fr; gap: 2px; }
+    .features { padding: 5rem 0 5rem 2rem; }
+    .features-header { padding-right: 2rem; }
+    .features-grid { padding-right: 2rem; }
+    .feature-card { flex: 0 0 280px; min-width: 280px; }
     /* ROOM */
     .room { grid-template-columns: 1fr; }
     .room-content { padding: 4rem 2rem; }
@@ -570,7 +577,7 @@
 
     <div class="sight-card">
       <div class="sight-img">
-        <img src="https://images.unsplash.com/photo-1741851628743-ea8d4905a773?w=600&q=80&auto=format&fit=crop" alt="ナガシマスパーランド・ジェットコースター" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1465779171454-aa85ccf23be6?w=600&q=80&auto=format&fit=crop" alt="ジェットコースター" loading="lazy">
       </div>
       <div class="sight-inner">
         <div class="sight-icon">🎡</div>
@@ -584,7 +591,7 @@
 
     <div class="sight-card">
       <div class="sight-img">
-        <img src="https://images.unsplash.com/photo-1644413638617-02369c89c156?w=600&q=80&auto=format&fit=crop" alt="長島温泉" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1415226556993-1404e0c6e727?w=600&q=80&auto=format&fit=crop" alt="温泉" loading="lazy">
       </div>
       <div class="sight-inner">
         <div class="sight-icon">♨️</div>
@@ -612,7 +619,7 @@
 
     <div class="sight-card">
       <div class="sight-img">
-        <img src="https://images.unsplash.com/photo-1752322069850-f92b5ce0e961?w=600&q=80&auto=format&fit=crop" alt="レゴランド" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80&auto=format&fit=crop" alt="レゴ" loading="lazy">
       </div>
       <div class="sight-inner">
         <div class="sight-icon">🧱</div>
@@ -626,7 +633,7 @@
 
     <div class="sight-card">
       <div class="sight-img">
-        <img src="https://images.unsplash.com/photo-1752884991193-f40e0018e483?w=600&q=80&auto=format&fit=crop" alt="鈴鹿サーキット F1" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1623258406180-df4c68d0798f?w=600&q=80&auto=format&fit=crop" alt="F1レース" loading="lazy">
       </div>
       <div class="sight-inner">
         <div class="sight-icon">🏎️</div>
@@ -640,7 +647,7 @@
 
     <div class="sight-card">
       <div class="sight-img">
-        <img src="https://images.unsplash.com/photo-1757492211992-f642a127a18c?w=600&q=80&auto=format&fit=crop" alt="伊勢神宮 鳥居" loading="lazy">
+        <img src="https://images.unsplash.com/photo-1492571350019-22de08371fd3?w=600&q=80&auto=format&fit=crop" alt="鳥居" loading="lazy">
       </div>
       <div class="sight-inner">
         <div class="sight-icon">⛩️</div>

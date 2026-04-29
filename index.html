@@ -117,7 +117,7 @@
   .features-grid::-webkit-scrollbar { height: 4px; }
   .features-grid::-webkit-scrollbar-track { background: var(--gray-200); }
   .features-grid::-webkit-scrollbar-thumb { background: var(--accent-light); border-radius: 2px; }
-  .feature-card { background: var(--gray-100); padding: 3rem 2.5rem; border-top: 2px solid var(--accent-light); transition: border-color 0.2s; scroll-snap-align: start; flex: 0 0 320px; min-width: 320px; }
+  .feature-card { background: var(--gray-100); padding: 3rem 2.5rem; border-top: 2px solid var(--accent-light); transition: border-color 0.2s; scroll-snap-align: start; flex: 0 0 min(460px, 75vw); min-width: min(460px, 75vw); }
   .feature-card:hover { border-color: var(--accent); }
   .feature-num { font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(0,0,0,0.07); display: block; line-height: 1; margin-bottom: 1.5rem; }
   .feature-tag { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); display: block; margin-bottom: 1rem; }
@@ -308,7 +308,7 @@
     .features { padding: 5rem 0 5rem 2rem; }
     .features-header { padding-right: 2rem; }
     .features-grid { padding-right: 2rem; }
-    .feature-card { flex: 0 0 280px; min-width: 280px; }
+    .feature-card { flex: 0 0 min(340px, 80vw); min-width: min(340px, 80vw); }
     /* ROOM */
     .room { grid-template-columns: 1fr; }
     .room-content { padding: 4rem 2rem; }
@@ -474,7 +474,7 @@
     <span class="section-label">Features</span>
     <h2 class="section-title">選ばれる<em>3つの理由</em></h2>
   </div>
-  <div class="features-grid">
+  <div class="features-grid" id="featGrid">
     <div class="feature-card reveal">
       <span class="feature-num">01</span>
       <span class="feature-tag">Kuwana Station 3min</span>
@@ -494,6 +494,7 @@
       <p class="feature-desc" id="feat3-desc">最大12名まで宿泊可能な一棟貸し。プライベート空間でグループ旅行や家族旅行をお楽しみいただけます。</p>
     </div>
   </div>
+  <p class="sight-scroll-hint" style="padding-right:6rem;">← スクロールして全て見る →</p>
 </section>
 
 <!-- ROOM -->

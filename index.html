@@ -175,40 +175,36 @@
   .floorplan-section { background: var(--white); padding: 7rem 6rem; }
 
   /* GALLERY */
-  .gallery { background: var(--bg); padding: 7rem 6rem; }
+  .gallery { background: var(--bg); padding: 7rem 0 7rem 6rem; overflow: hidden; }
+  .gallery .reveal { padding-right: 6rem; }
   .gallery .section-label { color: var(--accent); }
   .gallery .section-title { color: var(--gray-800); }
   .gallery .section-title em { color: var(--accent); }
-  .gallery-masonry { display: grid; grid-template-columns: repeat(12, 1fr); gap: 4px; margin-top: 3rem; }
-  .g-item { position: relative; overflow: hidden; background: var(--gray-400); }
+  .gallery-masonry { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; cursor: grab; padding-right: 6rem; padding-bottom: 1.5rem; margin-top: 3rem; }
+  .gallery-masonry:active { cursor: grabbing; }
+  .gallery-masonry::-webkit-scrollbar { height: 4px; }
+  .gallery-masonry::-webkit-scrollbar-track { background: var(--gray-200); }
+  .gallery-masonry::-webkit-scrollbar-thumb { background: var(--accent-light); border-radius: 2px; }
+  .g-item { position: relative; overflow: hidden; background: var(--gray-400); flex: 0 0 480px; min-width: 480px; aspect-ratio: 4/3; scroll-snap-align: start; }
+  .g-1, .g-7, .g-16 { flex: 0 0 680px; min-width: 680px; aspect-ratio: 16/9; }
+  .g-11, .g-12 { flex: 0 0 580px; min-width: 580px; aspect-ratio: 16/9; }
   .g-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
   .g-item:hover img { transform: scale(1.04); }
   .g-item-label { position: absolute; bottom: 0.7rem; left: 0.7rem; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.85); background: rgba(0,0,0,0.4); padding: 0.2rem 0.6rem; }
-  .g-1 { grid-column: 1/8; grid-row: 1; aspect-ratio: 16/10; }
-  .g-2 { grid-column: 8/13; grid-row: 1; aspect-ratio: 4/3; }
-  .g-3 { grid-column: 1/5; grid-row: 2; aspect-ratio: 4/3; }
-  .g-4 { grid-column: 5/9; grid-row: 2; aspect-ratio: 4/3; }
-  .g-5 { grid-column: 9/13; grid-row: 2; aspect-ratio: 4/3; }
-  .g-6 { grid-column: 1/6; grid-row: 3; aspect-ratio: 4/3; }
-  .g-7 { grid-column: 6/13; grid-row: 3; aspect-ratio: 16/10; }
-  .g-8 { grid-column: 1/5; grid-row: 4; aspect-ratio: 4/3; }
-  .g-9 { grid-column: 5/9; grid-row: 4; aspect-ratio: 4/3; }
-  .g-10 { grid-column: 9/13; grid-row: 4; aspect-ratio: 4/3; }
-  .g-11 { grid-column: 1/7; grid-row: 5; aspect-ratio: 16/10; }
-  .g-12 { grid-column: 7/13; grid-row: 5; aspect-ratio: 16/10; }
-  .g-13 { grid-column: 1/5; grid-row: 6; aspect-ratio: 4/3; }
-  .g-14 { grid-column: 5/9; grid-row: 6; aspect-ratio: 4/3; }
-  .g-15 { grid-column: 9/13; grid-row: 6; aspect-ratio: 4/3; }
-  .g-16 { grid-column: 1/13; grid-row: 7; aspect-ratio: 21/9; }
 
   /* AMENITIES */
   .amenities { background: var(--white); }
-  .amenity-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 2px; margin-top: 4rem; }
-  .amenity-cat { background: var(--gray-100); padding: 2.2rem 2rem; }
+  .amenity-scroll-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin-top: 4rem; padding-bottom: 1.2rem; scrollbar-width: thin; scrollbar-color: var(--gray-300) transparent; }
+  .amenity-scroll-wrap::-webkit-scrollbar { height: 4px; }
+  .amenity-scroll-wrap::-webkit-scrollbar-track { background: transparent; }
+  .amenity-scroll-wrap::-webkit-scrollbar-thumb { background: var(--gray-300); border-radius: 2px; }
+  .amenity-grid { display: flex; flex-direction: row; gap: 2px; width: max-content; min-width: 100%; }
+  .amenity-cat { background: var(--gray-100); padding: 2.2rem 2rem; flex: 0 0 260px; }
   .amenity-cat-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.2rem; padding-bottom: 0.8rem; border-bottom: 1px solid var(--gray-200); }
   .amenity-list { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
   .amenity-list li { font-size: 0.82rem; color: var(--gray-600); line-height: 1.6; display: flex; align-items: flex-start; gap: 0.6rem; }
   .amenity-icon { font-size: 0.9rem; flex-shrink: 0; }
+  .amenity-scroll-hint { display: none; text-align: center; font-size: 0.72rem; color: var(--gray-400); margin-top: 0.8rem; letter-spacing: 0.05em; }
 
   /* SIGHTSEEING */
   .sightseeing { background: var(--white); padding: 7rem 0 7rem 6rem; overflow: hidden; }
@@ -329,21 +325,19 @@
     .rules-grid { grid-template-columns: 1fr 1fr; }
     .rule-wide { grid-template-columns: 1fr; gap: 1rem; }
     .rule-wide-body { border-left: none; border-top: 2px solid var(--gray-200); padding-left: 0; padding-top: 1rem; }
-    .amenity-grid { grid-template-columns: 1fr 1fr; }
+    .amenity-cat { flex: 0 0 220px; }
+    .amenity-scroll-hint { display: block; }
     .booking { padding: 5rem 2rem; }
     .booking-btns { flex-direction: column; align-items: center; }
     footer { flex-direction: column; gap: 1.5rem; text-align: center; }
     .footer-info { text-align: center; }
     /* GALLERY */
-    .gallery { padding: 5rem 1.5rem; }
-    .gallery-masonry { grid-template-columns: 1fr 1fr; gap: 3px; }
-    .g-1 { grid-column: 1/3; grid-row: auto; aspect-ratio: 16/9; }
-    .g-2,.g-3,.g-4,.g-5,.g-6,.g-8,.g-9,.g-10 { grid-column: span 1; grid-row: auto; aspect-ratio: 4/3; }
-    .g-7 { grid-column: 1/3; grid-row: auto; aspect-ratio: 16/9; }
-    .g-11,.g-12 { grid-column: 1/3; grid-row: auto; aspect-ratio: 16/9; }
-    .g-13,.g-14,.g-15 { grid-column: span 1; grid-row: auto; aspect-ratio: 4/3; }
-    .g-16 { grid-column: 1/3; grid-row: auto; aspect-ratio: 16/9; }
-    .g-item img { width: 100%; height: 100%; object-fit: cover; }
+    .gallery { padding: 5rem 0 5rem 1.5rem; }
+    .gallery .reveal { padding-right: 1.5rem; }
+    .gallery-masonry { padding-right: 1.5rem; }
+    .g-item { flex: 0 0 72vw; min-width: 72vw; }
+    .g-1, .g-7, .g-16 { flex: 0 0 85vw; min-width: 85vw; }
+    .g-11, .g-12 { flex: 0 0 80vw; min-width: 80vw; }
     /* FLOORPLAN */
     .floorplan-section { padding: 5rem 2rem; }
     .coin-grid { grid-template-columns: 1fr !important; }
@@ -352,36 +346,18 @@
 
   /* ── RESPONSIVE 600px ── */
   @media (max-width: 600px) {
-    .amenity-grid { grid-template-columns: 1fr; }
+    .amenity-cat { flex: 0 0 200px; padding: 1.8rem 1.5rem; }
     .rules-grid { grid-template-columns: 1fr 1fr; }
     .hero-title { font-size: 2.4rem; }
     .booking-title { font-size: 2rem; }
     .stat-num { font-size: 1.2rem; }
     .stat-label { font-size: 0.48rem; }
     .rule-wide { padding: 1.5rem 1.2rem; }
-    .gallery-masonry {
-      display: flex;
-      flex-direction: row;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      -webkit-overflow-scrolling: touch;
-      gap: 8px;
-      padding-bottom: 1rem;
-      scrollbar-width: none;
-      margin-left: -1.5rem;
-      margin-right: -1.5rem;
-      padding-left: 1.5rem;
-      padding-right: 1.5rem;
-    }
-    .gallery-masonry::-webkit-scrollbar { display: none; }
-    .g-item {
-      flex: 0 0 78vw;
-      aspect-ratio: 4/3;
-      scroll-snap-align: start;
-      grid-column: unset !important;
-      grid-row: unset !important;
-    }
-    .g-1,.g-7,.g-11,.g-12,.g-16 { aspect-ratio: 4/3; }
+    .gallery { padding: 4rem 0 4rem 1.5rem; }
+    .gallery-masonry { padding-right: 1.5rem; gap: 6px; }
+    .g-item { flex: 0 0 78vw; min-width: 78vw; aspect-ratio: 4/3; }
+    .g-1, .g-7, .g-16 { flex: 0 0 88vw; min-width: 88vw; aspect-ratio: 4/3; }
+    .g-11, .g-12 { flex: 0 0 84vw; min-width: 84vw; aspect-ratio: 4/3; }
     .floorplan-section { padding: 4rem 1.5rem !important; }
     .floorplan-section .reveal { padding: 0; }
     .floorplan-img-wrap { margin-top: 2rem; overflow: hidden; width: 100%; box-sizing: border-box; }
@@ -516,7 +492,7 @@
       <div class="spec-item"><span class="spec-key">Capacity</span><span class="spec-val" id="spec-capacity">最大 12名</span></div>
       <div class="spec-item"><span class="spec-key">Type</span><span class="spec-val" id="spec-type">一棟貸切</span></div>
       <div class="spec-item"><span class="spec-key">Accessibility</span><span class="spec-val" id="spec-access">バリアフリー</span></div>
-      <div class="spec-item"><span class="spec-key">Pets</span><span class="spec-val" id="spec-pets">ペット不可</span></div>
+      <div class="spec-item"><span class="spec-key">TV / Streaming</span><span class="spec-val" id="spec-tv">大型テレビ・Amazonプライム見放題</span></div>
       <div class="spec-item"><span class="spec-key">Kitchen</span><span class="spec-val" id="spec-kitchen">フルキッチン完備</span></div>
       <div class="spec-item"><span class="spec-key">WiFi</span><span class="spec-val" id="spec-wifi">無料 Wi-Fi</span></div>
     </div>
@@ -704,7 +680,8 @@
     <p class="section-label">Gallery</p>
     <h2 class="section-title">施設<em>ギャラリー</em></h2>
   </div>
-  <div class="gallery-masonry reveal">
+  <p class="sight-scroll-hint" style="padding-right:6rem;">← スクロールして全て見る →</p>
+  <div class="gallery-masonry reveal" id="galleryMasonry">
     <div class="g-item g-1">
       <img src="images/gallery_lavatory.jpg" alt="洗面所">
       <span class="g-item-label">Lavatory</span>
@@ -779,48 +756,51 @@
     <p class="section-label" id="amenity-label">Amenities</p>
     <h2 class="section-title" id="amenity-title">アメニティ<em>一覧</em></h2>
   </div>
-  <div class="amenity-grid reveal">
-    <div class="amenity-cat">
-      <p class="amenity-cat-label">Bath & Body</p>
-      <ul class="amenity-list">
-        <li><span class="amenity-icon">🛁</span><span id="am-towel">バスタオル・フェイスタオル</span></li>
-        <li><span class="amenity-icon">🪥</span><span id="am-toothbrush">歯ブラシ</span></li>
-        <li><span class="amenity-icon">🧴</span><span id="am-shampoo">シャンプー・コンディショナー</span></li>
-        <li><span class="amenity-icon">🧼</span><span id="am-soap">洗顔・ボディソープ</span></li>
-        <li><span class="amenity-icon">💨</span><span id="am-dryer">ReFa ドライヤー</span></li>
-      </ul>
-    </div>
-    <div class="amenity-cat">
-      <p class="amenity-cat-label">Kitchen</p>
-      <ul class="amenity-list">
-        <li><span class="amenity-icon">🍳</span><span id="am-kitchen">フルキッチン・調理器具一式</span></li>
-        <li><span class="amenity-icon">🍚</span><span id="am-rice">炊飯器（BALMUDA）</span></li>
-        <li><span class="amenity-icon">☕</span><span id="am-kettle">電気ケトル</span></li>
-        <li><span class="amenity-icon">♨️</span><span id="am-microwave">電子レンジ</span></li>
-        <li><span class="amenity-icon">❄️</span><span id="am-fridge">冷蔵庫</span></li>
-        <li><span class="amenity-icon">☕</span><span id="am-coffee">コーヒー（無料）</span></li>
-      </ul>
-    </div>
-    <div class="amenity-cat">
-      <p class="amenity-cat-label">Living</p>
-      <ul class="amenity-list">
-        <li><span class="amenity-icon">📶</span><span id="am-wifi">無料 Wi-Fi</span></li>
-        <li><span class="amenity-icon">📺</span><span id="am-tv">65インチ 大型テレビ</span></li>
-        <li><span class="amenity-icon">💧</span><span id="am-water">ペットボトルの水（無料）</span></li>
-        <li><span class="amenity-icon">🧹</span><span id="am-vacuum">掃除機</span></li>
-        <li><span class="amenity-icon">❄️</span><span id="am-ac">エアコン</span></li>
-        <li><span class="amenity-icon">🌬️</span><span id="am-airpurifier">空気清浄機</span></li>
-      </ul>
-    </div>
-    <div class="amenity-cat">
-      <p class="amenity-cat-label">Laundry & Family</p>
-      <ul class="amenity-list">
-        <li><span class="amenity-icon">👕</span><span id="am-washer">乾燥機能付き洗濯機</span></li>
-        <li><span class="amenity-icon">🧸</span><span id="am-playroom">子供用プレイルーム</span></li>
-        <li><span class="amenity-icon">🍼</span><span id="am-babybed">ベビーベッド</span></li>
-      </ul>
+  <div class="amenity-scroll-wrap reveal">
+    <div class="amenity-grid">
+      <div class="amenity-cat">
+        <p class="amenity-cat-label">Bath & Body</p>
+        <ul class="amenity-list">
+          <li><span class="amenity-icon">🛁</span><span id="am-towel">バスタオル・フェイスタオル</span></li>
+          <li><span class="amenity-icon">🪥</span><span id="am-toothbrush">歯ブラシ</span></li>
+          <li><span class="amenity-icon">🧴</span><span id="am-shampoo">シャンプー・コンディショナー</span></li>
+          <li><span class="amenity-icon">🧼</span><span id="am-soap">洗顔・ボディソープ</span></li>
+          <li><span class="amenity-icon">💨</span><span id="am-dryer">ReFa ドライヤー</span></li>
+        </ul>
+      </div>
+      <div class="amenity-cat">
+        <p class="amenity-cat-label">Kitchen</p>
+        <ul class="amenity-list">
+          <li><span class="amenity-icon">🍳</span><span id="am-kitchen">フルキッチン・調理器具一式</span></li>
+          <li><span class="amenity-icon">🍚</span><span id="am-rice">炊飯器（BALMUDA）</span></li>
+          <li><span class="amenity-icon">☕</span><span id="am-kettle">電気ケトル</span></li>
+          <li><span class="amenity-icon">♨️</span><span id="am-microwave">電子レンジ</span></li>
+          <li><span class="amenity-icon">❄️</span><span id="am-fridge">冷蔵庫</span></li>
+          <li><span class="amenity-icon">☕</span><span id="am-coffee">コーヒー（無料）</span></li>
+        </ul>
+      </div>
+      <div class="amenity-cat">
+        <p class="amenity-cat-label">Living</p>
+        <ul class="amenity-list">
+          <li><span class="amenity-icon">📶</span><span id="am-wifi">無料 Wi-Fi</span></li>
+          <li><span class="amenity-icon">📺</span><span id="am-tv">65インチ 大型テレビ</span></li>
+          <li><span class="amenity-icon">💧</span><span id="am-water">ペットボトルの水（無料）</span></li>
+          <li><span class="amenity-icon">🧹</span><span id="am-vacuum">掃除機</span></li>
+          <li><span class="amenity-icon">❄️</span><span id="am-ac">エアコン</span></li>
+          <li><span class="amenity-icon">🌬️</span><span id="am-airpurifier">空気清浄機</span></li>
+        </ul>
+      </div>
+      <div class="amenity-cat">
+        <p class="amenity-cat-label">Laundry & Family</p>
+        <ul class="amenity-list">
+          <li><span class="amenity-icon">👕</span><span id="am-washer">乾燥機能付き洗濯機</span></li>
+          <li><span class="amenity-icon">🧸</span><span id="am-playroom">子供用プレイルーム</span></li>
+          <li><span class="amenity-icon">🍼</span><span id="am-babybed">ベビーベッド</span></li>
+        </ul>
+      </div>
     </div>
   </div>
+  <p class="amenity-scroll-hint">← スワイプして全項目を見る →</p>
 </section>
 
 <!-- RULES -->
@@ -1009,6 +989,27 @@
   }, { threshold: 0.1 });
   reveals.forEach(r => io.observe(r));
 
+  // ギャラリー ドラッグスクロール（PC用）
+  (function() {
+    const el = document.getElementById('galleryMasonry');
+    if (!el) return;
+    let isDown = false, startX, scrollLeft;
+    el.addEventListener('mousedown', e => {
+      isDown = true;
+      startX = e.pageX - el.offsetLeft;
+      scrollLeft = el.scrollLeft;
+      el.style.userSelect = 'none';
+    });
+    el.addEventListener('mouseleave', () => { isDown = false; });
+    el.addEventListener('mouseup',    () => { isDown = false; el.style.userSelect = ''; });
+    el.addEventListener('mousemove',  e => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - el.offsetLeft;
+      el.scrollLeft = scrollLeft - (x - startX) * 1.2;
+    });
+  })();
+
 </script>
 
 <script>
@@ -1049,7 +1050,7 @@ var translations = {
     "spec-capacity": "最大 12名",
     "spec-type": "一棟貸切",
     "spec-access": "バリアフリー",
-    "spec-pets": "ペット不可",
+    "spec-tv": "大型テレビ・Amazonプライム見放題",
     "spec-kitchen": "フルキッチン完備",
     "spec-wifi": "無料 Wi-Fi",
     "rule-checkin": "チェックイン",
@@ -1135,7 +1136,7 @@ var translations = {
     "spec-capacity": "Up to 12 guests",
     "spec-type": "Entire home",
     "spec-access": "Barrier-Free",
-    "spec-pets": "No pets",
+    "spec-tv": "Large TV · Amazon Prime included",
     "spec-kitchen": "Full kitchen",
     "spec-wifi": "Free Wi-Fi",
     "rule-checkin": "Check-in",
@@ -1221,7 +1222,7 @@ var translations = {
     "spec-capacity": "最多12人",
     "spec-type": "整栋出租",
     "spec-access": "无障碍",
-    "spec-pets": "不允许宠物",
+    "spec-tv": "大型电视・Amazon Prime 免费畅看",
     "spec-kitchen": "完整厨房",
     "spec-wifi": "免费 Wi-Fi",
     "rule-checkin": "入住",
@@ -1307,7 +1308,7 @@ var translations = {
     "spec-capacity": "최대 12명",
     "spec-type": "단독 주택",
     "spec-access": "배리어프리",
-    "spec-pets": "반려동물 불가",
+    "spec-tv": "대형 TV · Amazon Prime 무제한 시청",
     "spec-kitchen": "풀 키친",
     "spec-wifi": "무료 Wi-Fi",
     "rule-checkin": "체크인",

@@ -257,10 +257,41 @@
   .btn-book-booking { display: inline-flex; align-items: center; gap: 0.8rem; background: #003580; padding: 1rem 2.2rem; text-decoration: none; }
 
   /* FOOTER */
-  footer { background: var(--gray-800); padding: 2.5rem 6rem; display: flex; align-items: center; justify-content: space-between; border-top: 1px solid rgba(255,255,255,0.05); }
-  .footer-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 300; color: var(--white); letter-spacing: 0.1em; line-height: 1.4; }
-  .footer-logo small { display: block; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.15em; color: rgba(255,255,255,0.3); }
-  .footer-info { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); text-align: right; line-height: 1.9; }
+  footer { background: var(--gray-800); border-top: 1px solid rgba(255,255,255,0.07); }
+  .footer-inner { max-width: 1100px; margin: 0 auto; padding: 3rem 4rem 2rem; }
+
+  /* SNS行 */
+  .footer-sns { display: flex; align-items: center; gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; }
+  .footer-sns-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+  .footer-sns-divider { width: 1px; height: 1rem; background: rgba(255,255,255,0.15); }
+  .footer-sns-links { display: flex; align-items: center; gap: 0.8rem; }
+  .footer-sns-link { display: flex; align-items: center; gap: 0.5rem; text-decoration: none; color: rgba(255,255,255,0.55); font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.1em; transition: color 0.2s; padding: 0.4rem 0.8rem; border: 1px solid rgba(255,255,255,0.12); border-radius: 2rem; }
+  .footer-sns-link:hover { color: var(--white); border-color: rgba(255,255,255,0.4); }
+  .footer-sns-link svg { flex-shrink: 0; }
+
+  /* メニュー行 */
+  .footer-nav { display: flex; align-items: center; justify-content: space-between; padding: 2rem 0; border-bottom: 1px solid rgba(255,255,255,0.08); flex-wrap: wrap; gap: 1.5rem; }
+  .footer-nav-links { display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+  .footer-nav-link { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; padding: 0.3rem 1.2rem; border-right: 1px solid rgba(255,255,255,0.12); transition: color 0.2s; white-space: nowrap; }
+  .footer-nav-link:first-child { padding-left: 0; }
+  .footer-nav-link:last-child { border-right: none; }
+  .footer-nav-link:hover { color: var(--white); }
+  .footer-logo-wrap { display: flex; align-items: center; gap: 0.7rem; }
+  .footer-logo-wrap img { height: 32px; width: auto; opacity: 0.7; }
+  .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.5); letter-spacing: 0.1em; }
+
+  /* コピーライト行 */
+  .footer-copy { padding-top: 1.5rem; font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.1em; color: rgba(255,255,255,0.2); text-align: center; line-height: 1.9; }
+
+  /* レスポンシブ */
+  @media (max-width: 768px) {
+    .footer-inner { padding: 2.5rem 1.5rem 1.5rem; }
+    .footer-sns { gap: 1rem; }
+    .footer-nav { flex-direction: column; align-items: flex-start; }
+    .footer-nav-links { gap: 0; }
+    .footer-nav-link { font-size: 0.58rem; padding: 0.4rem 0.9rem; }
+    .footer-nav-link:first-child { padding-left: 0; }
+  }
 
   /* REVEAL */
   .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
@@ -329,8 +360,7 @@
     .amenity-scroll-hint { display: block; }
     .booking { padding: 5rem 2rem; }
     .booking-btns { flex-direction: column; align-items: center; }
-    footer { flex-direction: column; gap: 1.5rem; text-align: center; }
-    .footer-info { text-align: center; }
+    .footer-copy { text-align: center; }
     /* GALLERY */
     .gallery { padding: 5rem 0 5rem 1.5rem; }
     .gallery .reveal { padding-right: 1.5rem; }
@@ -879,20 +909,45 @@
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logo" style="display:flex;align-items:center;gap:0.8rem;">
-    <img src="images/logo.png" alt="MY HOUSE たいみんぐ" style="height:36px;width:auto;">
-    <span style="white-space:nowrap;font-size:0.85rem;">MY HOUSE たいみんぐ<small style="display:block;font-family:'DM Mono',monospace;font-size:0.5rem;letter-spacing:0.15em;color:rgba(255,255,255,0.4);">Kuwana</small></span>
-  </div>
-  <div style="display:flex;flex-direction:column;align-items:flex-end;gap:1rem;">
-    <div style="display:flex;gap:1.2rem;align-items:center;">
-      <a href="https://www.instagram.com/myhouse_kuwana" target="_blank" aria-label="Instagram"><svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig-footer" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="5%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="url(#ig-footer)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg></a>
-      <a href="https://www.tiktok.com/@my.house717" target="_blank" aria-label="TikTok"><svg width="36" height="36" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="5" fill="#010101"/><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z" fill="#ffffff"/></svg></a>
+  <div class="footer-inner">
+
+    <!-- SNS行 -->
+    <div class="footer-sns">
+      <span class="footer-sns-label">Official SNS</span>
+      <div class="footer-sns-divider"></div>
+      <div class="footer-sns-links">
+        <a class="footer-sns-link" href="https://www.instagram.com/myhouse_kuwana" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><defs><radialGradient id="ig2" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig2)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+          Instagram
+        </a>
+        <a class="footer-sns-link" href="https://www.tiktok.com/@my.house717" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect width="24" height="24" rx="4" fill="#010101"/><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z" fill="white"/></svg>
+          TikTok
+        </a>
+      </div>
     </div>
-    <div class="footer-info">
-      三重県桑名市桑名 476-52<br>
-      桑名駅徒歩3分 | 最大12名 | バリアフリー<br>
-      © 2025 MY HOUSE たいみんぐ
+
+    <!-- メニュー行 -->
+    <div class="footer-nav">
+      <nav class="footer-nav-links">
+        <a class="footer-nav-link" href="#access">アクセス</a>
+        <a class="footer-nav-link" href="parking.html">駐車場</a>
+        <a class="footer-nav-link" href="#amenities">アメニティ</a>
+        <a class="footer-nav-link" href="#rules">ハウスルール</a>
+        <a class="footer-nav-link" href="#booking">予約する</a>
+      </nav>
+      <div class="footer-logo-wrap">
+        <img src="images/logo.png" alt="MY HOUSE たいみんぐ">
+        <span class="footer-logo-text">MY HOUSE たいみんぐ</span>
+      </div>
     </div>
+
+    <!-- コピーライト行 -->
+    <div class="footer-copy">
+      三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>
+      © 2025 MY HOUSE たいみんぐ. All Rights Reserved.
+    </div>
+
   </div>
 </footer>
 <script>

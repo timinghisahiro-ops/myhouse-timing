@@ -212,7 +212,7 @@
     <div class="rule-card">
       <span class="rule-card-icon">🕐</span>
       <p class="rule-card-title" id="r-checkin">チェックイン</p>
-      <p class="rule-card-detail" id="r-checkin-time">16:00〜（事前にご連絡ください）</p>
+      <p class="rule-card-detail" id="r-checkin-time">16:00〜22:00</p>
     </div>
     <div class="rule-card">
       <span class="rule-card-icon">🕙</span>
@@ -383,7 +383,7 @@
     <div class="trash-card">
       <div class="trash-header th-purple">🛋️ <span id="tr-bulk">粗大ゴミ</span></div>
       <div class="trash-body">
-        <p class="trash-note" id="tr-bulk-note">通常のゴミとして出せません。ホストにご相談ください。</p>
+        <p class="trash-note" id="tr-bulk-note">施設での廃棄はできません。必ずお持ち帰りください。万が一放置された場合は、処分費用をご請求させていただく場合があります。</p>
       </div>
     </div>
   </div>
@@ -414,7 +414,7 @@
   </div>
   <div class="info-card">
     <p class="ic-label" id="emer-addr-label">📍 施設住所</p>
-    <p class="ic-val">三重県桑名市桑名 476-52</p>
+    <p class="ic-val" id="emer-addr-val">三重県桑名市桑名 476-52</p>
   </div>
   <div class="info-card" style="border-left-color:#9b2335;">
     <p class="ic-label" style="color:#9b2335;" id="emer-host-label">📞 ホスト緊急連絡先</p>
@@ -472,7 +472,7 @@ const LANGS = {
     "hero-title": "ハウス<em>ルール</em>",
     "hero-sub": "快適にお過ごしいただくため、以下のルールをご確認のうえ、ご宿泊をお楽しみください。",
     "s1-label": "Basic Rules", "s1-title": "基本<em>ルール</em>",
-    "r-checkin": "チェックイン", "r-checkin-time": "16:00〜（事前にご連絡ください）",
+    "r-checkin": "チェックイン", "r-checkin-time": "16:00〜22:00",
     "r-checkout": "チェックアウト", "r-checkout-time": "〜10:00（厳守でお願いします）",
     "r-nosmoking": "禁煙", "r-nosmoking-detail": "館内全面禁煙。喫煙が発覚した場合は特別清掃料として3万円をご請求いたします。",
     "r-pets": "ペット", "r-pets-detail": "ペット不可",
@@ -503,11 +503,11 @@ const LANGS = {
     "tr-n-note": "キャップ・ラベルを外して中を洗い、つぶして出してください。",
     "tr-paper": "古紙・ダンボール", "tr-p1": "新聞", "tr-p2": "雑誌", "tr-p3": "ダンボール",
     "tr-p-note": "新聞・雑誌はひもで束ね、ダンボールは畳んでください。",
-    "tr-bulk": "粗大ゴミ", "tr-bulk-note": "通常のゴミとして出せません。ホストにご相談ください。",
+    "tr-bulk": "粗大ゴミ", "tr-bulk-note": "施設での廃棄はできません。必ずお持ち帰りください。万が一放置された場合は、処分費用をご請求させていただく場合があります。",
     "trash-note-main": "🙏 ゴミ捨て場所はスタッフにお尋ねください。指定場所以外への廃棄はご遠慮ください。",
     "s7-label": "Emergency", "s7-title": "<em>緊急</em>連絡先",
     "emer-police-label": "警察・事故・泥棒", "emer-fire-label": "消防・火事・救急",
-    "emer-addr-label": "📍 施設住所", "emer-host-label": "📞 ホスト緊急連絡先",
+    "emer-addr-label": "📍 施設住所", "emer-addr-val": "三重県桑名市桑名 476-52", "emer-host-label": "📞 ホスト緊急連絡先",
     "emer-host-sub": "MY HOUSE たいみんぐ 担当者（24時間）",
     "emer-note": "何かお困りのことがあれば、いつでもご連絡ください。皆様の安全・快適な滞在を最優先にサポートいたします。",
     "fnav-access": "アクセス", "fnav-parking": "駐車場", "fnav-amenities": "アメニティ", "fnav-rules": "ハウスルール", "fnav-booking": "予約する",
@@ -520,7 +520,7 @@ const LANGS = {
     "hero-title": "House <em>Rules</em>",
     "hero-sub": "Please read through the following rules to ensure a comfortable stay for everyone.",
     "s1-label": "Basic Rules", "s1-title": "Basic <em>Rules</em>",
-    "r-checkin": "Check-in", "r-checkin-time": "From 16:00 (please contact us in advance)",
+    "r-checkin": "Check-in", "r-checkin-time": "16:00〜22:00",
     "r-checkout": "Check-out", "r-checkout-time": "By 10:00 (strictly observed)",
     "r-nosmoking": "No Smoking", "r-nosmoking-detail": "No smoking anywhere indoors. If smoking is discovered, a special cleaning fee of ¥30,000 will be charged.",
     "r-pets": "Pets", "r-pets-detail": "No pets allowed",
@@ -551,11 +551,11 @@ const LANGS = {
     "tr-n-note": "Remove caps and labels, rinse, and flatten before disposal.",
     "tr-paper": "Paper / Cardboard", "tr-p1": "Newspapers", "tr-p2": "Magazines", "tr-p3": "Cardboard",
     "tr-p-note": "Tie newspapers and magazines with string. Fold cardboard flat.",
-    "tr-bulk": "Bulk Waste", "tr-bulk-note": "Cannot be disposed of as regular trash. Please consult the host.",
+    "tr-bulk": "Bulk Waste", "tr-bulk-note": "Bulk items cannot be disposed of at the facility. Please take them with you. If left behind, disposal costs may be charged.",
     "trash-note-main": "🙏 Please ask staff for the trash disposal location. Do not discard trash outside the designated area.",
     "s7-label": "Emergency", "s7-title": "<em>Emergency</em> Contacts",
     "emer-police-label": "Police / Accident / Theft", "emer-fire-label": "Fire / Emergency",
-    "emer-addr-label": "📍 Property Address", "emer-host-label": "📞 Host Emergency Contact",
+    "emer-addr-label": "📍 Property Address", "emer-addr-val": "476-52 Kuwana, Kuwana City, Mie, Japan", "emer-host-label": "📞 Host Emergency Contact",
     "emer-host-sub": "MY HOUSE たいみんぐ (Available 24 hours)",
     "emer-note": "Please feel free to contact us anytime if you have any concerns. Your safety and comfort are our top priority.",
     "fnav-access": "Access", "fnav-parking": "Parking", "fnav-amenities": "Amenities", "fnav-rules": "House Rules", "fnav-booking": "Book Now",
@@ -568,7 +568,7 @@ const LANGS = {
     "hero-title": "住宿<em>规则</em>",
     "hero-sub": "为了让每位客人都能舒适入住，请在入住前仔细阅读以下规则。",
     "s1-label": "Basic Rules", "s1-title": "基本<em>规则</em>",
-    "r-checkin": "入住时间", "r-checkin-time": "16:00以后（请提前联系）",
+    "r-checkin": "入住时间", "r-checkin-time": "16:00〜22:00",
     "r-checkout": "退房时间", "r-checkout-time": "10:00以前（请严格遵守）",
     "r-nosmoking": "禁烟", "r-nosmoking-detail": "室内全面禁烟。如发现吸烟，将收取3万日元的特别清洁费。",
     "r-pets": "宠物", "r-pets-detail": "不允许携带宠物",
@@ -599,11 +599,11 @@ const LANGS = {
     "tr-n-note": "请去除瓶盖和标签，洗净压扁后丢弃。",
     "tr-paper": "纸类/纸箱", "tr-p1": "报纸", "tr-p2": "杂志", "tr-p3": "纸箱",
     "tr-p-note": "报纸和杂志请捆绑成束，纸箱请折叠放平。",
-    "tr-bulk": "大型垃圾", "tr-bulk-note": "不能作为普通垃圾处理，请联系房东。",
+    "tr-bulk": "大型垃圾", "tr-bulk-note": "大型垃圾不能在设施内处理，请自行带走。如有遗留，可能收取处理费用。",
     "trash-note-main": "🙏 垃圾投放地点请向工作人员确认，请勿在指定地点以外丢弃垃圾。",
     "s7-label": "Emergency", "s7-title": "<em>紧急</em>联系方式",
     "emer-police-label": "警察·事故·盗窃", "emer-fire-label": "消防·火灾·急救",
-    "emer-addr-label": "📍 设施地址", "emer-host-label": "📞 房东紧急联系方式",
+    "emer-addr-label": "📍 设施地址", "emer-addr-val": "三重县桑名市桑名 476-52，日本", "emer-host-label": "📞 房东紧急联系方式",
     "emer-host-sub": "MY HOUSE たいみんぐ 负责人（24小时）",
     "emer-note": "如有任何疑问或困扰，请随时联系我们。我们优先保障每位客人的安全与舒适。",
     "fnav-access": "交通", "fnav-parking": "停车场", "fnav-amenities": "设施", "fnav-rules": "住宿规则", "fnav-booking": "预约",
@@ -616,7 +616,7 @@ const LANGS = {
     "hero-title": "하우스 <em>룰</em>",
     "hero-sub": "쾌적한 숙박을 위해 아래 규칙을 확인하신 후 이용해 주시기 바랍니다.",
     "s1-label": "Basic Rules", "s1-title": "기본 <em>규칙</em>",
-    "r-checkin": "체크인", "r-checkin-time": "16:00 이후 (사전 연락 부탁드립니다)",
+    "r-checkin": "체크인", "r-checkin-time": "16:00〜22:00",
     "r-checkout": "체크아웃", "r-checkout-time": "10:00 이전 (엄수 부탁드립니다)",
     "r-nosmoking": "금연", "r-nosmoking-detail": "실내 전면 금연. 흡연이 발각된 경우 특별 청소비로 3만 엔을 청구드립니다.",
     "r-pets": "반려동물", "r-pets-detail": "반려동물 불가",
@@ -647,11 +647,11 @@ const LANGS = {
     "tr-n-note": "뚜껑과 라벨을 제거하고 씻은 후 납작하게 눌러 버려주세요.",
     "tr-paper": "종이류/골판지", "tr-p1": "신문", "tr-p2": "잡지", "tr-p3": "골판지",
     "tr-p-note": "신문과 잡지는 끈으로 묶고, 골판지는 접어서 버려주세요.",
-    "tr-bulk": "대형 폐기물", "tr-bulk-note": "일반 쓰레기로 버릴 수 없습니다. 호스트에게 문의해 주세요.",
+    "tr-bulk": "대형 폐기물", "tr-bulk-note": "시설에서 처리할 수 없습니다. 반드시 가지고 돌아가주세요. 방치된 경우 처리 비용을 청구할 수 있습니다.",
     "trash-note-main": "🙏 쓰레기 버리는 장소는 직원에게 문의해 주세요. 지정 장소 이외에는 버리지 마세요.",
     "s7-label": "Emergency", "s7-title": "<em>긴급</em> 연락처",
     "emer-police-label": "경찰·사고·도난", "emer-fire-label": "소방·화재·구급",
-    "emer-addr-label": "📍 시설 주소", "emer-host-label": "📞 호스트 긴급 연락처",
+    "emer-addr-label": "📍 시설 주소", "emer-addr-val": "미에현 구와나시 구와나 476-52, 일본", "emer-host-label": "📞 호스트 긴급 연락처",
     "emer-host-sub": "MY HOUSE たいみんぐ 담당자 (24시간)",
     "emer-note": "불편하신 점이 있으시면 언제든지 연락해 주세요. 여러분의 안전하고 편안한 숙박을 최우선으로 지원하겠습니다.",
     "fnav-access": "교통", "fnav-parking": "주차장", "fnav-amenities": "어메니티", "fnav-rules": "하우스 룰", "fnav-booking": "예약",

@@ -838,7 +838,7 @@
   <div class="rules-grid reveal" style="margin-bottom:2px;">
     <div class="rule-card"><span class="rule-icon">🕐</span><p class="rule-title" id="rule-checkin">チェックイン</p><p class="rule-detail" id="rule-checkin-time">16:00〜</p></div>
     <div class="rule-card"><span class="rule-icon">🕙</span><p class="rule-title" id="rule-checkout-label">チェックアウト</p><p class="rule-detail" id="rule-checkout-time">〜10:00</p></div>
-    <div class="rule-card"><span class="rule-icon">🚭</span><p class="rule-title" id="rule-nosmoking">禁煙</p><p class="rule-detail" id="rule-nosmoking-detail">館内全面禁煙</p></div>
+    <div class="rule-card"><span class="rule-icon">🚭</span><p class="rule-title" id="rule-nosmoking">禁煙</p><p class="rule-detail" id="rule-nosmoking-detail">館内全面禁煙。喫煙が発覚した場合は特別清掃料として3万円をご請求いたします。</p></div>
     <div class="rule-card"><span class="rule-icon">🐾</span><p class="rule-title" id="rule-pets-label">ペット</p><p class="rule-detail" id="rule-pets-detail">ペット不可</p></div>
   </div>
   <div class="rule-wide reveal">
@@ -852,6 +852,12 @@
   <div class="rules-grid reveal" style="margin-top:2px;grid-template-columns:repeat(2,1fr);">
     <div class="rule-card"><span class="rule-icon">🔒</span><p class="rule-title" id="rule-lock">夜間の施錠</p><p class="rule-detail" id="rule-lock-detail">就寝時は必ず鍵をかけてください</p></div>
     <div class="rule-card"><span class="rule-icon">🍺</span><p class="rule-title" id="rule-drink">お酒のご利用</p><p class="rule-detail" id="rule-drink-detail">次のゲスト様が快適に過ごせるよう、清潔な状態でのご利用をお願いしております。過度な飲酒等により嘔吐され、著しい汚損が確認された場合には、特別清掃費として5万円をご請求させていただきます。</p></div>
+  </div>
+  <div class="rule-wide reveal" style="margin-top:2px;">
+    <div class="rule-wide-header"><span class="rule-icon" style="font-size:1.5rem;">⚠️</span><p class="rule-title" style="font-size:1rem;" id="rule-damage-title">破損・汚損について</p></div>
+    <div class="rule-wide-body">
+      <div class="rule-item"><span class="rule-dot"></span><p id="rule-damage-1">家電・家具・備品の破損・汚損が発生した場合は、速やかにご報告ください。ご報告の有無にかかわらず、破損・汚損が確認された場合は修理・交換費用をご請求させていただく場合があります。</p></div>
+    </div>
   </div>
 </section>
 
@@ -1131,10 +1137,12 @@ var translations = {
     "rule-drink": "お酒のご利用",
     "rule-checkin-time": "16:00〜",
     "rule-checkout-time": "〜10:00",
-    "rule-nosmoking-detail": "館内全面禁煙",
+    "rule-nosmoking-detail": "館内全面禁煙。喫煙が発覚した場合は特別清掃料として3万円をご請求いたします。",
     "rule-pets-detail": "ペット不可",
     "rule-lock-detail": "就寝時は必ず鍵をかけてください",
     "rule-drink-detail": "次のゲスト様が快適に過ごせるよう、清潔な状態でのご利用をお願いしております。過度な飲酒等により嘔吐され、著しい汚損が確認された場合には、特別清掃費として5万円をご請求させていただきます。",
+    "rule-damage-title": "破損・汚損について",
+    "rule-damage-1": "家電・家具・備品の破損・汚損が発生した場合は、速やかにご報告ください。ご報告の有無にかかわらず、破損・汚損が確認された場合は修理・交換費用をご請求させていただく場合があります。",
     "trans-station": "桑名駅から",
     "trans-nagoya": "名古屋駅から",
     "trans-nagashima": "ナガシマスパーランドへ",
@@ -1267,10 +1275,12 @@ var translations = {
     "rule-drink": "Alcohol",
     "rule-checkin-time": "From 16:00",
     "rule-checkout-time": "By 10:00",
-    "rule-nosmoking-detail": "No smoking indoors",
+    "rule-nosmoking-detail": "No smoking indoors. If smoking is discovered, a special cleaning fee of ¥30,000 will be charged.",
     "rule-pets-detail": "No pets allowed",
     "rule-lock-detail": "Please lock the door before sleeping",
     "rule-drink-detail": "To ensure the next guests enjoy a comfortable stay, please keep the property clean. If excessive drinking results in vomiting and significant soiling is found, a special cleaning fee of ¥50,000 will be charged.",
+    "rule-damage-title": "Damage & Soiling",
+    "rule-damage-1": "If any appliances, furniture, or fixtures are damaged or soiled, please report it promptly. Regardless of whether it is reported, repair or replacement costs may be charged if damage is confirmed.",
     "trans-station": "From Kuwana Station",
     "trans-nagoya": "From Nagoya Station",
     "trans-nagashima": "To Nagashima Spa Land",
@@ -1403,10 +1413,12 @@ var translations = {
     "rule-drink": "饮酒规定",
     "rule-checkin-time": "16:00 以后",
     "rule-checkout-time": "10:00 以前",
-    "rule-nosmoking-detail": "室内全面禁烟",
+    "rule-nosmoking-detail": "室内全面禁烟。如发现吸烟，将收取3万日元的特别清洁费。",
     "rule-pets-detail": "不允许携带宠物",
     "rule-lock-detail": "就寝时请务必锁门",
     "rule-drink-detail": "为了让下一位客人舒适地入住，请保持设施清洁。如因过度饮酒导致呕吐并造成严重污损，将收取5万日元的特别清洁费。",
+    "rule-damage-title": "关于损坏与污损",
+    "rule-damage-1": "如发生家电、家具、物品的损坏或污损，请及时告知。无论是否报告，一旦确认损坏，均可能收取修理或更换费用。",
     "trans-station": "从桑名站出发",
     "trans-nagoya": "从名古屋站出发",
     "trans-nagashima": "前往长岛温泉乐园",
@@ -1539,10 +1551,12 @@ var translations = {
     "rule-drink": "음주 규정",
     "rule-checkin-time": "16:00 이후",
     "rule-checkout-time": "10:00 이전",
-    "rule-nosmoking-detail": "실내 전면 금연",
+    "rule-nosmoking-detail": "실내 전면 금연. 흡연이 발각된 경우 특별 청소비로 3만 엔을 청구드립니다.",
     "rule-pets-detail": "반려동물 불가",
     "rule-lock-detail": "취침 시 반드시 잠금 해주세요",
     "rule-drink-detail": "다음 게스트가 쾌적하게 지내실 수 있도록 청결한 상태로 이용해 주시기 바랍니다. 과도한 음주 등으로 인한 구토 및 심각한 오염이 확인된 경우, 특별 청소비로 5만 엔을 청구드립니다.",
+    "rule-damage-title": "파손 및 오염에 대하여",
+    "rule-damage-1": "가전제품, 가구, 비품 등이 파손되거나 오염된 경우, 신속히 알려주시기 바랍니다. 신고 여부에 관계없이 파손·오염이 확인된 경우 수리·교체 비용을 청구할 수 있습니다.",
     "trans-station": "구와나역에서",
     "trans-nagoya": "나고야역에서",
     "trans-nagashima": "나가시마 스파랜드까지",

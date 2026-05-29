@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YM0VWHYPDT"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-YM0VWHYPDT');
+</script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>MY HOUSE たいみんぐ | 桑名駅徒歩3分・一棟貸し民泊【最大12名】</title>
@@ -135,10 +144,10 @@
   /* ROOM */
   .room { display: grid; grid-template-columns: 1fr 1fr; background: var(--bg); }
   .room-content { padding: 7rem 5rem; }
-  .room-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 2.5rem; }
-  .spec-item { padding: 0.8rem 0; border-bottom: 1px solid var(--gray-200); display: flex; justify-content: space-between; align-items: center; }
-  .spec-key { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
-  .spec-val { font-size: 0.82rem; color: var(--gray-800); }
+  .room-specs { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); border-radius: 10px; overflow: hidden; margin-bottom: 2.5rem; }
+  .spec-item { padding: 1.3rem 1.5rem; background: var(--white); display: flex; flex-direction: column; gap: 0.5rem; }
+  .spec-key { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); }
+  .spec-val { font-size: 0.95rem; color: var(--gray-800); font-weight: 500; line-height: 1.45; }
   .room-visual { display: grid; grid-template-rows: 1fr 1fr; }
   .room-visual-top { overflow: hidden; }
   .room-visual-top img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -365,7 +374,9 @@
     /* FLOORPLAN */
     .floorplan-section { padding: 5rem 2rem; }
     .coin-grid { grid-template-columns: 1fr !important; }
-    .room-specs { grid-template-columns: 1fr 1fr; }
+    .room-specs { grid-template-columns: 1fr; }
+    .spec-item { padding: 1.1rem 1.3rem; }
+    .spec-val { font-size: 1rem; }
   }
 
   /* ── RESPONSIVE 600px ── */
@@ -387,6 +398,7 @@
     .floorplan-img-wrap { margin-top: 2rem; overflow: hidden; width: 100%; box-sizing: border-box; }
     .floorplan-img-wrap img { width: 100%; height: auto; display: block; max-width: 100%; box-sizing: border-box; }
     .floorplan-img-wrap p { padding: 0.8rem 0; text-align: center; font-size: 0.55rem; }
+    .section-title { font-size: 2rem; line-height: 1.25; }
     .amenities .section-title { font-size: 1.8rem; }
     /* 部屋写真 */
     .room-visual-top { height: 70vw; }
@@ -469,7 +481,7 @@
 <section class="features" id="features">
   <div class="features-header reveal">
     <span class="section-label">Features</span>
-    <h2 class="section-title">選ばれる<em>3つの理由</em></h2>
+    <h2 class="section-title" id="feat-title">選ばれる<em>3つの理由</em></h2>
   </div>
   <div class="features-grid" id="featGrid">
     <div class="feature-card reveal">
@@ -491,7 +503,7 @@
       <p class="feature-desc" id="feat3-desc">最大12名まで宿泊可能な一棟貸し。プライベート空間でグループ旅行や家族旅行をお楽しみいただけます。</p>
     </div>
   </div>
-  <p class="sight-scroll-hint" style="padding-right:6rem;">← スクロールして全て見る →</p>
+  <p class="sight-scroll-hint" id="scroll-hint-1" style="padding-right:6rem;">← スクロールして全て見る →</p>
 </section>
 
 <!-- ROOM -->
@@ -567,8 +579,8 @@
 <section class="sightseeing" id="sightseeing">
   <div class="reveal">
     <span class="section-label">Sightseeing</span>
-    <h2 class="section-title">周辺の<em>観光スポット</em></h2>
-    <p style="font-size:0.85rem;line-height:1.9;color:var(--gray-600);max-width:680px;margin-top:1rem;">MY HOUSE たいみんぐは、三重・愛知・岐阜の主要観光地へのアクセスに優れた絶好のロケーションです。桑名駅から徒歩3分のため、電車・車どちらでも各地に楽にアクセスできます。</p>
+    <h2 class="section-title" id="sightseeing-title">周辺<em>観光スポット</em></h2>
+    <p id="sightseeing-desc" style="font-size:0.85rem;line-height:1.9;color:var(--gray-600);max-width:680px;margin-top:1rem;">MY HOUSE たいみんぐは、三重・愛知・岐阜の主要観光地へのアクセスに優れた絶好のロケーションです。桑名駅から徒歩3分のため、電車・車どちらでも各地に楽にアクセスできます。</p>
   </div>
   <div class="sight-scroll-wrap">
   <div class="sight-grid reveal" id="sightGrid">
@@ -580,9 +592,9 @@
       <div class="sight-inner">
         <div class="sight-icon">🎡</div>
         <div class="sight-body">
-          <p class="sight-tag">車 約15分</p>
-          <h3 class="sight-name">ナガシマスパーランド</h3>
-          <p class="sight-desc">日本最大級のジェットコースターが揃う遊園地。長島温泉に隣接し、アウトレットモール「ジャズドリーム長島」も徒歩圏内。グループ・家族旅行の拠点に最適です。</p>
+          <p class="sight-tag" id="sight1-tag">車 約15分</p>
+          <h3 class="sight-name" id="sight1-name">ナガシマスパーランド</h3>
+          <p class="sight-desc" id="sight1-desc">日本最大級のジェットコースターが揃う遊園地。長島温泉に隣接し、アウトレットモール「ジャズドリーム長島」も徒歩圏内。グループ・家族旅行の拠点に最適です。</p>
         </div>
       </div>
     </div>
@@ -594,9 +606,9 @@
       <div class="sight-inner">
         <div class="sight-icon">♨️</div>
         <div class="sight-body">
-          <p class="sight-tag">車 約15分</p>
-          <h3 class="sight-name">長島温泉・湯あみの島</h3>
-          <p class="sight-desc">三重県が誇る人気の温泉リゾート。ナガシマスパーランドに隣接しており、遊んだあとに温泉でゆっくり過ごせます。桑名市の宿に泊まりながら日帰りで楽しめます。</p>
+          <p class="sight-tag" id="sight2-tag">車 約15分</p>
+          <h3 class="sight-name" id="sight2-name">長島温泉・湯あみの島</h3>
+          <p class="sight-desc" id="sight2-desc">三重県が誇る人気の温泉リゾート。ナガシマスパーランドに隣接しており、遊んだあとに温泉でゆっくり過ごせます。桑名市の宿に泊まりながら日帰りで楽しめます。</p>
         </div>
       </div>
     </div>
@@ -608,9 +620,9 @@
       <div class="sight-inner">
         <div class="sight-icon">🏙️</div>
         <div class="sight-body">
-          <p class="sight-tag">電車 約30分</p>
-          <h3 class="sight-name">名古屋</h3>
-          <p class="sight-desc">桑名駅から近鉄・JRで約30分。名古屋観光・ビジネスの拠点としても利用いただけます。名古屋城・大須商店街・栄エリアへのアクセスも抜群です。</p>
+          <p class="sight-tag" id="sight3-tag">電車 約30分</p>
+          <h3 class="sight-name" id="sight3-name">名古屋</h3>
+          <p class="sight-desc" id="sight3-desc">桑名駅から近鉄・JRで約30分。名古屋観光・ビジネスの拠点としても利用いただけます。名古屋城・大須商店街・栄エリアへのアクセスも抜群です。</p>
         </div>
       </div>
     </div>
@@ -622,9 +634,9 @@
       <div class="sight-inner">
         <div class="sight-icon">🧱</div>
         <div class="sight-body">
-          <p class="sight-tag">車 約25分</p>
-          <h3 class="sight-name">レゴランド・ジャパン</h3>
-          <p class="sight-desc">名古屋港に位置するレゴランドへも車で約25分。お子様連れのご家族に人気の観光スポットです。周辺の名古屋港水族館とあわせてお楽しみいただけます。</p>
+          <p class="sight-tag" id="sight4-tag">車 約25分</p>
+          <h3 class="sight-name" id="sight4-name">レゴランド・ジャパン</h3>
+          <p class="sight-desc" id="sight4-desc">名古屋港に位置するレゴランドへも車で約25分。お子様連れのご家族に人気の観光スポットです。周辺の名古屋港水族館とあわせてお楽しみいただけます。</p>
         </div>
       </div>
     </div>
@@ -636,9 +648,9 @@
       <div class="sight-inner">
         <div class="sight-icon">🏎️</div>
         <div class="sight-body">
-          <p class="sight-tag">車 約45分</p>
-          <h3 class="sight-name">鈴鹿サーキット</h3>
-          <p class="sight-desc">F1日本グランプリの開催地として世界的に有名な鈴鹿サーキット。レースイベント時の拠点宿泊として、グループでの一棟貸し利用が人気です。</p>
+          <p class="sight-tag" id="sight5-tag">車 約45分</p>
+          <h3 class="sight-name" id="sight5-name">鈴鹿サーキット</h3>
+          <p class="sight-desc" id="sight5-desc">F1日本グランプリの開催地として世界的に有名な鈴鹿サーキット。レースイベント時の拠点宿泊として、グループでの一棟貸し利用が人気です。</p>
         </div>
       </div>
     </div>
@@ -650,9 +662,9 @@
       <div class="sight-inner">
         <div class="sight-icon">⛩️</div>
         <div class="sight-body">
-          <p class="sight-tag">車 約75分</p>
-          <h3 class="sight-name">伊勢神宮・おかげ横丁</h3>
-          <p class="sight-desc">日本最古の神社のひとつ、伊勢神宮へも車で約75分。お伊勢参りや伊勢志摩観光の拠点として、桑名に宿泊しながら三重県を満喫できます。</p>
+          <p class="sight-tag" id="sight6-tag">車 約75分</p>
+          <h3 class="sight-name" id="sight6-name">伊勢神宮・おかげ横丁</h3>
+          <p class="sight-desc" id="sight6-desc">日本最古の神社のひとつ、伊勢神宮へも車で約75分。お伊勢参りや伊勢志摩観光の拠点として、桑名に宿泊しながら三重県を満喫できます。</p>
         </div>
       </div>
     </div>
@@ -664,15 +676,15 @@
       <div class="sight-inner">
         <div class="sight-icon">🌸</div>
         <div class="sight-body">
-          <p class="sight-tag">車 約15分</p>
-          <h3 class="sight-name">なばなの里</h3>
-          <p class="sight-desc">日本最大級のイルミネーションで有名な花のテーマパーク。ナガシマリゾート内に位置し、季節ごとに異なる花と光の演出が楽しめます。桑名から車で約15分とアクセス抜群です。</p>
+          <p class="sight-tag" id="sight7-tag">車 約15分</p>
+          <h3 class="sight-name" id="sight7-name">なばなの里</h3>
+          <p class="sight-desc" id="sight7-desc">日本最大級のイルミネーションで有名な花のテーマパーク。ナガシマリゾート内に位置し、季節ごとに異なる花と光の演出が楽しめます。桑名から車で約15分とアクセス抜群です。</p>
         </div>
       </div>
     </div>
 
   </div>
-  <p class="sight-scroll-hint">← スクロールして全て見る →</p>
+  <p class="sight-scroll-hint" id="scroll-hint-2">← スクロールして全て見る →</p>
   </div>
 </section>
 
@@ -692,9 +704,9 @@
 <section class="gallery" id="gallery">
   <div class="reveal">
     <p class="section-label">Gallery</p>
-    <h2 class="section-title">施設<em>ギャラリー</em></h2>
+    <h2 class="section-title" id="gallery-title">施設<em>ギャラリー</em></h2>
   </div>
-  <p class="sight-scroll-hint" style="padding-right:6rem;">← スクロールして全て見る →</p>
+  <p class="sight-scroll-hint" id="scroll-hint-3" style="padding-right:6rem;">← スクロールして全て見る →</p>
   <div class="gallery-masonry reveal" id="galleryMasonry">
     <div class="g-item g-1">
       <img src="images/gallery_lavatory.jpg" alt="洗面所">
@@ -834,6 +846,7 @@
     <div class="rule-wide-body">
       <div class="rule-item"><span class="rule-dot"></span><p id="checkout-1">お部屋を簡単に片付けてからチェックアウトをお願いします</p></div>
       <div class="rule-item"><span class="rule-dot"></span><p id="checkout-2">エアコン・電気はすべて消してください（空気清浄機はそのままでOKです）</p></div>
+      <div class="rule-item"><span class="rule-dot"></span><p id="checkout-3">家具・備品は所定の位置からの移動はご遠慮ください。次のお客様のためにご協力をお願いします。</p></div>
     </div>
   </div>
   <div class="rules-grid reveal" style="margin-top:2px;grid-template-columns:repeat(2,1fr);">
@@ -914,11 +927,11 @@
     <!-- メニュー行 -->
     <div class="footer-nav">
       <nav class="footer-nav-links">
-        <a class="footer-nav-link" href="#access">アクセス</a>
-        <a class="footer-nav-link" href="parking.html">駐車場</a>
-        <a class="footer-nav-link" href="#amenities">アメニティ</a>
-        <a class="footer-nav-link" href="#rules">ハウスルール</a>
-        <a class="footer-nav-link" href="#booking">予約する</a>
+        <a class="footer-nav-link" href="#access" id="fnav-access">アクセス</a>
+        <a class="footer-nav-link" href="parking.html" id="fnav-parking">駐車場</a>
+        <a class="footer-nav-link" href="#amenities" id="fnav-amenities">アメニティ</a>
+        <a class="footer-nav-link" href="#rules" id="fnav-rules">ハウスルール</a>
+        <a class="footer-nav-link" href="#booking" id="fnav-booking">予約する</a>
       </nav>
       <div class="footer-logo-wrap">
         <img src="images/logo.png" alt="MY HOUSE たいみんぐ">
@@ -927,7 +940,7 @@
     </div>
 
     <!-- コピーライト行 -->
-    <div class="footer-copy">
+    <div class="footer-copy" id="footer-copy">
       三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>
       © 2025 MY HOUSE たいみんぐ. All Rights Reserved.
     </div>
@@ -1022,6 +1035,55 @@
 <script>
 var translations = {
   ja: {
+    "btn-contact": "✉ お問い合わせ",
+    "scroll-hint-1": "← スクロールして全て見る →",
+    "scroll-hint-2": "← スクロールして全て見る →",
+    "scroll-hint-3": "← スクロールして全て見る →",
+    "footer-copy": "三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved.",
+    "trans-lego": "レゴランドへ",
+    "time-lego": " ── 車 約25分",
+    "trans-shirakawa": "白川郷へ",
+    "time-shirakawa": " ── 車 約2時間30分",
+    "route-guide-title": "📸 桑名駅からの道順",
+    "route-guide-desc": "近鉄・JR どちらからでもアクセス可能。<br>写真付きの道順ガイドで迷わずお越しください。",
+    "access-btn": "道順を確認する →",
+    "floor-title": "間取り図",
+    "contact-title": "お問い合わせ",
+    "contact-sub": "ご不明な点がございましたら、お気軽にご連絡ください。",
+    "form-name-label": "お名前",
+    "form-email-label": "メールアドレス",
+    "form-message-label": "お問い合わせ内容",
+    "form-submit": "送信する →",
+    "form-note": "通常2営業日以内にご返信いたします。<br>予約はAirbnb・Booking.comよりお願いします。",
+    "sightseeing-title": "周辺<em>観光スポット</em>",
+    "sightseeing-desc": "MY HOUSE たいみんぐは、三重・愛知・岐阜の主要観光地へのアクセスに優れた絶好のロケーションです。桑名駅から徒歩3分のため、電車・車どちらでも各地に楽にアクセスできます。",
+    "gallery-title": "施設<em>ギャラリー</em>",
+    "fnav-access": "アクセス",
+    "fnav-parking": "駐車場",
+    "fnav-amenities": "アメニティ",
+    "fnav-rules": "ハウスルール",
+    "fnav-booking": "予約する",
+    "sight1-tag": "車 約15分",
+    "sight1-name": "ナガシマスパーランド",
+    "sight1-desc": "日本最大級のジェットコースターが揃う遊園地。長島温泉に隣接し、アウトレットモール「ジャズドリーム長島」も徒歩圏内。グループ・家族旅行の拠点に最適です。",
+    "sight2-tag": "車 約15分",
+    "sight2-name": "長島温泉・湯あみの島",
+    "sight2-desc": "三重県が誇る人気の温泉リゾート。ナガシマスパーランドに隣接しており、遊んだあとに温泉でゆっくり過ごせます。桑名市の宿に泊まりながら日帰りで楽しめます。",
+    "sight3-tag": "電車 約30分",
+    "sight3-name": "名古屋",
+    "sight3-desc": "桑名駅から近鉄・JRで約30分。名古屋観光・ビジネスの拠点としても利用いただけます。名古屋城・大須商店街・栄エリアへのアクセスも抜群です。",
+    "sight4-tag": "車 約25分",
+    "sight4-name": "レゴランド・ジャパン",
+    "sight4-desc": "名古屋港に位置するレゴランドへも車で約25分。お子様連れのご家族に人気の観光スポットです。周辺の名古屋港水族館とあわせてお楽しみいただけます。",
+    "sight5-tag": "車 約45分",
+    "sight5-name": "鈴鹿サーキット",
+    "sight5-desc": "F1日本グランプリの開催地として世界的に有名な鈴鹿サーキット。レースイベント時の拠点宿泊として、グループでの一棟貸し利用が人気です。",
+    "sight6-tag": "車 約75分",
+    "sight6-name": "伊勢神宮・おかげ横丁",
+    "sight6-desc": "日本最古の神社のひとつ、伊勢神宮へも車で約75分。お伊勢参りや伊勢志摩観光の拠点として、桑名に宿泊しながら三重県を満喫できます。",
+    "sight7-tag": "車 約15分",
+    "sight7-name": "なばなの里",
+    "sight7-desc": "日本最大級のイルミネーションで有名な花のテーマパーク。ナガシマリゾート内に位置し、季節ごとに異なる花と光の演出が楽しめます。桑名から車で約15分とアクセス抜群です。",
     "hero-eyebrow": "Kuwana, Mie — Est. 2025",
     "hero-title": "Stay close.<br>Feel <em>at home.</em>",
     "hero-sub": "桑名駅から徒歩3分。<br>最大12名が泊まれる広々とした一棟貸し。<br>バリアフリー設計で、どなたでも安心してお過ごしいただけます。",
@@ -1048,6 +1110,7 @@ var translations = {
     "checkout-title": "チェックアウト時のお願い",
     "checkout-1": "お部屋を簡単に片付けてからチェックアウトをお願いします",
     "checkout-2": "エアコン・電気はすべて消してください（空気清浄機はそのままでOKです）",
+    "checkout-3": "家具・備品は所定の位置からの移動はご遠慮ください。次のお客様のためにご協力をお願いします。",
     "book-label": "Reserve Your Stay",
     "book-title": "ご予約はこちら",
     "book-sub": "Airbnb または Booking.com からご予約いただけます",
@@ -1108,6 +1171,55 @@ var translations = {
     "stat-barrier": "Barrier-Free"
   },
   en: {
+    "btn-contact": "✉ Contact",
+    "scroll-hint-1": "← Scroll to see all →",
+    "scroll-hint-2": "← Scroll to see all →",
+    "scroll-hint-3": "← Scroll to see all →",
+    "footer-copy": "476-52 Kuwana, Kuwana City, Mie　|　3 min from Kuwana Sta.　|　Up to 12 guests　|　Barrier-free<br>© 2025 MY HOUSE Timing. All Rights Reserved.",
+    "trans-lego": "To Legoland",
+    "time-lego": " ── 25 min by car",
+    "trans-shirakawa": "To Shirakawa-go",
+    "time-shirakawa": " ── 2.5 hrs by car",
+    "route-guide-title": "📸 Route from Kuwana Station",
+    "route-guide-desc": "Accessible from both Kintetsu and JR lines.<br>Follow our photo guide so you won't get lost.",
+    "access-btn": "View directions →",
+    "floor-title": "Floor Plan",
+    "contact-title": "Contact Us",
+    "contact-sub": "If you have any questions, please feel free to contact us.",
+    "form-name-label": "Name",
+    "form-email-label": "Email",
+    "form-message-label": "Message",
+    "form-submit": "Send →",
+    "form-note": "We usually reply within 2 business days.<br>Please book via Airbnb or Booking.com.",
+    "sightseeing-title": "Nearby <em>Attractions</em>",
+    "sightseeing-desc": "MY HOUSE Timing is ideally located with excellent access to major sights in Mie, Aichi and Gifu. Just 3 min from Kuwana Station, you can easily reach each destination by train or car.",
+    "gallery-title": "Facility <em>Gallery</em>",
+    "fnav-access": "Access",
+    "fnav-parking": "Parking",
+    "fnav-amenities": "Amenities",
+    "fnav-rules": "House Rules",
+    "fnav-booking": "Book Now",
+    "sight1-tag": "15 min by car",
+    "sight1-name": "Nagashima Spa Land",
+    "sight1-desc": "An amusement park with some of Japan's largest roller coasters. Next to Nagashima Onsen, with the Jazz Dream Nagashima outlet mall within walking distance. Ideal base for group and family trips.",
+    "sight2-tag": "15 min by car",
+    "sight2-name": "Nagashima Onsen Yuami-no-shima",
+    "sight2-desc": "A popular hot spring resort that Mie is proud of. Adjacent to Nagashima Spa Land, you can relax in the onsen after playing. Easy day trip from your stay in Kuwana.",
+    "sight3-tag": "30 min by train",
+    "sight3-name": "Nagoya",
+    "sight3-desc": "About 30 min from Kuwana Station by Kintetsu or JR. A great base for Nagoya sightseeing or business, with excellent access to Nagoya Castle, Osu shopping street and the Sakae area.",
+    "sight4-tag": "25 min by car",
+    "sight4-name": "Legoland Japan",
+    "sight4-desc": "Legoland in Nagoya Port is about 25 min by car. A popular spot for families with children. Enjoy it together with the nearby Port of Nagoya Public Aquarium.",
+    "sight5-tag": "45 min by car",
+    "sight5-name": "Suzuka Circuit",
+    "sight5-desc": "Suzuka Circuit, world-famous as the host of the F1 Japanese Grand Prix. Popular for whole-house group stays as a base during race events.",
+    "sight6-tag": "75 min by car",
+    "sight6-name": "Ise Grand Shrine & Okage Yokocho",
+    "sight6-desc": "Ise Grand Shrine, one of Japan's oldest shrines, is about 75 min by car. A base for visiting Ise and Ise-Shima sightseeing, enjoying Mie while staying in Kuwana.",
+    "sight7-tag": "15 min by car",
+    "sight7-name": "Nabana no Sato",
+    "sight7-desc": "A flower theme park famous for one of Japan's largest illuminations. Located within Nagashima Resort, you can enjoy seasonal flowers and light displays. Just 15 min by car from Kuwana.",
     "hero-eyebrow": "Kuwana, Mie — Est. 2025",
     "hero-title": "Stay close.<br>Feel <em>at home.</em>",
     "hero-sub": "3 min walk from Kuwana Station.<br>Entire house for up to 12 guests.<br>Fully barrier-free for everyone.",
@@ -1134,6 +1246,7 @@ var translations = {
     "checkout-title": "Checkout Requests",
     "checkout-1": "Please tidy up the room before checkout.",
     "checkout-2": "Please turn off all lights and AC. (Air purifier can stay on.)",
+    "checkout-3": "Please do not rearrange furniture or fixtures. We kindly ask for your cooperation to keep the space ready for the next guests.",
     "book-label": "Reserve Your Stay",
     "book-title": "Book Your Stay",
     "book-sub": "Available on Airbnb or Booking.com",
@@ -1194,6 +1307,55 @@ var translations = {
     "stat-barrier": "Barrier-Free"
   },
   zh: {
+    "btn-contact": "✉ 联系我们",
+    "scroll-hint-1": "← 滑动查看全部 →",
+    "scroll-hint-2": "← 滑动查看全部 →",
+    "scroll-hint-3": "← 滑动查看全部 →",
+    "footer-copy": "三重县桑名市桑名 476-52　|　桑名站步行3分钟　|　最多12人　|　无障碍<br>© 2025 MY HOUSE Timing. All Rights Reserved.",
+    "trans-lego": "前往乐高乐园",
+    "time-lego": " ── 开车约25分钟",
+    "trans-shirakawa": "前往白川乡",
+    "time-shirakawa": " ── 开车约2小时30分",
+    "route-guide-title": "📸 从桑名站出发的路线",
+    "route-guide-desc": "近铁、JR线均可到达。<br>请参照带照片的路线指南，轻松抵达。",
+    "access-btn": "查看路线 →",
+    "floor-title": "户型图",
+    "contact-title": "联系我们",
+    "contact-sub": "如有任何疑问，请随时与我们联系。",
+    "form-name-label": "姓名",
+    "form-email-label": "电子邮箱",
+    "form-message-label": "咨询内容",
+    "form-submit": "发送 →",
+    "form-note": "通常会在2个工作日内回复。<br>预订请通过Airbnb或Booking.com。",
+    "sightseeing-title": "周边<em>观光景点</em>",
+    "sightseeing-desc": "MY HOUSE Timing地理位置优越，方便前往三重、爱知、岐阜的主要景点。距桑名站步行3分钟，乘电车或开车都能轻松抵达各地。",
+    "gallery-title": "设施<em>相册</em>",
+    "fnav-access": "交通",
+    "fnav-parking": "停车场",
+    "fnav-amenities": "设施用品",
+    "fnav-rules": "住宿规则",
+    "fnav-booking": "预订",
+    "sight1-tag": "开车约15分钟",
+    "sight1-name": "长岛温泉乐园",
+    "sight1-desc": "拥有日本最大级过山车的游乐园。紧邻长岛温泉，奥特莱斯「Jazz Dream长岛」也在步行范围内。是团体、家庭旅行的理想据点。",
+    "sight2-tag": "开车约15分钟",
+    "sight2-name": "长岛温泉·汤浴之岛",
+    "sight2-desc": "三重县引以为傲的人气温泉度假村。紧邻长岛温泉乐园，玩乐后可在温泉中悠闲放松。住在桑名市的住宿即可当天往返畅游。",
+    "sight3-tag": "电车约30分钟",
+    "sight3-name": "名古屋",
+    "sight3-desc": "从桑名站乘近铁、JR约30分钟。可作为名古屋观光、商务的据点。前往名古屋城、大须商店街、荣地区也十分便利。",
+    "sight4-tag": "开车约25分钟",
+    "sight4-name": "乐高乐园日本",
+    "sight4-desc": "位于名古屋港的乐高乐园开车约25分钟。是深受亲子家庭欢迎的观光景点。可与附近的名古屋港水族馆一起游玩。",
+    "sight5-tag": "开车约45分钟",
+    "sight5-name": "铃鹿赛道",
+    "sight5-desc": "作为F1日本大奖赛举办地而闻名世界的铃鹿赛道。在赛事期间作为据点住宿，整栋出租的团体利用很受欢迎。",
+    "sight6-tag": "开车约75分钟",
+    "sight6-name": "伊势神宫·托福横丁",
+    "sight6-desc": "前往日本最古老的神社之一伊势神宫开车约75分钟。作为参拜伊势神宫及伊势志摩观光的据点，住在桑名即可饱览三重县。",
+    "sight7-tag": "开车约15分钟",
+    "sight7-name": "名花之里",
+    "sight7-desc": "以日本最大级灯光秀闻名的花卉主题公园。位于长岛度假区内，可欣赏四季不同的花卉与灯光演出。距桑名开车约15分钟，交通便利。",
     "hero-eyebrow": "三重县桑名市 — 2025年开业",
     "hero-title": "就在附近，<br>感受<em>家的温暖</em>",
     "hero-sub": "距桑名站步行仅3分钟。<br>可容纳最多12人的整栋出租。<br>全无障碍设计，所有人都能安心入住。",
@@ -1220,6 +1382,7 @@ var translations = {
     "checkout-title": "退房须知",
     "checkout-1": "退房前请简单整理房间。",
     "checkout-2": "请关闭所有空调和电灯。（空气净化机可保持开启）",
+    "checkout-3": "请勿移动房间内的家具及物品，以保持室内整洁，感谢您的配合。",
     "book-label": "Reserve Your Stay",
     "book-title": "立即预订",
     "book-sub": "可通过 Airbnb 或 Booking.com 预订",
@@ -1280,6 +1443,55 @@ var translations = {
     "stat-barrier": "无障碍"
   },
   ko: {
+    "btn-contact": "✉ 문의하기",
+    "scroll-hint-1": "← 스크롤하여 모두 보기 →",
+    "scroll-hint-2": "← 스크롤하여 모두 보기 →",
+    "scroll-hint-3": "← 스크롤하여 모두 보기 →",
+    "footer-copy": "미에현 구와나시 구와나 476-52　|　구와나역 도보 3분　|　최대 12명　|　배리어프리<br>© 2025 MY HOUSE Timing. All Rights Reserved.",
+    "trans-lego": "레고랜드까지",
+    "time-lego": " ── 차로 약 25분",
+    "trans-shirakawa": "시라카와고까지",
+    "time-shirakawa": " ── 차로 약 2시간 30분",
+    "route-guide-title": "📸 구와나역에서 오는 길",
+    "route-guide-desc": "긴테츠·JR 양쪽에서 접근 가능합니다.<br>사진이 있는 길 안내로 헤매지 않고 오세요.",
+    "access-btn": "길 안내 보기 →",
+    "floor-title": "평면도",
+    "contact-title": "문의하기",
+    "contact-sub": "궁금한 점이 있으시면 언제든지 문의해 주세요.",
+    "form-name-label": "이름",
+    "form-email-label": "이메일",
+    "form-message-label": "문의 내용",
+    "form-submit": "보내기 →",
+    "form-note": "보통 2영업일 이내에 답변드립니다.<br>예약은 Airbnb·Booking.com에서 부탁드립니다.",
+    "sightseeing-title": "주변 <em>관광 명소</em>",
+    "sightseeing-desc": "MY HOUSE 타이밍은 미에·아이치·기후의 주요 관광지 접근성이 뛰어난 최적의 위치입니다. 구와나역에서 도보 3분, 전철·자동차 어느 쪽으로도 편하게 이동할 수 있습니다.",
+    "gallery-title": "시설 <em>갤러리</em>",
+    "fnav-access": "오시는 길",
+    "fnav-parking": "주차장",
+    "fnav-amenities": "어메니티",
+    "fnav-rules": "하우스 룰",
+    "fnav-booking": "예약하기",
+    "sight1-tag": "차로 약 15분",
+    "sight1-name": "나가시마 스파랜드",
+    "sight1-desc": "일본 최대급 롤러코스터가 모인 놀이공원. 나가시마 온천에 인접하고 아울렛 몰 '재즈드림 나가시마'도 도보권. 그룹·가족여행 거점으로 최적입니다.",
+    "sight2-tag": "차로 약 15분",
+    "sight2-name": "나가시마 온천 유아미노시마",
+    "sight2-desc": "미에현이 자랑하는 인기 온천 리조트. 나가시마 스파랜드에 인접해 놀고 난 후 온천에서 느긋하게 보낼 수 있습니다. 구와나시 숙소에 묵으며 당일치기로 즐길 수 있습니다.",
+    "sight3-tag": "전철 약 30분",
+    "sight3-name": "나고야",
+    "sight3-desc": "구와나역에서 긴테츠·JR로 약 30분. 나고야 관광·비즈니스 거점으로도 이용 가능. 나고야성·오스 상점가·사카에 지역 접근성도 뛰어납니다.",
+    "sight4-tag": "차로 약 25분",
+    "sight4-name": "레고랜드 재팬",
+    "sight4-desc": "나고야항에 위치한 레고랜드까지 차로 약 25분. 아이를 동반한 가족에게 인기 있는 관광지입니다. 인근 나고야항 수족관과 함께 즐기실 수 있습니다.",
+    "sight5-tag": "차로 약 45분",
+    "sight5-name": "스즈카 서킷",
+    "sight5-desc": "F1 일본 그랑프리 개최지로 세계적으로 유명한 스즈카 서킷. 레이스 이벤트 시 거점 숙박으로 그룹 단독 대여 이용이 인기입니다.",
+    "sight6-tag": "차로 약 75분",
+    "sight6-name": "이세 신궁·오카게요코초",
+    "sight6-desc": "일본에서 가장 오래된 신사 중 하나인 이세 신궁까지 차로 약 75분. 이세 참배와 이세시마 관광 거점으로 구와나에 묵으며 미에현을 만끽할 수 있습니다.",
+    "sight7-tag": "차로 약 15분",
+    "sight7-name": "나바나노사토",
+    "sight7-desc": "일본 최대급 일루미네이션으로 유명한 꽃 테마파크. 나가시마 리조트 내에 위치해 계절마다 다른 꽃과 빛의 연출을 즐길 수 있습니다. 구와나에서 차로 약 15분으로 접근성이 뛰어납니다.",
     "hero-eyebrow": "미에현 구와나시 — 2025년 오픈",
     "hero-title": "가까이에서,<br><em>집처럼</em> 편안하게",
     "hero-sub": "구와나역에서 도보 3분.<br>최대 12명이 머물 수 있는 단독 주택.<br>배리어프리 설계로 누구나 편안하게 이용하실 수 있습니다.",
@@ -1306,6 +1518,7 @@ var translations = {
     "checkout-title": "체크아웃 시 부탁드립니다",
     "checkout-1": "체크아웃 전에 방을 간단히 정리해 주세요.",
     "checkout-2": "에어컨과 전등은 모두 꺼주세요. (공기청정기는 그대로 두셔도 됩니다.)",
+    "checkout-3": "가구 및 비품은 제자리에 두어 주시기 바랍니다. 다음 손님을 위해 협조 부탁드립니다.",
     "book-label": "Reserve Your Stay",
     "book-title": "예약하기",
     "book-sub": "Airbnb 또는 Booking.com에서 예약하실 수 있습니다",
@@ -1369,19 +1582,36 @@ var translations = {
 
 var currentLang = 'ja';
 
-function switchLang(lang, btn) {
+function applyLangIndex(lang) {
   currentLang = lang;
-  document.querySelectorAll('.lang-btn').forEach(function(b) { b.classList.remove('active'); });
-  if (btn) btn.classList.add('active');
+  document.querySelectorAll('.lang-btn').forEach(function(b) {
+    b.classList.remove('active');
+    if (b.getAttribute('onclick') && b.getAttribute('onclick').indexOf("'" + lang + "'") !== -1) {
+      b.classList.add('active');
+    }
+  });
   var t = translations[lang];
+  if (!t) return;
   var ids = Object.keys(t);
   for (var i = 0; i < ids.length; i++) {
     var el = document.getElementById(ids[i]);
     if (el) el.innerHTML = t[ids[i]];
   }
   var navBook = document.querySelector('.nav-book');
-  if (navBook) navBook.textContent = t['nav-book'];
+  if (navBook && t['nav-book']) navBook.textContent = t['nav-book'];
 }
+
+function switchLang(lang, btn) {
+  try { localStorage.setItem('siteLang', lang); } catch (e) {}
+  applyLangIndex(lang);
+}
+
+// ページ読み込み時：保存された言語を適用
+(function() {
+  var saved = 'ja';
+  try { saved = localStorage.getItem('siteLang') || 'ja'; } catch (e) {}
+  if (saved !== 'ja') applyLangIndex(saved);
+})();
 
 function openParking(e) {
   e.preventDefault();

@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YM0VWHYPDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YM0VWHYPDT');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">ハウスルール | MY HOUSE たいみんぐ</title>
+  <meta name="description" content="MY HOUSE たいみんぐのハウスルール・ご利用規約。チェックイン・アウト時間、禁煙・ペット・ゴミ分別・緊急連絡先など。">
+  <link rel="canonical" href="https://myhouse-timing.com/rules.html">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0efed; --white: #ffffff;
+      --gray-100: #f5f4f2; --gray-200: #e8e6e2; --gray-400: #c8c5bf;
+      --gray-600: #8a8680; --gray-700: #5a5750; --gray-800: #2e2d2b;
+      --accent: #7a6f5e; --accent-light: #b8a898;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--gray-800); overflow-x: hidden; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(240,239,237,0.98); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+    .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; letter-spacing: 0.08em; color: var(--gray-800); line-height: 1.2; white-space: nowrap; }
+    .logo-kuwana { display: block; font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; color: var(--accent); }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-600); text-decoration: none; border: 1px solid var(--gray-400); padding: 0.35rem 0.8rem; transition: all 0.2s; }
+    .back-link:hover { color: var(--gray-800); border-color: var(--gray-800); }
+    .lang-switcher { display: flex; gap: 0.3rem; }
+    .lang-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.3rem 0.6rem; border: 1px solid var(--gray-400); background: transparent; color: var(--gray-600); cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
+    .lang-btn:hover { border-color: var(--gray-800); color: var(--gray-800); }
+    .lang-btn.active { background: var(--gray-800); color: var(--white); border-color: var(--gray-800); }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 10rem 6rem 5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block; }
+    .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
+    .page-hero-title em { font-style: italic; color: var(--accent); }
+    .page-hero-sub { font-size: 0.85rem; color: var(--gray-600); line-height: 1.9; max-width: 560px; }
+
+    /* ── SECTIONS ── */
+    .rules-section { padding: 5rem 6rem; }
+    .rules-section:nth-child(even) { background: var(--white); }
+    .rules-section:nth-child(odd) { background: var(--bg); }
+
+    .sec-header { margin-bottom: 2.5rem; }
+    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1.2; }
+    .sec-title em { font-style: italic; color: var(--accent); }
+
+    /* ── RULE CARDS GRID ── */
+    .rule-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .rule-card {
+      background: var(--gray-100);
+      border: 1px solid var(--gray-200);
+      border-top: 3px solid var(--accent-light);
+      padding: 1.8rem 2rem;
+    }
+    .rule-card-icon { font-size: 2rem; display: block; margin-bottom: 0.8rem; }
+    .rule-card-title { font-size: 0.95rem; font-weight: 700; color: var(--gray-800); margin-bottom: 0.5rem; }
+    .rule-card-detail { font-size: 0.82rem; line-height: 1.85; color: var(--gray-600); }
+    .rule-card.accent-border { border-top-color: var(--accent); }
+
+    /* ── RULE LIST ── */
+    .rule-list { display: flex; flex-direction: column; gap: 1rem; }
+    .rule-item {
+      display: flex; align-items: flex-start; gap: 1rem;
+      background: var(--gray-100); border: 1px solid var(--gray-200);
+      padding: 1.4rem 1.8rem;
+    }
+    .rule-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-light); flex-shrink: 0; margin-top: 0.55rem; }
+    .rule-text { font-size: 0.85rem; line-height: 1.85; color: var(--gray-700); }
+
+    /* ── ALERT CARD ── */
+    .alert-card {
+      background: #2e2d2b; color: var(--white);
+      padding: 2rem 2.5rem;
+      display: flex; align-items: flex-start; gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .alert-icon { font-size: 2.5rem; flex-shrink: 0; line-height: 1; }
+    .alert-title { font-size: 1rem; font-weight: 700; margin-bottom: 0.5rem; }
+    .alert-desc { font-size: 0.83rem; line-height: 1.85; opacity: 0.85; }
+    .alert-price { display: inline-block; font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 300; color: #f6ad55; margin-top: 0.3rem; }
+
+    /* ── TRASH GRID ── */
+    .trash-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.2rem; }
+    .trash-card { border: 1px solid var(--gray-200); overflow: hidden; }
+    .trash-header { padding: 0.8rem 1.4rem; font-size: 0.85rem; font-weight: 700; color: var(--white); display: flex; align-items: center; gap: 0.6rem; }
+    .th-red    { background: #c53030; }
+    .th-gray   { background: #4a5568; }
+    .th-green  { background: #276749; }
+    .th-purple { background: #553c9a; }
+    .trash-body { padding: 1.2rem 1.4rem; background: var(--white); }
+    .trash-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 0.8rem; }
+    .trash-tag { background: var(--gray-100); border: 1px solid var(--gray-200); font-size: 0.75rem; padding: 0.2rem 0.7rem; color: var(--gray-700); }
+    .trash-note { font-size: 0.78rem; color: var(--gray-600); line-height: 1.75; border-left: 3px solid var(--gray-400); padding-left: 0.8rem; margin-top: 0.5rem; }
+
+    /* ── EMERGENCY ── */
+    .emer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem; }
+    .emer-num {
+      padding: 2rem; text-align: center; color: var(--white);
+      display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
+    }
+    .emer-police { background: #1a365d; }
+    .emer-fire   { background: #9b2335; }
+    .emer-icon  { font-size: 2.5rem; }
+    .emer-label { font-size: 0.8rem; opacity: 0.85; font-weight: 700; }
+    .emer-val   { font-family: 'Cormorant Garamond', serif; font-size: 4rem; font-weight: 300; line-height: 1; }
+    .emer-sub   { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; opacity: 0.7; }
+    .info-card {
+      background: var(--gray-100); border: 1px solid var(--gray-200);
+      border-left: 4px solid var(--accent); padding: 1.2rem 1.5rem; margin-bottom: 1rem;
+    }
+    .ic-label { font-family: 'DM Mono', monospace; font-size: 0.58rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.4rem; }
+    .ic-val   { font-size: 1.1rem; font-weight: 700; color: var(--gray-800); }
+    .ic-sub   { font-size: 0.75rem; color: var(--gray-600); margin-top: 0.2rem; }
+
+    /* ── FOOTER ── */
+    footer { background: #1a1917; color: rgba(255,255,255,0.6); padding: 4rem 6rem 3rem; }
+    .footer-inner { display: flex; flex-direction: column; gap: 2.5rem; }
+    .footer-sns { display: flex; align-items: center; gap: 1.5rem; }
+    .footer-sns-label { font-family: 'DM Mono', monospace; font-size: 0.55rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.35); }
+    .footer-sns-divider { flex: 1; height: 1px; background: rgba(255,255,255,0.12); max-width: 60px; }
+    .footer-sns-links { display: flex; gap: 1.5rem; }
+    .footer-sns-link { color: rgba(255,255,255,0.5); text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; display: flex; align-items: center; gap: 0.5rem; transition: color 0.2s; }
+    .footer-sns-link:hover { color: rgba(255,255,255,0.85); }
+    .footer-nav { display: flex; align-items: center; justify-content: space-between; padding: 2rem 0; border-top: 1px solid rgba(255,255,255,0.08); border-bottom: 1px solid rgba(255,255,255,0.08); }
+    .footer-nav-links { display: flex; gap: 2.5rem; }
+    .footer-nav-link { color: rgba(255,255,255,0.5); text-decoration: none; font-family: 'DM Mono', monospace; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.2s; }
+    .footer-nav-link:hover { color: rgba(255,255,255,0.85); }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 0.7rem; }
+    .footer-logo-wrap img { height: 28px; width: auto; opacity: 0.5; }
+    .footer-logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1rem; font-weight: 300; color: rgba(255,255,255,0.35); letter-spacing: 0.08em; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.8; text-align: center; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      header { padding: 1rem 1.5rem; }
+      .back-link { display: none; }
+      .page-hero { padding: 7rem 1.5rem 3rem; }
+      .page-hero-title { font-size: 2.2rem; }
+      .rules-section { padding: 3rem 1.5rem; }
+      .rule-cards { grid-template-columns: 1fr; }
+      .trash-grid { grid-template-columns: 1fr; }
+      .emer-grid { grid-template-columns: 1fr; }
+      footer { padding: 3rem 1.5rem 2rem; }
+      .footer-nav { flex-direction: column; gap: 1.5rem; align-items: flex-start; }
+      .footer-nav-links { flex-wrap: wrap; gap: 1rem; }
+      .header-right { gap: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <a class="logo" href="/">
+    <div>
+      <span class="logo-text">MY HOUSE たいみんぐ</span>
+      <span class="logo-kuwana">Kuwana, Mie, Japan</span>
+    </div>
+  </a>
+  <div class="header-right">
+    <a class="back-link" href="/" id="back-link">← トップへ</a>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="switchLang('ja')">JA</button>
+      <button class="lang-btn" onclick="switchLang('en')">EN</button>
+      <button class="lang-btn" onclick="switchLang('zh')">ZH</button>
+      <button class="lang-btn" onclick="switchLang('ko')">KO</button>
+    </div>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<div class="page-hero">
+  <span class="section-label" id="hero-label">House Rules</span>
+  <h1 class="page-hero-title" id="hero-title">ハウス<em>ルール</em></h1>
+  <p class="page-hero-sub" id="hero-sub">快適にお過ごしいただくため、以下のルールをご確認のうえ、ご宿泊をお楽しみください。</p>
+</div>
+
+<!-- ── SECTION 1: 基本ルール ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s1-label">Basic Rules</span>
+    <h2 class="sec-title" id="s1-title">基本<em>ルール</em></h2>
+  </div>
+  <div class="rule-cards">
+    <div class="rule-card">
+      <span class="rule-card-icon">🕐</span>
+      <p class="rule-card-title" id="r-checkin">チェックイン</p>
+      <p class="rule-card-detail" id="r-checkin-time">16:00〜（事前にご連絡ください）</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-card-icon">🕙</span>
+      <p class="rule-card-title" id="r-checkout">チェックアウト</p>
+      <p class="rule-card-detail" id="r-checkout-time">〜10:00（厳守でお願いします）</p>
+    </div>
+    <div class="rule-card accent-border">
+      <span class="rule-card-icon">🚭</span>
+      <p class="rule-card-title" id="r-nosmoking">禁煙</p>
+      <p class="rule-card-detail" id="r-nosmoking-detail">館内全面禁煙。喫煙が発覚した場合は特別清掃料として3万円をご請求いたします。</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-card-icon">🐾</span>
+      <p class="rule-card-title" id="r-pets">ペット</p>
+      <p class="rule-card-detail" id="r-pets-detail">ペット不可</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-card-icon">🔒</span>
+      <p class="rule-card-title" id="r-lock">施錠</p>
+      <p class="rule-card-detail" id="r-lock-detail">就寝時・外出時は必ず鍵をかけてください。</p>
+    </div>
+    <div class="rule-card">
+      <span class="rule-card-icon">👥</span>
+      <p class="rule-card-title" id="r-guests">入室</p>
+      <p class="rule-card-detail" id="r-guests-detail">宿泊者名簿に記載のない方の入室はできません。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 2: チェックアウト ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s2-label">Checkout</span>
+    <h2 class="sec-title" id="s2-title">チェックアウト時の<em>お願い</em></h2>
+  </div>
+  <div class="rule-list">
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="co-1">お部屋を簡単に片付けてからチェックアウトをお願いします。</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="co-2">エアコン・電気はすべて消してください。（空気清浄機はそのままでOKです）</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="co-3">家具・備品は所定の位置からの移動はご遠慮ください。次のお客様のためにご協力をお願いします。</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="co-4">IHコンロの電源もご確認をお願いします。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 3: 備品・設備 ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s3-label">Facilities</span>
+    <h2 class="sec-title" id="s3-title">備品・<em>設備</em>について</h2>
+  </div>
+  <div class="rule-list">
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="fac-1">寝具（ベッド・枕・布団）はお1人様につき1セットでご利用ください。</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="fac-2">タオルは必要な分だけご使用ください。過度なご使用はご遠慮願います。</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="fac-3">室内の備品・消耗品はすべて施設のものです。お持ち帰りはご遠慮ください。</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="fac-4">昇降機は車椅子をご利用の方専用です。それ以外の方のご使用はご遠慮ください。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 4: 飲酒・喫煙 ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s4-label">Alcohol &amp; Smoking</span>
+    <h2 class="sec-title" id="s4-title">飲酒・<em>喫煙</em>について</h2>
+  </div>
+  <div class="alert-card">
+    <div class="alert-icon">🍺</div>
+    <div>
+      <p class="alert-title" id="alc-title">飲酒による汚損</p>
+      <p class="alert-desc" id="alc-desc">次のゲスト様が快適に過ごせるよう、清潔な状態でのご利用をお願いしております。過度な飲酒等により嘔吐され、著しい汚損が確認された場合には、</p>
+      <p class="alert-price" id="alc-price">特別清掃費 ¥50,000</p>
+      <p class="alert-desc" id="alc-charge" style="margin-top:0.3rem;">をご請求させていただきます。</p>
+    </div>
+  </div>
+  <div class="alert-card">
+    <div class="alert-icon">🚬</div>
+    <div>
+      <p class="alert-title" id="smk-title">喫煙について</p>
+      <p class="alert-desc" id="smk-desc">館内・バルコニーでの喫煙は全面禁止です。喫煙が発覚した場合には、</p>
+      <p class="alert-price" id="smk-price">特別清掃料 ¥30,000</p>
+      <p class="alert-desc" id="smk-charge" style="margin-top:0.3rem;">をご請求させていただきます。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 5: 破損・汚損 ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s5-label">Damage &amp; Soiling</span>
+    <h2 class="sec-title" id="s5-title">破損・<em>汚損</em>について</h2>
+  </div>
+  <div class="rule-list">
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="dmg-1">家電・家具・備品の破損・汚損が発生した場合は、速やかにご報告ください。</p>
+    </div>
+    <div class="rule-item">
+      <span class="rule-dot"></span>
+      <p class="rule-text" id="dmg-2">ご報告の有無にかかわらず、破損・汚損が確認された場合は修理・交換費用をご請求させていただく場合があります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ── SECTION 6: ゴミ ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s6-label">Trash Sorting</span>
+    <h2 class="sec-title" id="s6-title">ゴミの<em>分別</em></h2>
+  </div>
+  <div class="trash-grid">
+    <div class="trash-card">
+      <div class="trash-header th-red">🔥 <span id="tr-burnable">燃えるゴミ</span></div>
+      <div class="trash-body">
+        <div class="trash-tags">
+          <span class="trash-tag" id="tr-b1">生ごみ</span>
+          <span class="trash-tag" id="tr-b2">ティッシュ</span>
+          <span class="trash-tag" id="tr-b3">紙おむつ</span>
+          <span class="trash-tag" id="tr-b4">天然繊維</span>
+        </div>
+        <p class="trash-note" id="tr-b-note">生ゴミは備え付けの小さなビニール袋に入れ、水気を切ってから出してください。</p>
+      </div>
+    </div>
+    <div class="trash-card">
+      <div class="trash-header th-gray">♻️ <span id="tr-nonburn">燃えないゴミ</span></div>
+      <div class="trash-body">
+        <div class="trash-tags">
+          <span class="trash-tag" id="tr-n1">ビン</span>
+          <span class="trash-tag" id="tr-n2">カン</span>
+          <span class="trash-tag" id="tr-n3">ペットボトル</span>
+          <span class="trash-tag" id="tr-n4">プラスチック</span>
+        </div>
+        <p class="trash-note" id="tr-n-note">キャップ・ラベルを外して中を洗い、つぶして出してください。</p>
+      </div>
+    </div>
+    <div class="trash-card">
+      <div class="trash-header th-green">📦 <span id="tr-paper">古紙・ダンボール</span></div>
+      <div class="trash-body">
+        <div class="trash-tags">
+          <span class="trash-tag" id="tr-p1">新聞</span>
+          <span class="trash-tag" id="tr-p2">雑誌</span>
+          <span class="trash-tag" id="tr-p3">ダンボール</span>
+        </div>
+        <p class="trash-note" id="tr-p-note">新聞・雑誌はひもで束ね、ダンボールは畳んでください。</p>
+      </div>
+    </div>
+    <div class="trash-card">
+      <div class="trash-header th-purple">🛋️ <span id="tr-bulk">粗大ゴミ</span></div>
+      <div class="trash-body">
+        <p class="trash-note" id="tr-bulk-note">通常のゴミとして出せません。ホストにご相談ください。</p>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top:1.5rem;padding:1.2rem 1.8rem;background:var(--white);border:1px solid var(--gray-200);border-left:4px solid var(--accent-light);">
+    <p style="font-size:0.83rem;color:var(--gray-600);line-height:1.85;" id="trash-note-main">🙏 ゴミ捨て場所はスタッフにお尋ねください。指定場所以外への廃棄はご遠慮ください。</p>
+  </div>
+</section>
+
+<!-- ── SECTION 7: 緊急連絡先 ── -->
+<section class="rules-section">
+  <div class="sec-header">
+    <span class="section-label" id="s7-label">Emergency</span>
+    <h2 class="sec-title" id="s7-title"><em>緊急</em>連絡先</h2>
+  </div>
+  <div class="emer-grid">
+    <div class="emer-num emer-police">
+      <div class="emer-icon">🚔</div>
+      <div class="emer-label" id="emer-police-label">警察・事故・泥棒</div>
+      <div class="emer-val">110</div>
+      <div class="emer-sub">Police</div>
+    </div>
+    <div class="emer-num emer-fire">
+      <div class="emer-icon">🚒</div>
+      <div class="emer-label" id="emer-fire-label">消防・火事・救急</div>
+      <div class="emer-val">119</div>
+      <div class="emer-sub">Fire / Ambulance</div>
+    </div>
+  </div>
+  <div class="info-card">
+    <p class="ic-label" id="emer-addr-label">📍 施設住所</p>
+    <p class="ic-val">三重県桑名市桑名 476-52</p>
+  </div>
+  <div class="info-card" style="border-left-color:#9b2335;">
+    <p class="ic-label" style="color:#9b2335;" id="emer-host-label">📞 ホスト緊急連絡先</p>
+    <p class="ic-val">090-5609-4239</p>
+    <p class="ic-sub" id="emer-host-sub">MY HOUSE たいみんぐ 担当者（24時間）</p>
+  </div>
+  <div style="margin-top:1.5rem;padding:1.2rem 1.8rem;background:var(--white);border:1px solid var(--gray-200);border-left:4px solid var(--accent-light);">
+    <p style="font-size:0.83rem;color:var(--gray-600);line-height:1.85;" id="emer-note">何かお困りのことがあれば、いつでもご連絡ください。皆様の安全・快適な滞在を最優先にサポートいたします。</p>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-sns">
+      <span class="footer-sns-label">Official SNS</span>
+      <div class="footer-sns-divider"></div>
+      <div class="footer-sns-links">
+        <a class="footer-sns-link" href="https://www.instagram.com/myhouse_kuwana" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24"><defs><radialGradient id="ig2" cx="30%" cy="107%" r="150%"><stop offset="0%" stop-color="#fdf497"/><stop offset="45%" stop-color="#fd5949"/><stop offset="60%" stop-color="#d6249f"/><stop offset="90%" stop-color="#285AEB"/></radialGradient></defs><rect x="2" y="2" width="20" height="20" rx="5" fill="url(#ig2)"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.8"/><circle cx="17.5" cy="6.5" r="1.2" fill="white"/></svg>
+          Instagram
+        </a>
+        <a class="footer-sns-link" href="https://www.tiktok.com/@my.house717" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24"><rect width="24" height="24" rx="4" fill="#010101"/><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.18 8.18 0 004.78 1.52V6.74a4.85 4.85 0 01-1.01-.05z" fill="white"/></svg>
+          TikTok
+        </a>
+      </div>
+    </div>
+    <div class="footer-nav">
+      <nav class="footer-nav-links">
+        <a class="footer-nav-link" href="/#access" id="fnav-access">アクセス</a>
+        <a class="footer-nav-link" href="/parking.html" id="fnav-parking">駐車場</a>
+        <a class="footer-nav-link" href="/#amenities" id="fnav-amenities">アメニティ</a>
+        <a class="footer-nav-link" href="/rules.html" id="fnav-rules">ハウスルール</a>
+        <a class="footer-nav-link" href="/#booking" id="fnav-booking">予約する</a>
+      </nav>
+      <div class="footer-logo-wrap">
+        <img src="images/logo.png" alt="MY HOUSE たいみんぐ">
+        <span class="footer-logo-text">MY HOUSE たいみんぐ</span>
+      </div>
+    </div>
+    <div class="footer-copy" id="footer-copy">
+      三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>
+      © 2025 MY HOUSE たいみんぐ. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+const LANGS = {
+  ja: {
+    "page-title": "ハウスルール | MY HOUSE たいみんぐ",
+    "back-link": "← トップへ",
+    "hero-label": "House Rules",
+    "hero-title": "ハウス<em>ルール</em>",
+    "hero-sub": "快適にお過ごしいただくため、以下のルールをご確認のうえ、ご宿泊をお楽しみください。",
+    "s1-label": "Basic Rules", "s1-title": "基本<em>ルール</em>",
+    "r-checkin": "チェックイン", "r-checkin-time": "16:00〜（事前にご連絡ください）",
+    "r-checkout": "チェックアウト", "r-checkout-time": "〜10:00（厳守でお願いします）",
+    "r-nosmoking": "禁煙", "r-nosmoking-detail": "館内全面禁煙。喫煙が発覚した場合は特別清掃料として3万円をご請求いたします。",
+    "r-pets": "ペット", "r-pets-detail": "ペット不可",
+    "r-lock": "施錠", "r-lock-detail": "就寝時・外出時は必ず鍵をかけてください。",
+    "r-guests": "入室", "r-guests-detail": "宿泊者名簿に記載のない方の入室はできません。",
+    "s2-label": "Checkout", "s2-title": "チェックアウト時の<em>お願い</em>",
+    "co-1": "お部屋を簡単に片付けてからチェックアウトをお願いします。",
+    "co-2": "エアコン・電気はすべて消してください。（空気清浄機はそのままでOKです）",
+    "co-3": "家具・備品は所定の位置からの移動はご遠慮ください。次のお客様のためにご協力をお願いします。",
+    "co-4": "IHコンロの電源もご確認をお願いします。",
+    "s3-label": "Facilities", "s3-title": "備品・<em>設備</em>について",
+    "fac-1": "寝具（ベッド・枕・布団）はお1人様につき1セットでご利用ください。",
+    "fac-2": "タオルは必要な分だけご使用ください。過度なご使用はご遠慮願います。",
+    "fac-3": "室内の備品・消耗品はすべて施設のものです。お持ち帰りはご遠慮ください。",
+    "fac-4": "昇降機は車椅子をご利用の方専用です。それ以外の方のご使用はご遠慮ください。",
+    "s4-label": "Alcohol & Smoking", "s4-title": "飲酒・<em>喫煙</em>について",
+    "alc-title": "飲酒による汚損", "alc-desc": "次のゲスト様が快適に過ごせるよう、清潔な状態でのご利用をお願いしております。過度な飲酒等により嘔吐され、著しい汚損が確認された場合には、",
+    "alc-price": "特別清掃費 ¥50,000", "alc-charge": "をご請求させていただきます。",
+    "smk-title": "喫煙について", "smk-desc": "館内・バルコニーでの喫煙は全面禁止です。喫煙が発覚した場合には、",
+    "smk-price": "特別清掃料 ¥30,000", "smk-charge": "をご請求させていただきます。",
+    "s5-label": "Damage & Soiling", "s5-title": "破損・<em>汚損</em>について",
+    "dmg-1": "家電・家具・備品の破損・汚損が発生した場合は、速やかにご報告ください。",
+    "dmg-2": "ご報告の有無にかかわらず、破損・汚損が確認された場合は修理・交換費用をご請求させていただく場合があります。",
+    "s6-label": "Trash Sorting", "s6-title": "ゴミの<em>分別</em>",
+    "tr-burnable": "燃えるゴミ", "tr-b1": "生ごみ", "tr-b2": "ティッシュ", "tr-b3": "紙おむつ", "tr-b4": "天然繊維",
+    "tr-b-note": "生ゴミは備え付けの小さなビニール袋に入れ、水気を切ってから出してください。",
+    "tr-nonburn": "燃えないゴミ", "tr-n1": "ビン", "tr-n2": "カン", "tr-n3": "ペットボトル", "tr-n4": "プラスチック",
+    "tr-n-note": "キャップ・ラベルを外して中を洗い、つぶして出してください。",
+    "tr-paper": "古紙・ダンボール", "tr-p1": "新聞", "tr-p2": "雑誌", "tr-p3": "ダンボール",
+    "tr-p-note": "新聞・雑誌はひもで束ね、ダンボールは畳んでください。",
+    "tr-bulk": "粗大ゴミ", "tr-bulk-note": "通常のゴミとして出せません。ホストにご相談ください。",
+    "trash-note-main": "🙏 ゴミ捨て場所はスタッフにお尋ねください。指定場所以外への廃棄はご遠慮ください。",
+    "s7-label": "Emergency", "s7-title": "<em>緊急</em>連絡先",
+    "emer-police-label": "警察・事故・泥棒", "emer-fire-label": "消防・火事・救急",
+    "emer-addr-label": "📍 施設住所", "emer-host-label": "📞 ホスト緊急連絡先",
+    "emer-host-sub": "MY HOUSE たいみんぐ 担当者（24時間）",
+    "emer-note": "何かお困りのことがあれば、いつでもご連絡ください。皆様の安全・快適な滞在を最優先にサポートいたします。",
+    "fnav-access": "アクセス", "fnav-parking": "駐車場", "fnav-amenities": "アメニティ", "fnav-rules": "ハウスルール", "fnav-booking": "予約する",
+    "footer-copy": "三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  },
+  en: {
+    "page-title": "House Rules | MY HOUSE たいみんぐ",
+    "back-link": "← Back to Top",
+    "hero-label": "House Rules",
+    "hero-title": "House <em>Rules</em>",
+    "hero-sub": "Please read through the following rules to ensure a comfortable stay for everyone.",
+    "s1-label": "Basic Rules", "s1-title": "Basic <em>Rules</em>",
+    "r-checkin": "Check-in", "r-checkin-time": "From 16:00 (please contact us in advance)",
+    "r-checkout": "Check-out", "r-checkout-time": "By 10:00 (strictly observed)",
+    "r-nosmoking": "No Smoking", "r-nosmoking-detail": "No smoking anywhere indoors. If smoking is discovered, a special cleaning fee of ¥30,000 will be charged.",
+    "r-pets": "Pets", "r-pets-detail": "No pets allowed",
+    "r-lock": "Locking Up", "r-lock-detail": "Please lock the door when sleeping or going out.",
+    "r-guests": "Entry", "r-guests-detail": "Only guests listed in the guest registry may enter the property.",
+    "s2-label": "Checkout", "s2-title": "<em>Checkout</em> Requests",
+    "co-1": "Please tidy up the room before checkout.",
+    "co-2": "Please turn off all lights and AC. (Air purifier can stay on.)",
+    "co-3": "Please do not rearrange furniture or fixtures. We kindly ask for your cooperation to keep the space ready for the next guests.",
+    "co-4": "Please also make sure the IH cooktop is turned off.",
+    "s3-label": "Facilities", "s3-title": "Fixtures &amp; <em>Facilities</em>",
+    "fac-1": "Please use one set of bedding (bed, pillow, futon) per person.",
+    "fac-2": "Please use only as many towels as needed. Excessive use is not permitted.",
+    "fac-3": "All fixtures and consumables in the room belong to the facility. Please do not take them.",
+    "fac-4": "The lift is for wheelchair users only. Other guests should use the stairs.",
+    "s4-label": "Alcohol & Smoking", "s4-title": "Alcohol &amp; <em>Smoking</em>",
+    "alc-title": "Soiling Due to Alcohol", "alc-desc": "To ensure the next guests enjoy a comfortable stay, please keep the property clean. If excessive drinking results in vomiting and significant soiling is confirmed,",
+    "alc-price": "Special Cleaning Fee ¥50,000", "alc-charge": "will be charged.",
+    "smk-title": "Smoking Policy", "smk-desc": "Smoking is strictly prohibited indoors and on the balcony. If smoking is discovered,",
+    "smk-price": "Special Cleaning Fee ¥30,000", "smk-charge": "will be charged.",
+    "s5-label": "Damage & Soiling", "s5-title": "Damage &amp; <em>Soiling</em>",
+    "dmg-1": "If any appliances, furniture, or fixtures are damaged or soiled, please report it promptly.",
+    "dmg-2": "Regardless of whether it is reported, repair or replacement costs may be charged if damage is confirmed.",
+    "s6-label": "Trash Sorting", "s6-title": "Trash <em>Sorting</em>",
+    "tr-burnable": "Burnable Trash", "tr-b1": "Food waste", "tr-b2": "Tissues", "tr-b3": "Diapers", "tr-b4": "Natural fibers",
+    "tr-b-note": "Put food waste in the small plastic bags provided. Please drain liquids before disposal.",
+    "tr-nonburn": "Non-Burnable", "tr-n1": "Glass bottles", "tr-n2": "Cans", "tr-n3": "PET bottles", "tr-n4": "Plastics",
+    "tr-n-note": "Remove caps and labels, rinse, and flatten before disposal.",
+    "tr-paper": "Paper / Cardboard", "tr-p1": "Newspapers", "tr-p2": "Magazines", "tr-p3": "Cardboard",
+    "tr-p-note": "Tie newspapers and magazines with string. Fold cardboard flat.",
+    "tr-bulk": "Bulk Waste", "tr-bulk-note": "Cannot be disposed of as regular trash. Please consult the host.",
+    "trash-note-main": "🙏 Please ask staff for the trash disposal location. Do not discard trash outside the designated area.",
+    "s7-label": "Emergency", "s7-title": "<em>Emergency</em> Contacts",
+    "emer-police-label": "Police / Accident / Theft", "emer-fire-label": "Fire / Emergency",
+    "emer-addr-label": "📍 Property Address", "emer-host-label": "📞 Host Emergency Contact",
+    "emer-host-sub": "MY HOUSE たいみんぐ (Available 24 hours)",
+    "emer-note": "Please feel free to contact us anytime if you have any concerns. Your safety and comfort are our top priority.",
+    "fnav-access": "Access", "fnav-parking": "Parking", "fnav-amenities": "Amenities", "fnav-rules": "House Rules", "fnav-booking": "Book Now",
+    "footer-copy": "476-52 Kuwana, Kuwana City, Mie, Japan　|　3 min walk from Kuwana Station　|　Max 12 guests　|　Barrier-free<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  },
+  zh: {
+    "page-title": "住宿规则 | MY HOUSE たいみんぐ",
+    "back-link": "← 返回首页",
+    "hero-label": "House Rules",
+    "hero-title": "住宿<em>规则</em>",
+    "hero-sub": "为了让每位客人都能舒适入住，请在入住前仔细阅读以下规则。",
+    "s1-label": "Basic Rules", "s1-title": "基本<em>规则</em>",
+    "r-checkin": "入住时间", "r-checkin-time": "16:00以后（请提前联系）",
+    "r-checkout": "退房时间", "r-checkout-time": "10:00以前（请严格遵守）",
+    "r-nosmoking": "禁烟", "r-nosmoking-detail": "室内全面禁烟。如发现吸烟，将收取3万日元的特别清洁费。",
+    "r-pets": "宠物", "r-pets-detail": "不允许携带宠物",
+    "r-lock": "锁门", "r-lock-detail": "就寝及外出时请务必锁门。",
+    "r-guests": "入室", "r-guests-detail": "未登记在住宿名单的人员不得入室。",
+    "s2-label": "Checkout", "s2-title": "退房时的<em>注意事项</em>",
+    "co-1": "退房前请简单整理房间。",
+    "co-2": "请关闭所有空调和电灯。（空气净化机可保持开启）",
+    "co-3": "请勿移动房间内的家具及物品，以保持室内整洁，感谢您的配合。",
+    "co-4": "请确认IH炉的电源已关闭。",
+    "s3-label": "Facilities", "s3-title": "物品及<em>设施</em>",
+    "fac-1": "寝具（床铺、枕头、被褥）请每人使用一套。",
+    "fac-2": "请按需使用毛巾，请勿过度使用。",
+    "fac-3": "室内所有物品均属设施财产，请勿带走。",
+    "fac-4": "升降机仅供使用轮椅的客人使用，其他客人请使用楼梯。",
+    "s4-label": "Alcohol & Smoking", "s4-title": "饮酒及<em>吸烟</em>",
+    "alc-title": "因饮酒导致的污损", "alc-desc": "为了让下一位客人舒适地入住，请保持设施清洁。如因过度饮酒导致呕吐并造成严重污损，",
+    "alc-price": "特别清洁费 ¥50,000", "alc-charge": "将予以收取。",
+    "smk-title": "关于吸烟", "smk-desc": "室内及阳台全面禁止吸烟。如发现吸烟，",
+    "smk-price": "特别清洁费 ¥30,000", "smk-charge": "将予以收取。",
+    "s5-label": "Damage & Soiling", "s5-title": "破损及<em>污损</em>",
+    "dmg-1": "如发生家电、家具、物品的损坏或污损，请及时告知。",
+    "dmg-2": "无论是否报告，一旦确认损坏，均可能收取修理或更换费用。",
+    "s6-label": "Trash Sorting", "s6-title": "垃圾<em>分类</em>",
+    "tr-burnable": "可燃垃圾", "tr-b1": "厨余垃圾", "tr-b2": "纸巾", "tr-b3": "纸尿裤", "tr-b4": "天然纤维",
+    "tr-b-note": "厨余垃圾请放入备用的小塑料袋，沥干水分后丢弃。",
+    "tr-nonburn": "不可燃垃圾", "tr-n1": "玻璃瓶", "tr-n2": "金属罐", "tr-n3": "塑料瓶", "tr-n4": "塑料制品",
+    "tr-n-note": "请去除瓶盖和标签，洗净压扁后丢弃。",
+    "tr-paper": "纸类/纸箱", "tr-p1": "报纸", "tr-p2": "杂志", "tr-p3": "纸箱",
+    "tr-p-note": "报纸和杂志请捆绑成束，纸箱请折叠放平。",
+    "tr-bulk": "大型垃圾", "tr-bulk-note": "不能作为普通垃圾处理，请联系房东。",
+    "trash-note-main": "🙏 垃圾投放地点请向工作人员确认，请勿在指定地点以外丢弃垃圾。",
+    "s7-label": "Emergency", "s7-title": "<em>紧急</em>联系方式",
+    "emer-police-label": "警察·事故·盗窃", "emer-fire-label": "消防·火灾·急救",
+    "emer-addr-label": "📍 设施地址", "emer-host-label": "📞 房东紧急联系方式",
+    "emer-host-sub": "MY HOUSE たいみんぐ 负责人（24小时）",
+    "emer-note": "如有任何疑问或困扰，请随时联系我们。我们优先保障每位客人的安全与舒适。",
+    "fnav-access": "交通", "fnav-parking": "停车场", "fnav-amenities": "设施", "fnav-rules": "住宿规则", "fnav-booking": "预约",
+    "footer-copy": "三重县桑名市桑名 476-52　|　距桑名站步行3分钟　|　最多12人　|　无障碍设施<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  },
+  ko: {
+    "page-title": "하우스 룰 | MY HOUSE たいみんぐ",
+    "back-link": "← 메인으로",
+    "hero-label": "House Rules",
+    "hero-title": "하우스 <em>룰</em>",
+    "hero-sub": "쾌적한 숙박을 위해 아래 규칙을 확인하신 후 이용해 주시기 바랍니다.",
+    "s1-label": "Basic Rules", "s1-title": "기본 <em>규칙</em>",
+    "r-checkin": "체크인", "r-checkin-time": "16:00 이후 (사전 연락 부탁드립니다)",
+    "r-checkout": "체크아웃", "r-checkout-time": "10:00 이전 (엄수 부탁드립니다)",
+    "r-nosmoking": "금연", "r-nosmoking-detail": "실내 전면 금연. 흡연이 발각된 경우 특별 청소비로 3만 엔을 청구드립니다.",
+    "r-pets": "반려동물", "r-pets-detail": "반려동물 불가",
+    "r-lock": "잠금", "r-lock-detail": "취침 시 및 외출 시 반드시 잠금 해주세요.",
+    "r-guests": "입실", "r-guests-detail": "숙박자 명단에 등록되지 않은 분은 입실하실 수 없습니다.",
+    "s2-label": "Checkout", "s2-title": "체크아웃 시 <em>부탁드립니다</em>",
+    "co-1": "체크아웃 전에 방을 간단히 정리해 주세요.",
+    "co-2": "에어컨과 전등은 모두 꺼주세요. (공기청정기는 그대로 두셔도 됩니다.)",
+    "co-3": "가구 및 비품은 제자리에 두어 주시기 바랍니다. 다음 손님을 위해 협조 부탁드립니다.",
+    "co-4": "IH 쿡탑 전원도 확인해 주세요.",
+    "s3-label": "Facilities", "s3-title": "비품 및 <em>설비</em>",
+    "fac-1": "침구(침대·베개·이불)는 1인당 1세트씩 이용해 주세요.",
+    "fac-2": "수건은 필요한 만큼만 사용해 주세요. 과도한 사용은 삼가 주시기 바랍니다.",
+    "fac-3": "실내의 비품 및 소모품은 모두 시설 소유물입니다. 가지고 가지 마세요.",
+    "fac-4": "승강기는 휠체어 이용 고객 전용입니다. 그 외 고객은 계단을 이용해 주세요.",
+    "s4-label": "Alcohol & Smoking", "s4-title": "음주 및 <em>흡연</em>",
+    "alc-title": "음주로 인한 오염", "alc-desc": "다음 게스트가 쾌적하게 지내실 수 있도록 청결한 상태로 이용해 주시기 바랍니다. 과도한 음주로 인한 구토 및 심각한 오염이 확인된 경우,",
+    "alc-price": "특별 청소비 ¥50,000", "alc-charge": "을 청구드립니다.",
+    "smk-title": "흡연에 대하여", "smk-desc": "실내 및 발코니에서의 흡연은 전면 금지입니다. 흡연이 발각된 경우,",
+    "smk-price": "특별 청소비 ¥30,000", "smk-charge": "을 청구드립니다.",
+    "s5-label": "Damage & Soiling", "s5-title": "파손 및 <em>오염</em>",
+    "dmg-1": "가전제품, 가구, 비품 등이 파손되거나 오염된 경우, 신속히 알려주시기 바랍니다.",
+    "dmg-2": "신고 여부에 관계없이 파손·오염이 확인된 경우 수리·교체 비용을 청구할 수 있습니다.",
+    "s6-label": "Trash Sorting", "s6-title": "쓰레기 <em>분리수거</em>",
+    "tr-burnable": "타는 쓰레기", "tr-b1": "음식물쓰레기", "tr-b2": "티슈", "tr-b3": "기저귀", "tr-b4": "천연섬유",
+    "tr-b-note": "음식물쓰레기는 비치된 작은 비닐봉투에 넣고 물기를 제거한 후 버려주세요.",
+    "tr-nonburn": "타지 않는 쓰레기", "tr-n1": "유리병", "tr-n2": "캔", "tr-n3": "페트병", "tr-n4": "플라스틱",
+    "tr-n-note": "뚜껑과 라벨을 제거하고 씻은 후 납작하게 눌러 버려주세요.",
+    "tr-paper": "종이류/골판지", "tr-p1": "신문", "tr-p2": "잡지", "tr-p3": "골판지",
+    "tr-p-note": "신문과 잡지는 끈으로 묶고, 골판지는 접어서 버려주세요.",
+    "tr-bulk": "대형 폐기물", "tr-bulk-note": "일반 쓰레기로 버릴 수 없습니다. 호스트에게 문의해 주세요.",
+    "trash-note-main": "🙏 쓰레기 버리는 장소는 직원에게 문의해 주세요. 지정 장소 이외에는 버리지 마세요.",
+    "s7-label": "Emergency", "s7-title": "<em>긴급</em> 연락처",
+    "emer-police-label": "경찰·사고·도난", "emer-fire-label": "소방·화재·구급",
+    "emer-addr-label": "📍 시설 주소", "emer-host-label": "📞 호스트 긴급 연락처",
+    "emer-host-sub": "MY HOUSE たいみんぐ 담당자 (24시간)",
+    "emer-note": "불편하신 점이 있으시면 언제든지 연락해 주세요. 여러분의 안전하고 편안한 숙박을 최우선으로 지원하겠습니다.",
+    "fnav-access": "교통", "fnav-parking": "주차장", "fnav-amenities": "어메니티", "fnav-rules": "하우스 룰", "fnav-booking": "예약",
+    "footer-copy": "미에현 구와나시 구와나 476-52　|　구와나역 도보 3분　|　최대 12명　|　배리어프리<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  }
+};
+
+function switchLang(lang) {
+  const data = LANGS[lang];
+  if (!data) return;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'ko' ? 'ko' : lang;
+  for (const [id, val] of Object.entries(data)) {
+    if (id === 'page-title') { document.title = val; continue; }
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  }
+}
+
+// 初期ロード
+switchLang('ja');
+</script>
+</body>
+</html>

@@ -38,6 +38,9 @@
     .lang-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.3rem 0.6rem; border: 1px solid var(--gray-400); background: transparent; color: var(--gray-600); cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
     .lang-btn:hover { border-color: var(--gray-800); color: var(--gray-800); }
     .lang-btn.active { background: var(--gray-800); color: var(--white); border-color: var(--gray-800); }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; color: var(--gray-600); text-decoration: none; border: 1px solid var(--gray-400); padding: 0.35rem 0.8rem; transition: all 0.2s; white-space: nowrap; }
+    .back-link:hover { color: var(--gray-800); border-color: var(--gray-800); }
+    @media (max-width: 768px) { .back-link { display: none; } }
 
     /* ── HERO ── */
     .page-hero {
@@ -195,11 +198,12 @@
   </a>
   <div class="header-right">
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="switchLang('ja')">JA</button>
-      <button class="lang-btn" onclick="switchLang('en')">EN</button>
-      <button class="lang-btn" onclick="switchLang('zh')">ZH</button>
-      <button class="lang-btn" onclick="switchLang('ko')">KO</button>
+      <button class="lang-btn active" data-lang="ja" onclick="switchLang('ja')">JP</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      <button class="lang-btn" data-lang="zh" onclick="switchLang('zh')">中</button>
+      <button class="lang-btn" data-lang="ko" onclick="switchLang('ko')">한</button>
     </div>
+    <a class="back-link" href="/" id="back-link">← トップに戻る</a>
   </div>
 </header>
 
@@ -517,6 +521,7 @@ const LANGS = {
     "hero-label": "Guest Guide",
     "hero-title": "ご宿泊の<em>ご案内</em>",
     "hero-sub": "ご予約いただきありがとうございます。こちらのページにはWi-Fi情報・ハウスルール・緊急連絡先など、滞在に必要な情報をまとめています。",
+    "back-link": "← トップに戻る",
     "s-wifi-title": "Wi-Fi<em>情報</em>",
     "wifi-band-2g": "2.4 GHz", "wifi-band-5g": "5 GHz（高速）",
     "wifi-ssid-label": "ネットワーク名", "wifi-pw-label": "パスワード",
@@ -575,6 +580,7 @@ const LANGS = {
     "hero-label": "Guest Guide",
     "hero-title": "Guest <em>Guide</em>",
     "hero-sub": "Thank you for your reservation. This page contains everything you need for your stay, including Wi-Fi, house rules, and emergency contacts.",
+    "back-link": "← Back to Top",
     "s-wifi-title": "Wi-Fi <em>Info</em>",
     "wifi-band-2g": "2.4 GHz", "wifi-band-5g": "5 GHz (High Speed)",
     "wifi-ssid-label": "Network Name", "wifi-pw-label": "Password",
@@ -633,6 +639,7 @@ const LANGS = {
     "hero-label": "Guest Guide",
     "hero-title": "住宿<em>指南</em>",
     "hero-sub": "感谢您的预订。本页面包含Wi-Fi信息、住宿规则、紧急联系方式等入住所需的全部信息。",
+    "back-link": "← 返回首页",
     "s-wifi-title": "Wi-Fi<em>信息</em>",
     "wifi-band-2g": "2.4 GHz", "wifi-band-5g": "5 GHz（高速）",
     "wifi-ssid-label": "网络名称", "wifi-pw-label": "密码",
@@ -691,6 +698,7 @@ const LANGS = {
     "hero-label": "Guest Guide",
     "hero-title": "숙박 <em>안내</em>",
     "hero-sub": "예약해 주셔서 감사합니다. Wi-Fi 정보, 하우스 룰, 긴급 연락처 등 숙박에 필요한 정보를 정리했습니다.",
+    "back-link": "← 메인으로",
     "s-wifi-title": "Wi-Fi <em>정보</em>",
     "wifi-band-2g": "2.4 GHz", "wifi-band-5g": "5 GHz（고속）",
     "wifi-ssid-label": "네트워크 이름", "wifi-pw-label": "비밀번호",
@@ -749,7 +757,7 @@ const LANGS = {
 function switchLang(lang) {
   const data = LANGS[lang];
   if (!data) return;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'ko' ? 'ko' : lang;
   for (const [id, val] of Object.entries(data)) {
     if (id === 'page-title') { document.title = val; continue; }

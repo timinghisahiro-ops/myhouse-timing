@@ -128,10 +128,10 @@
   <div class="header-right">
     <a class="back-link" href="/" id="back-link">← トップへ</a>
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="switchLang('ja')">JA</button>
-      <button class="lang-btn" onclick="switchLang('en')">EN</button>
-      <button class="lang-btn" onclick="switchLang('zh')">ZH</button>
-      <button class="lang-btn" onclick="switchLang('ko')">KO</button>
+      <button class="lang-btn active" data-lang="ja" onclick="switchLang('ja')">JP</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      <button class="lang-btn" data-lang="zh" onclick="switchLang('zh')">中</button>
+      <button class="lang-btn" data-lang="ko" onclick="switchLang('ko')">한</button>
     </div>
   </div>
 </header>
@@ -291,7 +291,7 @@ const LANGS = {
 function switchLang(lang) {
   const data = LANGS[lang];
   if (!data) return;
-  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent.toLowerCase() === lang));
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'ko' ? 'ko' : lang;
   for (const [id, val] of Object.entries(data)) {
     if (id === 'page-title') { document.title = val; continue; }

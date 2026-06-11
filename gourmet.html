@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <!-- Google tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YM0VWHYPDT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YM0VWHYPDT');
+  </script>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">周辺グルメ | MY HOUSE たいみんぐ</title>
+  <meta name="description" content="MY HOUSE たいみんぐ周辺のおすすめグルメ。桑名名物はまぐり、駅前居酒屋、ケーキ屋、レトロ横丁など徒歩圏内のお店をご紹介。">
+  <link rel="canonical" href="https://myhouse-timing.com/gourmet.html">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" sizes="512x512" href="/favicon-180.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Mono:wght@300;400&family=Noto+Sans+JP:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #f0efed; --white: #ffffff;
+      --gray-100: #f5f4f2; --gray-200: #e8e6e2; --gray-400: #c8c5bf;
+      --gray-600: #8a8680; --gray-700: #5a5750; --gray-800: #2e2d2b;
+      --accent: #7a6f5e; --accent-light: #b8a898;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Noto Sans JP', sans-serif; background: var(--bg); color: var(--gray-800); overflow-x: hidden; }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.2rem 3rem;
+      background: rgba(240,239,237,0.98); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .logo { display: flex; align-items: center; gap: 0.8rem; text-decoration: none; }
+    .logo-text { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 300; letter-spacing: 0.08em; color: var(--gray-800); line-height: 1.2; white-space: nowrap; }
+    .logo-kuwana { display: block; font-family: 'DM Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; color: var(--accent); }
+    .header-right { display: flex; align-items: center; gap: 1.5rem; }
+    .back-link { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.15em; color: var(--gray-600); text-decoration: none; border: 1px solid var(--gray-400); padding: 0.35rem 0.8rem; transition: all 0.2s; white-space: nowrap; }
+    .back-link:hover { color: var(--gray-800); border-color: var(--gray-800); }
+    .lang-switcher { display: flex; gap: 0.3rem; }
+    .lang-btn { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.1em; padding: 0.3rem 0.6rem; border: 1px solid var(--gray-400); background: transparent; color: var(--gray-600); cursor: pointer; transition: all 0.2s; text-transform: uppercase; }
+    .lang-btn:hover { border-color: var(--gray-800); color: var(--gray-800); }
+    .lang-btn.active { background: var(--gray-800); color: var(--white); border-color: var(--gray-800); }
+
+    /* ── HERO ── */
+    .page-hero {
+      padding: 10rem 6rem 5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-200);
+    }
+    .section-label { font-family: 'DM Mono', monospace; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--accent); margin-bottom: 1rem; display: block; }
+    .page-hero-title { font-family: 'Cormorant Garamond', serif; font-size: 3.5rem; font-weight: 300; line-height: 1.15; margin-bottom: 1rem; }
+    .page-hero-title em { font-style: italic; color: var(--accent); }
+    .page-hero-sub { font-size: 0.85rem; color: var(--gray-600); line-height: 1.9; max-width: 560px; }
+
+    /* ── SECTIONS ── */
+    .g-section { padding: 4rem 6rem; }
+    .g-section:nth-child(even) { background: var(--white); }
+    .sec-header { margin-bottom: 2rem; }
+    .sec-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 300; line-height: 1.2; }
+    .sec-title em { font-style: italic; color: var(--accent); }
+    .sec-note { font-size: 0.8rem; color: var(--gray-600); margin-top: 0.5rem; }
+
+    /* ── CARDS ── */
+    .g-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .g-card { background: var(--white); border: 1px solid var(--gray-200); overflow: hidden; }
+    .g-card-photo { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; }
+    .g-card-body { padding: 1.2rem 1.4rem 1.5rem; }
+    .g-tag { display: inline-block; font-size: 0.68rem; font-weight: 700; color: var(--accent); border: 1px solid var(--accent-light); padding: 0.15rem 0.6rem; border-radius: 99px; margin-bottom: 0.6rem; }
+    .g-name { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .g-desc { font-size: 0.8rem; line-height: 1.8; color: var(--gray-600); }
+
+    /* ── DISCLAIMER ── */
+    .disclaimer { padding: 2rem 6rem 4rem; font-size: 0.75rem; color: var(--gray-600); line-height: 1.8; }
+
+    /* ── FOOTER ── */
+    footer { background: #1a1917; color: rgba(255,255,255,0.6); padding: 4rem 6rem 3rem; }
+    .footer-inner { display: flex; flex-direction: column; gap: 2.5rem; }
+    .footer-copy { font-size: 0.72rem; color: rgba(255,255,255,0.3); line-height: 1.8; text-align: center; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      header { padding: 1rem 1.5rem; }
+      .back-link { display: none; }
+      .page-hero { padding: 7rem 1.5rem 3rem; }
+      .page-hero-title { font-size: 2.2rem; }
+      .g-section { padding: 2.5rem 1.5rem; }
+      .g-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
+      .g-card-body { padding: 0.9rem 1rem 1.1rem; }
+      .disclaimer { padding: 1.5rem 1.5rem 3rem; }
+      footer { padding: 3rem 1.5rem 2rem; }
+    }
+    @media (max-width: 480px) {
+      .g-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+  <a class="logo" href="/">
+    <div>
+      <span class="logo-text">MY HOUSE たいみんぐ</span>
+      <span class="logo-kuwana">Kuwana, Mie, Japan</span>
+    </div>
+  </a>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button class="lang-btn active" data-lang="ja" onclick="switchLang('ja')">JP</button>
+      <button class="lang-btn" data-lang="en" onclick="switchLang('en')">EN</button>
+      <button class="lang-btn" data-lang="zh" onclick="switchLang('zh')">中</button>
+      <button class="lang-btn" data-lang="ko" onclick="switchLang('ko')">한</button>
+    </div>
+    <a class="back-link" href="/" id="back-link">← トップに戻る</a>
+  </div>
+</header>
+
+<!-- ── HERO ── -->
+<div class="page-hero">
+  <span class="section-label">Nearby Gourmet</span>
+  <h1 class="page-hero-title" id="hero-title">周辺<em>グルメ</em></h1>
+  <p class="page-hero-sub" id="hero-sub">当宿は桑名駅前の繁華街エリア。徒歩圏内に、桑名名物のはまぐりから気軽な居酒屋・ラーメンまで揃っています。スタッフが実際に歩いて見つけたお店をご紹介します。</p>
+</div>
+
+<!-- ── 夜ごはん・お酒 ── -->
+<section class="g-section">
+  <div class="sec-header">
+    <span class="section-label">Dinner &amp; Drinks</span>
+    <h2 class="sec-title" id="s1-title">夜ごはん・<em>お酒</em></h2>
+  </div>
+  <div class="g-grid">
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/hamaguri_shogun.jpg" alt="蛤将軍" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-hama">桑名名物</span>
+        <p class="g-name">蛤将軍</p>
+        <p class="g-desc" id="d-hama">桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/miebito.jpg" alt="三重人" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-mie">海鮮・地酒</span>
+        <p class="g-name">三重人</p>
+        <p class="g-desc" id="d-mie">三重の地酒と海鮮が楽しめる駅前の居酒屋。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/hamayaki_eiyu.jpg" alt="浜焼ノ栄友" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-eiyu">浜焼き</span>
+        <p class="g-name">浜焼ノ栄友</p>
+        <p class="g-desc" id="d-eiyu">海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/heihachiro.jpg" alt="平八郎" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-hei">居酒屋</span>
+        <p class="g-name">平八郎</p>
+        <p class="g-desc" id="d-hei">落ち着いた構えの和風居酒屋。ゆっくり飲みたい夜に。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/gin.jpg" alt="吟" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-gin">和食</span>
+        <p class="g-name">吟</p>
+        <p class="g-desc" id="d-gin">黒い外壁が目印の和食・創作料理のお店。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/sola.jpg" alt="焼肉料理 宙" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-sola">焼肉</span>
+        <p class="g-name" id="n-sola">宙（sola）</p>
+        <p class="g-desc" id="d-sola">レトロな銀座街の中にある焼肉料理のお店。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/sunset.jpg" alt="SUNSET" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-sun">肉×ワイン</span>
+        <p class="g-name">SUNSET</p>
+        <p class="g-desc" id="d-sun">肉・ワイン・チーズが楽しめるモダンなダイニング。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/nanana.jpg" alt="ななな" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-nana">やさい巻き串</span>
+        <p class="g-name">ななな</p>
+        <p class="g-desc" id="d-nana">博多やさい巻き串のお店。野菜もお肉も串で楽しく。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/gorouza.jpg" alt="五郎左" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-goro">ラーメン</span>
+        <p class="g-name">五郎左</p>
+        <p class="g-desc" id="d-goro">飲んだあとの締めにもうれしい豚骨ラーメン。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/ginzagai.jpg" alt="銀座街" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-ginza">レトロ横丁</span>
+        <p class="g-name" id="n-ginza">銀座街</p>
+        <p class="g-desc" id="d-ginza">提灯が灯る昭和レトロな横丁。はしご酒気分でどうぞ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 甘いもの・お土産 ── -->
+<section class="g-section">
+  <div class="sec-header">
+    <span class="section-label">Sweets &amp; Souvenir</span>
+    <h2 class="sec-title" id="s2-title">甘いもの・<em>お土産</em></h2>
+  </div>
+  <div class="g-grid">
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/monami.jpg" alt="モナミ" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-mona">ケーキ</span>
+        <p class="g-name">モナミ</p>
+        <p class="g-desc" id="d-mona">当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/kashiwaya.jpg" alt="柏屋" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-kashi">桑名銘菓</span>
+        <p class="g-name">柏屋</p>
+        <p class="g-desc" id="d-kashi">桑名銘菓「安永餅」の老舗。お土産にぴったりです。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── 買い出し ── -->
+<section class="g-section">
+  <div class="sec-header">
+    <span class="section-label">Groceries</span>
+    <h2 class="sec-title" id="s3-title">買い出し・<em>コンビニ</em></h2>
+  </div>
+  <div class="g-grid">
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/apita.jpg" alt="アピタ桑名店" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-api">スーパー</span>
+        <p class="g-name" id="n-api">アピタ桑名店</p>
+        <p class="g-desc" id="d-api">食材やお酒の買い出しに。一棟貸しならではの「おうち宴会」の準備はここで。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/lawson.jpg" alt="ローソン" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-law">コンビニ</span>
+        <p class="g-name" id="n-law">ローソン</p>
+        <p class="g-desc" id="d-law">24時間営業。急な買い物や夜食はこちらへ。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p class="disclaimer" id="disclaimer">※営業時間・定休日は各店舗にてご確認ください。掲載内容は撮影時点の情報です。</p>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-copy" id="footer-copy">
+      三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>
+      © 2025 MY HOUSE たいみんぐ. All Rights Reserved.
+    </div>
+  </div>
+</footer>
+
+<script>
+const LANGS = {
+  ja: {
+    "page-title": "周辺グルメ | MY HOUSE たいみんぐ",
+    "back-link": "← トップに戻る",
+    "hero-title": "周辺<em>グルメ</em>",
+    "hero-sub": "当宿は桑名駅前の繁華街エリア。徒歩圏内に、桑名名物のはまぐりから気軽な居酒屋・ラーメンまで揃っています。スタッフが実際に歩いて見つけたお店をご紹介します。",
+    "s1-title": "夜ごはん・<em>お酒</em>", "s2-title": "甘いもの・<em>お土産</em>", "s3-title": "買い出し・<em>コンビニ</em>",
+    "t-hama": "桑名名物", "d-hama": "桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。",
+    "t-mie": "海鮮・地酒", "d-mie": "三重の地酒と海鮮が楽しめる駅前の居酒屋。",
+    "t-eiyu": "浜焼き", "d-eiyu": "海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。",
+    "t-hei": "居酒屋", "d-hei": "落ち着いた構えの和風居酒屋。ゆっくり飲みたい夜に。",
+    "t-gin": "和食", "d-gin": "黒い外壁が目印の和食・創作料理のお店。",
+    "t-sola": "焼肉", "n-sola": "宙（sola）", "d-sola": "レトロな銀座街の中にある焼肉料理のお店。",
+    "t-sun": "肉×ワイン", "d-sun": "肉・ワイン・チーズが楽しめるモダンなダイニング。",
+    "t-nana": "やさい巻き串", "d-nana": "博多やさい巻き串のお店。野菜もお肉も串で楽しく。",
+    "t-goro": "ラーメン", "d-goro": "飲んだあとの締めにもうれしい豚骨ラーメン。",
+    "t-ginza": "レトロ横丁", "n-ginza": "銀座街", "d-ginza": "提灯が灯る昭和レトロな横丁。はしご酒気分でどうぞ。",
+    "t-mona": "ケーキ", "d-mona": "当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。",
+    "t-kashi": "桑名銘菓", "d-kashi": "桑名銘菓「安永餅」の老舗。お土産にぴったりです。",
+    "t-api": "スーパー", "n-api": "アピタ桑名店", "d-api": "食材やお酒の買い出しに。一棟貸しならではの「おうち宴会」の準備はここで。",
+    "t-law": "コンビニ", "n-law": "ローソン", "d-law": "24時間営業。急な買い物や夜食はこちらへ。",
+    "disclaimer": "※営業時間・定休日は各店舗にてご確認ください。掲載内容は撮影時点の情報です。",
+    "footer-copy": "三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  },
+  en: {
+    "page-title": "Nearby Gourmet | MY HOUSE たいみんぐ",
+    "back-link": "← Back to Top",
+    "hero-title": "Nearby <em>Gourmet</em>",
+    "hero-sub": "Our house sits in the lively area in front of Kuwana Station. Within walking distance you'll find everything from Kuwana's famous clams to casual izakaya and ramen — all spots our staff found on foot.",
+    "s1-title": "Dinner &amp; <em>Drinks</em>", "s2-title": "Sweets &amp; <em>Souvenirs</em>", "s3-title": "Groceries &amp; <em>Convenience</em>",
+    "t-hama": "Kuwana Specialty", "d-hama": "The place for Kuwana's famous wild hamaguri clams, plus Matsusaka beef and Ise chicken.",
+    "t-mie": "Seafood & Sake", "d-mie": "Izakaya near the station with Mie's local sake and fresh seafood.",
+    "t-eiyu": "Seaside BBQ", "d-eiyu": "Grill fresh seafood right at your table, beach-shack style.",
+    "t-hei": "Izakaya", "d-hei": "A calm, traditional izakaya for a relaxed evening.",
+    "t-gin": "Japanese", "d-gin": "Creative Japanese cuisine behind a striking black facade.",
+    "t-sola": "Yakiniku", "n-sola": "Sola", "d-sola": "Yakiniku (grilled meat) restaurant inside the retro Ginza-gai alley.",
+    "t-sun": "Meat × Wine", "d-sun": "Modern dining with meat, wine and cheese.",
+    "t-nana": "Veggie Skewers", "d-nana": "Hakata-style vegetable-wrapped skewers. Fun and healthy.",
+    "t-goro": "Ramen", "d-goro": "Rich tonkotsu ramen — perfect to finish the night.",
+    "t-ginza": "Retro Alley", "n-ginza": "Ginza-gai", "d-ginza": "A nostalgic lantern-lit alley. Perfect for bar-hopping.",
+    "t-mona": "Cakes", "d-mona": "A pastry shop just steps from our house. Great for a stay-in treat.",
+    "t-kashi": "Local Sweets", "d-kashi": "Long-established maker of Yasunaga-mochi, Kuwana's signature sweet.",
+    "t-api": "Supermarket", "n-api": "APITA Kuwana", "d-api": "Stock up on food and drinks for a home party in your private house.",
+    "t-law": "Convenience", "n-law": "Lawson", "d-law": "Open 24 hours for anything you need, day or night.",
+    "disclaimer": "* Please check each shop for opening hours and closing days. Information as of the time of photography.",
+    "footer-copy": "476-52 Kuwana, Kuwana City, Mie, Japan　|　3 min walk from Kuwana Station　|　Max 12 guests　|　Barrier-free<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  },
+  zh: {
+    "page-title": "周边美食 | MY HOUSE たいみんぐ",
+    "back-link": "← 返回首页",
+    "hero-title": "周边<em>美食</em>",
+    "hero-sub": "本宿位于桑名站前的繁华地段，步行范围内有桑名名产蛤蜊、居酒屋、拉面等各种美食，均为工作人员实地探访的店铺。",
+    "s1-title": "晚餐・<em>美酒</em>", "s2-title": "甜点・<em>伴手礼</em>", "s3-title": "采购・<em>便利店</em>",
+    "t-hama": "桑名名产", "d-hama": "品尝桑名名产天然蛤蜊的好去处，还有松阪牛和伊势鸡。",
+    "t-mie": "海鲜・地酒", "d-mie": "站前居酒屋，供应三重的地方酒和新鲜海鲜。",
+    "t-eiyu": "海鲜烧烤", "d-eiyu": "豪迈地烤制海鲜的滨烧风格餐厅。",
+    "t-hei": "居酒屋", "d-hei": "氛围沉稳的日式居酒屋，适合悠闲小酌。",
+    "t-gin": "日本料理", "d-gin": "黑色外墙醒目的日式创意料理店。",
+    "t-sola": "烤肉", "n-sola": "宙（sola）", "d-sola": "位于复古银座街内的烤肉店。",
+    "t-sun": "肉×红酒", "d-sun": "可享用肉类、红酒和芝士的现代餐厅。",
+    "t-nana": "蔬菜卷串", "d-nana": "博多蔬菜卷串专门店，蔬菜和肉都能串着吃。",
+    "t-goro": "拉面", "d-goro": "豚骨拉面，作为夜宵收尾再合适不过。",
+    "t-ginza": "复古小巷", "n-ginza": "银座街", "d-ginza": "灯笼点亮的昭和复古小巷，适合换店续摊。",
+    "t-mona": "蛋糕", "d-mona": "距本宿咫尺之遥的蛋糕店，住宿期间的甜点首选。",
+    "t-kashi": "桑名名点", "d-kashi": "桑名名点「安永饼」老字号，适合作为伴手礼。",
+    "t-api": "超市", "n-api": "APITA桑名店", "d-api": "采购食材和酒水，为包栋住宿的“家庭宴会”做准备。",
+    "t-law": "便利店", "n-law": "罗森", "d-law": "24小时营业，急需购物或夜宵都没问题。",
+    "disclaimer": "※营业时间和定休日请向各店铺确认。信息以拍摄时为准。",
+    "footer-copy": "三重县桑名市桑名 476-52　|　距桑名站步行3分钟　|　最多12人　|　无障碍设施<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  },
+  ko: {
+    "page-title": "주변 맛집 | MY HOUSE たいみんぐ",
+    "back-link": "← 메인으로",
+    "hero-title": "주변 <em>맛집</em>",
+    "hero-sub": "저희 숙소는 구와나역 앞 번화가에 있습니다. 도보 거리에 구와나 명물 대합부터 이자카야, 라멘까지 다양하게 모여 있습니다. 스태프가 직접 걸으며 찾은 가게들을 소개합니다.",
+    "s1-title": "저녁・<em>술</em>", "s2-title": "디저트・<em>기념품</em>", "s3-title": "장보기・<em>편의점</em>",
+    "t-hama": "구와나 명물", "d-hama": "구와나 명물 자연산 대합을 맛볼 수 있는 곳. 마쓰사카규와 이세 닭요리도 있습니다.",
+    "t-mie": "해산물・지자케", "d-mie": "미에의 지역 술과 해산물을 즐길 수 있는 역 앞 이자카야.",
+    "t-eiyu": "하마야키", "d-eiyu": "해산물을 호쾌하게 구워 먹는 하마야키 스타일.",
+    "t-hei": "이자카야", "d-hei": "차분한 분위기의 일본식 이자카야.",
+    "t-gin": "일식", "d-gin": "검은 외벽이 인상적인 일식・창작요리점.",
+    "t-sola": "야키니쿠", "n-sola": "소라(sola)", "d-sola": "레트로한 긴자가이 골목 안의 야키니쿠 가게.",
+    "t-sun": "고기×와인", "d-sun": "고기・와인・치즈를 즐기는 모던 다이닝.",
+    "t-nana": "야채말이꼬치", "d-nana": "하카타식 야채말이 꼬치 전문점.",
+    "t-goro": "라멘", "d-goro": "술자리 마무리로 좋은 돈코츠 라멘.",
+    "t-ginza": "레트로 골목", "n-ginza": "긴자가이", "d-ginza": "등불이 켜진 쇼와 레트로 골목. 2차, 3차로 좋아요.",
+    "t-mona": "케이크", "d-mona": "숙소 바로 앞 케이크 가게. 숙박 중 간식으로.",
+    "t-kashi": "구와나 명과", "d-kashi": "구와나 명과 '야스나가모치' 노포. 기념품으로 좋습니다.",
+    "t-api": "슈퍼", "n-api": "APITA 구와나점", "d-api": "식재료와 술 장보기. 독채 숙소만의 '홈파티' 준비는 여기서.",
+    "t-law": "편의점", "n-law": "로손", "d-law": "24시간 영업. 급한 쇼핑이나 야식은 이곳에서.",
+    "disclaimer": "※영업시간・정기휴일은 각 가게에 확인해 주세요. 게재 내용은 촬영 시점의 정보입니다.",
+    "footer-copy": "미에현 구와나시 구와나 476-52　|　구와나역 도보 3분　|　최대 12명　|　배리어프리<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
+  }
+};
+
+function switchLang(lang) {
+  const data = LANGS[lang];
+  if (!data) return;
+  document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : lang === 'ko' ? 'ko' : lang;
+  for (const [id, val] of Object.entries(data)) {
+    if (id === 'page-title') { document.title = val; continue; }
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  }
+}
+switchLang('ja');
+</script>
+</body>
+</html>

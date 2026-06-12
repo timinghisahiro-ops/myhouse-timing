@@ -143,7 +143,7 @@
       <img class="g-card-photo" src="images/gourmet/hamaguri_shogun.jpg" alt="蛤将軍" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-hama">桑名名物</span>
-        <p class="g-name">蛤将軍</p>
+        <p class="g-name" id="n-hama">蛤将軍</p>
         <p class="g-desc" id="d-hama">桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。</p>
       </div>
     </div>
@@ -151,7 +151,7 @@
       <img class="g-card-photo" src="images/gourmet/miebito.jpg" alt="三重人" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-mie">海鮮・地酒</span>
-        <p class="g-name">三重人</p>
+        <p class="g-name" id="n-mie">三重人</p>
         <p class="g-desc" id="d-mie">三重の地酒と海鮮が楽しめる駅前の居酒屋。</p>
       </div>
     </div>
@@ -159,7 +159,7 @@
       <img class="g-card-photo" src="images/gourmet/hamayaki_eiyu.jpg" alt="浜焼ノ栄友" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-eiyu">浜焼き</span>
-        <p class="g-name">浜焼ノ栄友</p>
+        <p class="g-name" id="n-eiyu">浜焼ノ栄友</p>
         <p class="g-desc" id="d-eiyu">海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。</p>
       </div>
     </div>
@@ -167,7 +167,7 @@
       <img class="g-card-photo" src="images/gourmet/heihachiro.jpg" alt="平八郎" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-hei">居酒屋</span>
-        <p class="g-name">平八郎</p>
+        <p class="g-name" id="n-hei">平八郎</p>
         <p class="g-desc" id="d-hei">落ち着いた構えの和風居酒屋。ゆっくり飲みたい夜に。</p>
       </div>
     </div>
@@ -175,12 +175,28 @@
       <img class="g-card-photo" src="images/gourmet/gin.jpg" alt="吟" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-gin">和食</span>
-        <p class="g-name">吟</p>
+        <p class="g-name" id="n-gin">吟</p>
         <p class="g-desc" id="d-gin">黒い外壁が目印の和食・創作料理のお店。</p>
       </div>
     </div>
     <div class="g-card">
-      <img class="g-card-photo" src="images/gourmet/sola.jpg" alt="焼肉料理 宙" loading="lazy">
+      <img class="g-card-photo" src="images/gourmet/yasumaro.jpg" alt="やすまろ" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-yasu">割烹居酒屋</span>
+        <p class="g-name" id="n-yasu">やすまろ</p>
+        <p class="g-desc" id="d-yasu">丁寧な料理が楽しめる割烹居酒屋。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/teppen.jpg" alt="魚のてっぺん" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-teppen">魚料理</span>
+        <p class="g-name" id="n-teppen">魚のてっぺん</p>
+        <p class="g-desc" id="d-teppen">新鮮な魚料理が自慢のお店。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/sola.jpg" alt="宙（sola）" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-sola">焼肉</span>
         <p class="g-name" id="n-sola">宙（sola）</p>
@@ -188,27 +204,83 @@
       </div>
     </div>
     <div class="g-card">
-      <img class="g-card-photo" src="images/gourmet/sunset.jpg" alt="SUNSET" loading="lazy">
+      <img class="g-card-photo" src="images/gourmet/shishimaru.jpg" alt="獅子丸" loading="lazy">
       <div class="g-card-body">
-        <span class="g-tag" id="t-sun">肉×ワイン</span>
-        <p class="g-name">SUNSET</p>
-        <p class="g-desc" id="d-sun">肉・ワイン・チーズが楽しめるモダンなダイニング。</p>
+        <span class="g-tag" id="t-shishi">居酒屋</span>
+        <p class="g-name" id="n-shishi">獅子丸</p>
+        <p class="g-desc" id="d-shishi">銀座街の提灯が目印の居酒屋。レトロな雰囲気と一緒にどうぞ。</p>
       </div>
     </div>
     <div class="g-card">
-      <img class="g-card-photo" src="images/gourmet/nanana.jpg" alt="ななな" loading="lazy">
+      <img class="g-card-photo" src="images/gourmet/kuwana_horumon.jpg" alt="桑名ホルモン" loading="lazy">
       <div class="g-card-body">
-        <span class="g-tag" id="t-nana">やさい巻き串</span>
-        <p class="g-name">ななな</p>
-        <p class="g-desc" id="d-nana">博多やさい巻き串のお店。野菜もお肉も串で楽しく。</p>
+        <span class="g-tag" id="t-horumon">ホルモン焼き</span>
+        <p class="g-name" id="n-horumon">桑名ホルモン</p>
+        <p class="g-desc" id="d-horumon">夜ににぎわうホルモン焼きのお店。スタミナ補給に！</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/gaburi_chicken.jpg" alt="がブリチキン。" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-gaburi">からあげ</span>
+        <p class="g-name" id="n-gaburi">がブリチキン。</p>
+        <p class="g-desc" id="d-gaburi">骨付鳥・からあげ×ハイボールのお店。テイクアウトもOK。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/mekiki.jpg" alt="目利きの銀次" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-mekiki">海鮮居酒屋</span>
+        <p class="g-name" id="n-mekiki">目利きの銀次</p>
+        <p class="g-desc" id="d-mekiki">おなじみの海鮮居酒屋。大人数でもワイワイ入りやすい。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/delta.jpg" alt="Bistro DELTA" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-delta">ビストロ</span>
+        <p class="g-name" id="n-delta">Bistro DELTA</p>
+        <p class="g-desc" id="d-delta">黄色い看板がおしゃれなビストロ。洋食気分の夜に。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/rvambi.jpg" alt="Rvambi" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-rvambi">ラム肉専門</span>
+        <p class="g-name" id="n-rvambi">Rvambi</p>
+        <p class="g-desc" id="d-rvambi">三重県唯一のラム肉専門店！ワイン・ビールと一緒に。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/yodare.jpg" alt="スタンド涎" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-yodare">手羽先</span>
+        <p class="g-name" id="n-yodare">スタンド涎</p>
+        <p class="g-desc" id="d-yodare">手羽先とお酒のスタンド。出前にも対応しているので、宿でゆっくり食べたい夜にも。</p>
       </div>
     </div>
     <div class="g-card">
       <img class="g-card-photo" src="images/gourmet/gorouza.jpg" alt="五郎左" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-goro">ラーメン</span>
-        <p class="g-name">五郎左</p>
+        <p class="g-name" id="n-goro">五郎左</p>
         <p class="g-desc" id="d-goro">飲んだあとの締めにもうれしい豚骨ラーメン。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/nanana.jpg" alt="ななな" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-nana">やさい巻き串</span>
+        <p class="g-name" id="n-nana">ななな</p>
+        <p class="g-desc" id="d-nana">博多やさい巻き串のお店。野菜もお肉も串で楽しく。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/sunset.jpg" alt="SUNSET" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-sun">肉×ワイン</span>
+        <p class="g-name" id="n-sun">SUNSET</p>
+        <p class="g-desc" id="d-sun">肉・ワイン・チーズが楽しめるモダンなダイニング。</p>
       </div>
     </div>
     <div class="g-card">
@@ -233,7 +305,7 @@
       <img class="g-card-photo" src="images/gourmet/monami.jpg" alt="モナミ" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-mona">ケーキ</span>
-        <p class="g-name">モナミ</p>
+        <p class="g-name" id="n-mona">モナミ</p>
         <p class="g-desc" id="d-mona">当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。</p>
       </div>
     </div>
@@ -241,8 +313,16 @@
       <img class="g-card-photo" src="images/gourmet/kashiwaya.jpg" alt="柏屋" loading="lazy">
       <div class="g-card-body">
         <span class="g-tag" id="t-kashi">桑名銘菓</span>
-        <p class="g-name">柏屋</p>
+        <p class="g-name" id="n-kashi">柏屋</p>
         <p class="g-desc" id="d-kashi">桑名銘菓「安永餅」の老舗。お土産にぴったりです。</p>
+      </div>
+    </div>
+    <div class="g-card">
+      <img class="g-card-photo" src="images/gourmet/aisumanju.jpg" alt="あいすまんじゅう" loading="lazy">
+      <div class="g-card-body">
+        <span class="g-tag" id="t-aisu">ご当地アイス</span>
+        <p class="g-name" id="n-aisu">あいすまんじゅう</p>
+        <p class="g-desc" id="d-aisu">あんこ入りの昔ながらのアイス。桑名のソウルおやつです。</p>
       </div>
     </div>
   </div>
@@ -288,98 +368,338 @@
 
 <script>
 const LANGS = {
-  ja: {
-    "page-title": "周辺グルメ | MY HOUSE たいみんぐ",
-    "back-link": "← トップに戻る",
-    "hero-title": "周辺<em>グルメ</em>",
-    "hero-sub": "当宿は桑名駅前の繁華街エリア。徒歩圏内に、桑名名物のはまぐりから気軽な居酒屋・ラーメンまで揃っています。スタッフが実際に歩いて見つけたお店をご紹介します。",
-    "s1-title": "夜ごはん・<em>お酒</em>", "s2-title": "甘いもの・<em>お土産</em>", "s3-title": "買い出し・<em>コンビニ</em>",
-    "t-hama": "桑名名物", "d-hama": "桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。",
-    "t-mie": "海鮮・地酒", "d-mie": "三重の地酒と海鮮が楽しめる駅前の居酒屋。",
-    "t-eiyu": "浜焼き", "d-eiyu": "海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。",
-    "t-hei": "居酒屋", "d-hei": "落ち着いた構えの和風居酒屋。ゆっくり飲みたい夜に。",
-    "t-gin": "和食", "d-gin": "黒い外壁が目印の和食・創作料理のお店。",
-    "t-sola": "焼肉", "n-sola": "宙（sola）", "d-sola": "レトロな銀座街の中にある焼肉料理のお店。",
-    "t-sun": "肉×ワイン", "d-sun": "肉・ワイン・チーズが楽しめるモダンなダイニング。",
-    "t-nana": "やさい巻き串", "d-nana": "博多やさい巻き串のお店。野菜もお肉も串で楽しく。",
-    "t-goro": "ラーメン", "d-goro": "飲んだあとの締めにもうれしい豚骨ラーメン。",
-    "t-ginza": "レトロ横丁", "n-ginza": "銀座街", "d-ginza": "提灯が灯る昭和レトロな横丁。はしご酒気分でどうぞ。",
-    "t-mona": "ケーキ", "d-mona": "当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。",
-    "t-kashi": "桑名銘菓", "d-kashi": "桑名銘菓「安永餅」の老舗。お土産にぴったりです。",
-    "t-api": "スーパー", "n-api": "アピタ桑名店", "d-api": "食材やお酒の買い出しに。一棟貸しならではの「おうち宴会」の準備はここで。",
-    "t-law": "コンビニ", "n-law": "ローソン", "d-law": "24時間営業。急な買い物や夜食はこちらへ。",
-    "disclaimer": "※営業時間・定休日は各店舗にてご確認ください。掲載内容は撮影時点の情報です。",
-    "footer-copy": "三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
-  },
-  en: {
-    "page-title": "Nearby Gourmet | MY HOUSE たいみんぐ",
-    "back-link": "← Back to Top",
-    "hero-title": "Nearby <em>Gourmet</em>",
-    "hero-sub": "Our house sits in the lively area in front of Kuwana Station. Within walking distance you'll find everything from Kuwana's famous clams to casual izakaya and ramen — all spots our staff found on foot.",
-    "s1-title": "Dinner &amp; <em>Drinks</em>", "s2-title": "Sweets &amp; <em>Souvenirs</em>", "s3-title": "Groceries &amp; <em>Convenience</em>",
-    "t-hama": "Kuwana Specialty", "d-hama": "The place for Kuwana's famous wild hamaguri clams, plus Matsusaka beef and Ise chicken.",
-    "t-mie": "Seafood & Sake", "d-mie": "Izakaya near the station with Mie's local sake and fresh seafood.",
-    "t-eiyu": "Seaside BBQ", "d-eiyu": "Grill fresh seafood right at your table, beach-shack style.",
-    "t-hei": "Izakaya", "d-hei": "A calm, traditional izakaya for a relaxed evening.",
-    "t-gin": "Japanese", "d-gin": "Creative Japanese cuisine behind a striking black facade.",
-    "t-sola": "Yakiniku", "n-sola": "Sola", "d-sola": "Yakiniku (grilled meat) restaurant inside the retro Ginza-gai alley.",
-    "t-sun": "Meat × Wine", "d-sun": "Modern dining with meat, wine and cheese.",
-    "t-nana": "Veggie Skewers", "d-nana": "Hakata-style vegetable-wrapped skewers. Fun and healthy.",
-    "t-goro": "Ramen", "d-goro": "Rich tonkotsu ramen — perfect to finish the night.",
-    "t-ginza": "Retro Alley", "n-ginza": "Ginza-gai", "d-ginza": "A nostalgic lantern-lit alley. Perfect for bar-hopping.",
-    "t-mona": "Cakes", "d-mona": "A pastry shop just steps from our house. Great for a stay-in treat.",
-    "t-kashi": "Local Sweets", "d-kashi": "Long-established maker of Yasunaga-mochi, Kuwana's signature sweet.",
-    "t-api": "Supermarket", "n-api": "APITA Kuwana", "d-api": "Stock up on food and drinks for a home party in your private house.",
-    "t-law": "Convenience", "n-law": "Lawson", "d-law": "Open 24 hours for anything you need, day or night.",
-    "disclaimer": "* Please check each shop for opening hours and closing days. Information as of the time of photography.",
-    "footer-copy": "476-52 Kuwana, Kuwana City, Mie, Japan　|　3 min walk from Kuwana Station　|　Max 12 guests　|　Barrier-free<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
-  },
-  zh: {
-    "page-title": "周边美食 | MY HOUSE たいみんぐ",
-    "back-link": "← 返回首页",
-    "hero-title": "周边<em>美食</em>",
-    "hero-sub": "本宿位于桑名站前的繁华地段，步行范围内有桑名名产蛤蜊、居酒屋、拉面等各种美食，均为工作人员实地探访的店铺。",
-    "s1-title": "晚餐・<em>美酒</em>", "s2-title": "甜点・<em>伴手礼</em>", "s3-title": "采购・<em>便利店</em>",
-    "t-hama": "桑名名产", "d-hama": "品尝桑名名产天然蛤蜊的好去处，还有松阪牛和伊势鸡。",
-    "t-mie": "海鲜・地酒", "d-mie": "站前居酒屋，供应三重的地方酒和新鲜海鲜。",
-    "t-eiyu": "海鲜烧烤", "d-eiyu": "豪迈地烤制海鲜的滨烧风格餐厅。",
-    "t-hei": "居酒屋", "d-hei": "氛围沉稳的日式居酒屋，适合悠闲小酌。",
-    "t-gin": "日本料理", "d-gin": "黑色外墙醒目的日式创意料理店。",
-    "t-sola": "烤肉", "n-sola": "宙（sola）", "d-sola": "位于复古银座街内的烤肉店。",
-    "t-sun": "肉×红酒", "d-sun": "可享用肉类、红酒和芝士的现代餐厅。",
-    "t-nana": "蔬菜卷串", "d-nana": "博多蔬菜卷串专门店，蔬菜和肉都能串着吃。",
-    "t-goro": "拉面", "d-goro": "豚骨拉面，作为夜宵收尾再合适不过。",
-    "t-ginza": "复古小巷", "n-ginza": "银座街", "d-ginza": "灯笼点亮的昭和复古小巷，适合换店续摊。",
-    "t-mona": "蛋糕", "d-mona": "距本宿咫尺之遥的蛋糕店，住宿期间的甜点首选。",
-    "t-kashi": "桑名名点", "d-kashi": "桑名名点「安永饼」老字号，适合作为伴手礼。",
-    "t-api": "超市", "n-api": "APITA桑名店", "d-api": "采购食材和酒水，为包栋住宿的“家庭宴会”做准备。",
-    "t-law": "便利店", "n-law": "罗森", "d-law": "24小时营业，急需购物或夜宵都没问题。",
-    "disclaimer": "※营业时间和定休日请向各店铺确认。信息以拍摄时为准。",
-    "footer-copy": "三重县桑名市桑名 476-52　|　距桑名站步行3分钟　|　最多12人　|　无障碍设施<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
-  },
-  ko: {
-    "page-title": "주변 맛집 | MY HOUSE たいみんぐ",
-    "back-link": "← 메인으로",
-    "hero-title": "주변 <em>맛집</em>",
-    "hero-sub": "저희 숙소는 구와나역 앞 번화가에 있습니다. 도보 거리에 구와나 명물 대합부터 이자카야, 라멘까지 다양하게 모여 있습니다. 스태프가 직접 걸으며 찾은 가게들을 소개합니다.",
-    "s1-title": "저녁・<em>술</em>", "s2-title": "디저트・<em>기념품</em>", "s3-title": "장보기・<em>편의점</em>",
-    "t-hama": "구와나 명물", "d-hama": "구와나 명물 자연산 대합을 맛볼 수 있는 곳. 마쓰사카규와 이세 닭요리도 있습니다.",
-    "t-mie": "해산물・지자케", "d-mie": "미에의 지역 술과 해산물을 즐길 수 있는 역 앞 이자카야.",
-    "t-eiyu": "하마야키", "d-eiyu": "해산물을 호쾌하게 구워 먹는 하마야키 스타일.",
-    "t-hei": "이자카야", "d-hei": "차분한 분위기의 일본식 이자카야.",
-    "t-gin": "일식", "d-gin": "검은 외벽이 인상적인 일식・창작요리점.",
-    "t-sola": "야키니쿠", "n-sola": "소라(sola)", "d-sola": "레트로한 긴자가이 골목 안의 야키니쿠 가게.",
-    "t-sun": "고기×와인", "d-sun": "고기・와인・치즈를 즐기는 모던 다이닝.",
-    "t-nana": "야채말이꼬치", "d-nana": "하카타식 야채말이 꼬치 전문점.",
-    "t-goro": "라멘", "d-goro": "술자리 마무리로 좋은 돈코츠 라멘.",
-    "t-ginza": "레트로 골목", "n-ginza": "긴자가이", "d-ginza": "등불이 켜진 쇼와 레트로 골목. 2차, 3차로 좋아요.",
-    "t-mona": "케이크", "d-mona": "숙소 바로 앞 케이크 가게. 숙박 중 간식으로.",
-    "t-kashi": "구와나 명과", "d-kashi": "구와나 명과 '야스나가모치' 노포. 기념품으로 좋습니다.",
-    "t-api": "슈퍼", "n-api": "APITA 구와나점", "d-api": "식재료와 술 장보기. 독채 숙소만의 '홈파티' 준비는 여기서.",
-    "t-law": "편의점", "n-law": "로손", "d-law": "24시간 영업. 급한 쇼핑이나 야식은 이곳에서.",
-    "disclaimer": "※영업시간・정기휴일은 각 가게에 확인해 주세요. 게재 내용은 촬영 시점의 정보입니다.",
-    "footer-copy": "미에현 구와나시 구와나 476-52　|　구와나역 도보 3분　|　최대 12명　|　배리어프리<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved."
-  }
+ "ja": {
+  "page-title": "周辺グルメ | MY HOUSE たいみんぐ",
+  "back-link": "← トップに戻る",
+  "hero-title": "周辺<em>グルメ</em>",
+  "hero-sub": "当宿は桑名駅前の繁華街エリア。徒歩圏内に、桑名名物のはまぐりから気軽な居酒屋・ラーメンまで揃っています。スタッフが実際に歩いて見つけたお店をご紹介します。",
+  "s1-title": "夜ごはん・<em>お酒</em>",
+  "s2-title": "甘いもの・<em>お土産</em>",
+  "s3-title": "買い出し・<em>コンビニ</em>",
+  "disclaimer": "※営業時間・定休日は各店舗にてご確認ください。掲載内容は撮影時点の情報です。",
+  "footer-copy": "三重県桑名市桑名 476-52　|　桑名駅徒歩3分　|　最大12名　|　バリアフリー<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved.",
+  "t-hama": "桑名名物",
+  "n-hama": "蛤将軍",
+  "d-hama": "桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。",
+  "t-mie": "海鮮・地酒",
+  "n-mie": "三重人",
+  "d-mie": "三重の地酒と海鮮が楽しめる駅前の居酒屋。",
+  "t-eiyu": "浜焼き",
+  "n-eiyu": "浜焼ノ栄友",
+  "d-eiyu": "海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。",
+  "t-hei": "居酒屋",
+  "n-hei": "平八郎",
+  "d-hei": "落ち着いた構えの和風居酒屋。ゆっくり飲みたい夜に。",
+  "t-gin": "和食",
+  "n-gin": "吟",
+  "d-gin": "黒い外壁が目印の和食・創作料理のお店。",
+  "t-yasu": "割烹居酒屋",
+  "n-yasu": "やすまろ",
+  "d-yasu": "丁寧な料理が楽しめる割烹居酒屋。",
+  "t-teppen": "魚料理",
+  "n-teppen": "魚のてっぺん",
+  "d-teppen": "新鮮な魚料理が自慢のお店。",
+  "t-sola": "焼肉",
+  "n-sola": "宙（sola）",
+  "d-sola": "レトロな銀座街の中にある焼肉料理のお店。",
+  "t-shishi": "居酒屋",
+  "n-shishi": "獅子丸",
+  "d-shishi": "銀座街の提灯が目印の居酒屋。レトロな雰囲気と一緒にどうぞ。",
+  "t-horumon": "ホルモン焼き",
+  "n-horumon": "桑名ホルモン",
+  "d-horumon": "夜ににぎわうホルモン焼きのお店。スタミナ補給に！",
+  "t-gaburi": "からあげ",
+  "n-gaburi": "がブリチキン。",
+  "d-gaburi": "骨付鳥・からあげ×ハイボールのお店。テイクアウトもOK。",
+  "t-mekiki": "海鮮居酒屋",
+  "n-mekiki": "目利きの銀次",
+  "d-mekiki": "おなじみの海鮮居酒屋。大人数でもワイワイ入りやすい。",
+  "t-delta": "ビストロ",
+  "n-delta": "Bistro DELTA",
+  "d-delta": "黄色い看板がおしゃれなビストロ。洋食気分の夜に。",
+  "t-rvambi": "ラム肉専門",
+  "n-rvambi": "Rvambi",
+  "d-rvambi": "三重県唯一のラム肉専門店！ワイン・ビールと一緒に。",
+  "t-yodare": "手羽先",
+  "n-yodare": "スタンド涎",
+  "d-yodare": "手羽先とお酒のスタンド。出前にも対応しているので、宿でゆっくり食べたい夜にも。",
+  "t-goro": "ラーメン",
+  "n-goro": "五郎左",
+  "d-goro": "飲んだあとの締めにもうれしい豚骨ラーメン。",
+  "t-nana": "やさい巻き串",
+  "n-nana": "ななな",
+  "d-nana": "博多やさい巻き串のお店。野菜もお肉も串で楽しく。",
+  "t-sun": "肉×ワイン",
+  "n-sun": "SUNSET",
+  "d-sun": "肉・ワイン・チーズが楽しめるモダンなダイニング。",
+  "t-ginza": "レトロ横丁",
+  "n-ginza": "銀座街",
+  "d-ginza": "提灯が灯る昭和レトロな横丁。はしご酒気分でどうぞ。",
+  "t-mona": "ケーキ",
+  "n-mona": "モナミ",
+  "d-mona": "当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。",
+  "t-kashi": "桑名銘菓",
+  "n-kashi": "柏屋",
+  "d-kashi": "桑名銘菓「安永餅」の老舗。お土産にぴったりです。",
+  "t-aisu": "ご当地アイス",
+  "n-aisu": "あいすまんじゅう",
+  "d-aisu": "あんこ入りの昔ながらのアイス。桑名のソウルおやつです。",
+  "t-api": "スーパー",
+  "n-api": "アピタ桑名店",
+  "d-api": "食材やお酒の買い出しに。一棟貸しならではの「おうち宴会」の準備はここで。",
+  "t-law": "コンビニ",
+  "n-law": "ローソン",
+  "d-law": "24時間営業。急な買い物や夜食はこちらへ。"
+ },
+ "en": {
+  "page-title": "Nearby Gourmet | MY HOUSE たいみんぐ",
+  "back-link": "← Back to Top",
+  "hero-title": "Nearby <em>Gourmet</em>",
+  "hero-sub": "Our house sits in the lively area in front of Kuwana Station. Within walking distance you'll find everything from Kuwana's famous clams to casual izakaya and ramen — all spots our staff found on foot.",
+  "s1-title": "Dinner &amp; <em>Drinks</em>",
+  "s2-title": "Sweets &amp; <em>Souvenirs</em>",
+  "s3-title": "Groceries &amp; <em>Convenience</em>",
+  "disclaimer": "* Please check each shop for opening hours and closing days. Information as of the time of photography.",
+  "footer-copy": "476-52 Kuwana, Kuwana City, Mie, Japan　|　3 min walk from Kuwana Station　|　Max 12 guests　|　Barrier-free<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved.",
+  "t-hama": "Kuwana Specialty",
+  "n-hama": "蛤将軍",
+  "d-hama": "The place for Kuwana's famous wild hamaguri clams, plus Matsusaka beef and Ise chicken.",
+  "t-mie": "Seafood & Sake",
+  "n-mie": "三重人",
+  "d-mie": "Izakaya near the station with Mie's local sake and fresh seafood.",
+  "t-eiyu": "Seaside BBQ",
+  "n-eiyu": "浜焼ノ栄友",
+  "d-eiyu": "Grill fresh seafood right at your table, beach-shack style.",
+  "t-hei": "Izakaya",
+  "n-hei": "平八郎",
+  "d-hei": "A calm, traditional izakaya for a relaxed evening.",
+  "t-gin": "Japanese",
+  "n-gin": "吟",
+  "d-gin": "Creative Japanese cuisine behind a striking black facade.",
+  "t-yasu": "Kappo Izakaya",
+  "n-yasu": "やすまろ",
+  "d-yasu": "Kappo-style izakaya with carefully prepared dishes.",
+  "t-teppen": "Fish Dishes",
+  "n-teppen": "魚のてっぺん",
+  "d-teppen": "Known for fresh, delicious fish dishes.",
+  "t-sola": "Yakiniku",
+  "n-sola": "Sola",
+  "d-sola": "Yakiniku (grilled meat) restaurant inside the retro Ginza-gai alley.",
+  "t-shishi": "Izakaya",
+  "n-shishi": "獅子丸",
+  "d-shishi": "Izakaya marked by lanterns in Ginza-gai. Enjoy the retro vibes.",
+  "t-horumon": "Horumon BBQ",
+  "n-horumon": "桑名ホルモン",
+  "d-horumon": "Lively horumon (offal BBQ) spot. Great for stamina!",
+  "t-gaburi": "Fried Chicken",
+  "n-gaburi": "がブリチキン。",
+  "d-gaburi": "Bone-in chicken & karaage with highballs. Takeout available.",
+  "t-mekiki": "Seafood Izakaya",
+  "n-mekiki": "目利きの銀次",
+  "d-mekiki": "Popular seafood izakaya chain, easy for big groups.",
+  "t-delta": "Bistro",
+  "n-delta": "Bistro DELTA",
+  "d-delta": "Stylish bistro with a yellow sign, for a Western-style night.",
+  "t-rvambi": "Lamb Specialty",
+  "n-rvambi": "Rvambi",
+  "d-rvambi": "Mie's only lamb specialty restaurant! Great with wine or beer.",
+  "t-yodare": "Chicken Wings",
+  "n-yodare": "スタンド涎",
+  "d-yodare": "Chicken wing & drinks stand. They also deliver — enjoy at the house!",
+  "t-goro": "Ramen",
+  "n-goro": "五郎左",
+  "d-goro": "Rich tonkotsu ramen — perfect to finish the night.",
+  "t-nana": "Veggie Skewers",
+  "n-nana": "ななな",
+  "d-nana": "Hakata-style vegetable-wrapped skewers. Fun and healthy.",
+  "t-sun": "Meat × Wine",
+  "n-sun": "SUNSET",
+  "d-sun": "Modern dining with meat, wine and cheese.",
+  "t-ginza": "Retro Alley",
+  "n-ginza": "Ginza-gai",
+  "d-ginza": "A nostalgic lantern-lit alley. Perfect for bar-hopping.",
+  "t-mona": "Cakes",
+  "n-mona": "モナミ",
+  "d-mona": "A pastry shop just steps from our house. Great for a stay-in treat.",
+  "t-kashi": "Local Sweets",
+  "n-kashi": "柏屋",
+  "d-kashi": "Long-established maker of Yasunaga-mochi, Kuwana's signature sweet.",
+  "t-aisu": "Local Ice Cream",
+  "n-aisu": "Ice Manju",
+  "d-aisu": "Old-fashioned ice cream bar filled with sweet red bean paste — Kuwana's soul snack.",
+  "t-api": "Supermarket",
+  "n-api": "APITA Kuwana",
+  "d-api": "Stock up on food and drinks for a home party in your private house.",
+  "t-law": "Convenience",
+  "n-law": "Lawson",
+  "d-law": "Open 24 hours for anything you need, day or night."
+ },
+ "zh": {
+  "page-title": "周边美食 | MY HOUSE たいみんぐ",
+  "back-link": "← 返回首页",
+  "hero-title": "周边<em>美食</em>",
+  "hero-sub": "本宿位于桑名站前的繁华地段，步行范围内有桑名名产蛤蜊、居酒屋、拉面等各种美食，均为工作人员实地探访的店铺。",
+  "s1-title": "晚餐・<em>美酒</em>",
+  "s2-title": "甜点・<em>伴手礼</em>",
+  "s3-title": "采购・<em>便利店</em>",
+  "disclaimer": "※营业时间和定休日请向各店铺确认。信息以拍摄时为准。",
+  "footer-copy": "三重县桑名市桑名 476-52　|　距桑名站步行3分钟　|　最多12人　|　无障碍设施<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved.",
+  "t-hama": "桑名名产",
+  "n-hama": "蛤将軍",
+  "d-hama": "品尝桑名名产天然蛤蜊的好去处，还有松阪牛和伊势鸡。",
+  "t-mie": "海鲜・地酒",
+  "n-mie": "三重人",
+  "d-mie": "站前居酒屋，供应三重的地方酒和新鲜海鲜。",
+  "t-eiyu": "海鲜烧烤",
+  "n-eiyu": "浜焼ノ栄友",
+  "d-eiyu": "豪迈地烤制海鲜的滨烧风格餐厅。",
+  "t-hei": "居酒屋",
+  "n-hei": "平八郎",
+  "d-hei": "氛围沉稳的日式居酒屋，适合悠闲小酌。",
+  "t-gin": "日本料理",
+  "n-gin": "吟",
+  "d-gin": "黑色外墙醒目的日式创意料理店。",
+  "t-yasu": "割烹居酒屋",
+  "n-yasu": "やすまろ",
+  "d-yasu": "可品尝精致料理的割烹居酒屋。",
+  "t-teppen": "鱼料理",
+  "n-teppen": "魚のてっぺん",
+  "d-teppen": "以新鲜鱼料理为傲的餐厅。",
+  "t-sola": "烤肉",
+  "n-sola": "宙（sola）",
+  "d-sola": "位于复古银座街内的烤肉店。",
+  "t-shishi": "居酒屋",
+  "n-shishi": "獅子丸",
+  "d-shishi": "以银座街灯笼为标志的居酒屋，复古氛围满分。",
+  "t-horumon": "烤内脏",
+  "n-horumon": "桑名ホルモン",
+  "d-horumon": "夜晚热闹的烤内脏店，补充体力的好去处！",
+  "t-gaburi": "炸鸡",
+  "n-gaburi": "がブリチキン。",
+  "d-gaburi": "带骨鸡・炸鸡×高球酒，可外带。",
+  "t-mekiki": "海鲜居酒屋",
+  "n-mekiki": "目利きの銀次",
+  "d-mekiki": "人气海鲜居酒屋，适合多人聚会。",
+  "t-delta": "西餐酒馆",
+  "n-delta": "Bistro DELTA",
+  "d-delta": "黄色招牌的时尚西餐酒馆。",
+  "t-rvambi": "羊肉专门",
+  "n-rvambi": "Rvambi",
+  "d-rvambi": "三重县唯一的羊肉专门店！配红酒或啤酒。",
+  "t-yodare": "鸡翅",
+  "n-yodare": "スタンド涎",
+  "d-yodare": "鸡翅与酒的小店，还提供外送，可在民宿享用。",
+  "t-goro": "拉面",
+  "n-goro": "五郎左",
+  "d-goro": "豚骨拉面，作为夜宵收尾再合适不过。",
+  "t-nana": "蔬菜卷串",
+  "n-nana": "ななな",
+  "d-nana": "博多蔬菜卷串专门店。",
+  "t-sun": "肉×红酒",
+  "n-sun": "SUNSET",
+  "d-sun": "可享用肉类、红酒和芝士的现代餐厅。",
+  "t-ginza": "复古小巷",
+  "n-ginza": "银座街",
+  "d-ginza": "灯笼点亮的昭和复古小巷，适合换店续摊。",
+  "t-mona": "蛋糕",
+  "n-mona": "モナミ",
+  "d-mona": "距本宿咫尺之遥的蛋糕店，住宿期间的甜点首选。",
+  "t-kashi": "桑名名点",
+  "n-kashi": "柏屋",
+  "d-kashi": "桑名名点「安永饼」老字号，适合作为伴手礼。",
+  "t-aisu": "当地冰品",
+  "n-aisu": "冰馒头",
+  "d-aisu": "加入红豆馅的传统冰品，桑名的灵魂小吃。",
+  "t-api": "超市",
+  "n-api": "APITA桑名店",
+  "d-api": "采购食材和酒水，为包栋住宿的家庭宴会做准备。",
+  "t-law": "便利店",
+  "n-law": "罗森",
+  "d-law": "24小时营业，急需购物或夜宵都没问题。"
+ },
+ "ko": {
+  "page-title": "주변 맛집 | MY HOUSE たいみんぐ",
+  "back-link": "← 메인으로",
+  "hero-title": "주변 <em>맛집</em>",
+  "hero-sub": "저희 숙소는 구와나역 앞 번화가에 있습니다. 도보 거리에 구와나 명물 대합부터 이자카야, 라멘까지 다양하게 모여 있습니다. 스태프가 직접 걸으며 찾은 가게들을 소개합니다.",
+  "s1-title": "저녁・<em>술</em>",
+  "s2-title": "디저트・<em>기념품</em>",
+  "s3-title": "장보기・<em>편의점</em>",
+  "disclaimer": "※영업시간・정기휴일은 각 가게에 확인해 주세요. 게재 내용은 촬영 시점의 정보입니다.",
+  "footer-copy": "미에현 구와나시 구와나 476-52　|　구와나역 도보 3분　|　최대 12명　|　배리어프리<br>© 2025 MY HOUSE たいみんぐ. All Rights Reserved.",
+  "t-hama": "구와나 명물",
+  "n-hama": "蛤将軍",
+  "d-hama": "구와나 명물 자연산 대합을 맛볼 수 있는 곳. 마쓰사카규와 이세 닭요리도 있습니다.",
+  "t-mie": "해산물・지자케",
+  "n-mie": "三重人",
+  "d-mie": "미에의 지역 술과 해산물을 즐길 수 있는 역 앞 이자카야.",
+  "t-eiyu": "하마야키",
+  "n-eiyu": "浜焼ノ栄友",
+  "d-eiyu": "해산물을 호쾌하게 구워 먹는 하마야키 스타일.",
+  "t-hei": "이자카야",
+  "n-hei": "平八郎",
+  "d-hei": "차분한 분위기의 일본식 이자카야.",
+  "t-gin": "일식",
+  "n-gin": "吟",
+  "d-gin": "검은 외벽이 인상적인 일식・창작요리점.",
+  "t-yasu": "갓포 이자카야",
+  "n-yasu": "やすまろ",
+  "d-yasu": "정성스러운 요리를 즐길 수 있는 갓포 이자카야.",
+  "t-teppen": "생선요리",
+  "n-teppen": "魚のてっぺん",
+  "d-teppen": "신선한 생선요리가 자랑인 가게.",
+  "t-sola": "야키니쿠",
+  "n-sola": "소라(sola)",
+  "d-sola": "레트로한 긴자가이 골목 안의 야키니쿠 가게.",
+  "t-shishi": "이자카야",
+  "n-shishi": "獅子丸",
+  "d-shishi": "긴자가이의 등불이 표시인 이자카야. 레트로한 분위기와 함께.",
+  "t-horumon": "호르몬 구이",
+  "n-horumon": "桑名ホルモン",
+  "d-horumon": "밤에 활기찬 호르몬 구이 가게.",
+  "t-gaburi": "가라아게",
+  "n-gaburi": "がブリチキン。",
+  "d-gaburi": "뼈붙은 닭・가라아게×하이볼. 테이크아웃도 OK.",
+  "t-mekiki": "해산물 이자카야",
+  "n-mekiki": "目利きの銀次",
+  "d-mekiki": "친숙한 해산물 이자카야. 단체도 들어가기 좋아요.",
+  "t-delta": "비스트로",
+  "n-delta": "Bistro DELTA",
+  "d-delta": "노란 간판이 세련된 비스트로.",
+  "t-rvambi": "양고기 전문",
+  "n-rvambi": "Rvambi",
+  "d-rvambi": "미에현 유일의 양고기 전문점!",
+  "t-yodare": "닭날개",
+  "n-yodare": "スタンド涎",
+  "d-yodare": "닭날개와 술의 스탠드. 배달도 가능해 숙소에서도 즐길 수 있어요.",
+  "t-goro": "라멘",
+  "n-goro": "五郎左",
+  "d-goro": "술자리 마무리로 좋은 돈코츠 라멘.",
+  "t-nana": "야채말이꼬치",
+  "n-nana": "ななな",
+  "d-nana": "하카타식 야채말이 꼬치 전문점.",
+  "t-sun": "고기×와인",
+  "n-sun": "SUNSET",
+  "d-sun": "고기・와인・치즈를 즐기는 모던 다이닝.",
+  "t-ginza": "레트로 골목",
+  "n-ginza": "긴자가이",
+  "d-ginza": "등불이 켜진 쇼와 레트로 골목. 2차, 3차로 좋아요.",
+  "t-mona": "케이크",
+  "n-mona": "モナミ",
+  "d-mona": "숙소 바로 앞 케이크 가게. 숙박 중 간식으로.",
+  "t-kashi": "구와나 명과",
+  "n-kashi": "柏屋",
+  "d-kashi": "구와나 명과 '야스나가모치' 노포. 기념품으로 좋습니다.",
+  "t-aisu": "로컬 아이스",
+  "n-aisu": "아이스만쥬",
+  "d-aisu": "팥소가 든 옛날식 아이스. 구와나의 소울 간식입니다.",
+  "t-api": "슈퍼",
+  "n-api": "APITA 구와나점",
+  "d-api": "식재료와 술 장보기. 독채 숙소만의 홈파티 준비는 여기서.",
+  "t-law": "편의점",
+  "n-law": "로손",
+  "d-law": "24시간 영업. 급한 쇼핑이나 야식은 이곳에서."
+ }
 };
 
 function switchLang(lang) {

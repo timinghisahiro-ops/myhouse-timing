@@ -448,6 +448,9 @@
     <p class="coin-intro" id="p-coin-intro">
       お車でお越しの方は下記をご利用ください。施設から徒歩3〜4分圏内です。カードをタップすると地図に反映されます。
     </p>
+    <p id="p-rate-note" style="font-size:0.8rem;color:#777;background:#f6f6f4;padding:0.9rem 1.2rem;border-radius:4px;margin:0 0 2rem;line-height:1.7;">
+      ※ 料金は2026年8月時点の情報です。変更される場合がありますので、最新の料金・空き状況は現地の看板でご確認ください。
+    </p>
 
     <!-- コインパーキング インタラクティブマップ -->
     <div id="coin-map-wrap" style="margin-bottom:2.5rem;">
@@ -471,7 +474,8 @@
           <div style="width:38px;height:38px;background:#1a73e8;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;flex-shrink:0;font-family:sans-serif;box-shadow:0 2px 6px rgba(26,115,232,0.4);">P</div>
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">タイムズ桑名駅前第3</p>
-            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 8台</p>
+            <p id="p2-cashless" style="font-size:0.72rem;color:#c0392b;font-weight:600;margin:0.35rem 0 0;line-height:1.5;">⚠️ 精算は現金不可（カード・電子マネー・QR決済のみ）</p>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
@@ -559,7 +563,7 @@
           <div style="width:38px;height:38px;background:#1a73e8;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:1.05rem;flex-shrink:0;font-family:sans-serif;box-shadow:0 2px 6px rgba(26,115,232,0.4);">P</div>
           <div>
             <p style="font-size:0.9rem;font-weight:400;color:var(--gray-800);margin:0;">三井のリパーク 桑名駅東口第2</p>
-            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 繰り返し最大あり</p>
+            <p style="font-family:'DM Mono',monospace;font-size:0.6rem;letter-spacing:0.15em;color:var(--accent);margin:0.2rem 0 0;">徒歩 3〜4分 ・ 24時間 ・ 9台 ・ 繰り返し最大あり</p>
           </div>
         </div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8rem;margin-bottom:1rem;">
@@ -721,6 +725,8 @@ var parkingTranslations = {
     "p-coin-label": "Coin Parking",
     "p-coin-title": "周辺<em>コインパーキング</em>",
     "p-coin-intro": "お車でお越しの方は下記をご利用ください。施設から徒歩3〜4分圏内です。各駐車場の「地図」ボタンを押すとGoogleマップが開きます。",
+    "p2-cashless": "⚠️ 精算は現金不可（カード・電子マネー・QR決済のみ）",
+    "p-rate-note": "※ 料金は2026年8月時点の情報です。変更される場合がありますので、最新の料金・空き状況は現地の看板でご確認ください。",
     "p-notes-title": "🚗 ご利用にあたって",
     "p-back-btn": "← MY HOUSE たいみんぐ トップへ",
     "p-header-back": "← トップに戻る"
@@ -733,6 +739,8 @@ var parkingTranslations = {
     "p-coin-label": "Coin Parking",
     "p-coin-title": "Nearby <em>Coin Parking</em>",
     "p-coin-intro": "If you come by car, please use one of the options below. All are a 3–4 minute walk. Click 'Map' to open in Google Maps.",
+    "p2-cashless": "⚠️ Cashless only (credit card, e-money or QR payment)",
+    "p-rate-note": "* Rates are as of August 2026 and are subject to change. Please check the signage on site for the latest rates and availability.",
     "p-notes-title": "🚗 Important Notes",
     "p-back-btn": "← Back to MY HOUSE Taiminng",
     "p-header-back": "← Back to Top"
@@ -745,6 +753,8 @@ var parkingTranslations = {
     "p-coin-label": "收费停车场",
     "p-coin-title": "周边<em>收费停车场</em>",
     "p-coin-intro": "自驾前来的客人请使用以下停车场。均为步行3〜4分钟。点击「地图」可在Google地图中打开。",
+    "p2-cashless": "⚠️ 结算不可使用现金（仅限信用卡・电子货币・二维码支付）",
+    "p-rate-note": "※ 费用为2026年8月时的信息，可能会有变动。最新费用与空位情况请在现场的告示牌确认。",
     "p-notes-title": "🚗 使用须知",
     "p-back-btn": "← 返回 MY HOUSE たいみんぐ",
     "p-header-back": "← 返回首页"
@@ -757,6 +767,8 @@ var parkingTranslations = {
     "p-coin-label": "코인 주차장",
     "p-coin-title": "주변 <em>코인 주차장</em>",
     "p-coin-intro": "차로 오시는 분은 아래를 이용해 주세요. 시설에서 도보 3~4분입니다. 각 주차장의 「지도」버튼을 누르면 Google 지도가 열립니다.",
+    "p2-cashless": "⚠️ 정산 시 현금 사용 불가 (카드・전자화폐・QR결제만 가능)",
+    "p-rate-note": "※ 요금은 2026년 8월 기준 정보이며 변경될 수 있습니다. 최신 요금과 빈자리는 현장 안내판에서 확인해 주세요.",
     "p-notes-title": "🚗 이용 안내",
     "p-back-btn": "← MY HOUSE たいみんぐ 홈으로",
     "p-header-back": "← 홈으로 돌아가기"

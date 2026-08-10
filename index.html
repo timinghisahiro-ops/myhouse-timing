@@ -60,7 +60,7 @@
     "checkoutTime": "11:00",
     "amenityFeature": [
       {"@type": "LocationFeatureSpecification", "name": "バリアフリー", "value": true},
-      {"@type": "LocationFeatureSpecification", "name": "駐車場", "value": true},
+      {"@type": "LocationFeatureSpecification", "name": "駐車場", "value": false},
       {"@type": "LocationFeatureSpecification", "name": "Wi-Fi", "value": true}
     ],
     "numberOfRooms": 1,
@@ -559,7 +559,7 @@
       <div class="parking-banner reveal">
         <span class="parking-banner-label">Parking Guide</span>
         <p class="parking-banner-title" id="parking-title">🅿️ 駐車場のご案内</p>
-        <p class="parking-banner-desc" id="parking-desc">近隣に駐車場をご用意しています。<br>詳しい場所・利用方法は駐車場案内ページをご確認ください。</p>
+        <p class="parking-banner-desc" id="parking-desc">専用駐車場はございません。お車の方は近隣のコインパーキングをご利用ください。<br>場所・料金は駐車場案内ページでご確認いただけます。</p>
         <a href="parking.html" class="btn-parking" id="parking-btn" onclick="openParking(event)">駐車場案内を見る →</a>
       </div>
       <div class="parking-banner reveal" style="margin-top:2px;">
@@ -701,14 +701,14 @@
 
     <div class="sight-card">
       <div class="sight-img">
-        <img src="images/gourmet/yodare.jpg" alt="スタンド涎" loading="lazy">
+        <img src="images/gourmet/yodare-v2.jpg" alt="スタンド涎" loading="lazy">
       </div>
       <div class="sight-inner">
-        <div class="sight-icon">🍗</div>
+        <div class="sight-icon">🍺</div>
         <div class="sight-body">
-          <p class="sight-tag" id="g1-tag">手羽先・出前OK</p>
+          <p class="sight-tag" id="g1-tag">立ち飲み・リーズナブル</p>
           <div style="display:flex;align-items:center;justify-content:space-between;gap:0.5rem;"><h3 class="sight-name" id="g1-name">スタンド涎</h3><a href="https://www.google.com/maps/search/%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%89%E6%B6%8E%20%E6%A1%91%E5%90%8D" target="_blank" rel="noopener" aria-label="地図で見る" style="display:inline-flex;align-items:center;gap:3px;font-size:0.65rem;color:var(--accent);border:1px solid var(--gray-400);border-radius:99px;padding:0.12rem 0.55rem;text-decoration:none;white-space:nowrap;flex-shrink:0;">📍地図</a></div>
-          <p class="sight-desc" id="g1-desc">手羽先とお酒のスタンド。出前にも対応しているので、宿でゆっくり楽しむこともできます。</p>
+          <p class="sight-desc" id="g1-desc">桑名駅すぐの立ち飲みスタンド。ビールやサワー片手に、ジャンバラヤやジャークチキンをリーズナブルに。サクッと一杯どうぞ。</p>
         </div>
       </div>
     </div>
@@ -1184,7 +1184,7 @@ var translations = {
     "sightseeing-desc": "MY HOUSE たいみんぐは、三重・愛知・岐阜の主要観光地へのアクセスに優れた絶好のロケーションです。桑名駅から徒歩3分のため、電車・車どちらでも各地に楽にアクセスできます。",
     "gallery-title": "施設<em>ギャラリー</em>",
     "fnav-access": "アクセス",
-    "fnav-parking": "駐車場", "fnav-gourmet": "周辺グルメ", "gourmet-title": "周辺<em>グルメ</em>", "gourmet-desc": "当宿は桑名駅前の繁華街エリア。徒歩圏内に桑名名物のはまぐりから居酒屋・ラーメン・スイーツまで揃っています。", "gourmet-more": "すべてのお店を見る →", "scroll-hint-g": "← スクロールして全て見る →", "g1-tag": "手羽先・出前OK", "g1-name": "スタンド涎", "g1-desc": "手羽先とお酒のスタンド。出前にも対応しているので、宿でゆっくり楽しむこともできます。", "g2-tag": "桑名名物はまぐり", "g2-name": "蛤将軍", "g2-desc": "桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。", "g3-tag": "海鮮・地酒", "g3-name": "三重人", "g3-desc": "三重の地酒と海鮮が楽しめる駅前の居酒屋。", "g4-tag": "浜焼き", "g4-name": "浜焼ノ栄友", "g4-desc": "海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。", "g5-tag": "ラム肉専門", "g5-name": "Rvambi", "g5-desc": "三重県唯一のラム肉専門店！ワイン・ビールと一緒に。", "g6-tag": "豚骨ラーメン", "g6-name": "五郎左", "g6-desc": "飲んだあとの締めにもうれしい豚骨ラーメン。", "g7-tag": "あいすまんじゅう", "g7-name": "マルマン", "g7-desc": "桑名名物「あいすまんじゅう」のお店。あんこ入りの昔ながらのアイスです。", "g8-tag": "ケーキ", "g8-name": "モナミ", "g8-desc": "当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。",
+    "fnav-parking": "駐車場", "fnav-gourmet": "周辺グルメ", "gourmet-title": "周辺<em>グルメ</em>", "gourmet-desc": "当宿は桑名駅前の繁華街エリア。徒歩圏内に桑名名物のはまぐりから居酒屋・ラーメン・スイーツまで揃っています。", "gourmet-more": "すべてのお店を見る →", "scroll-hint-g": "← スクロールして全て見る →", "g1-tag": "立ち飲み・リーズナブル", "g1-name": "スタンド涎", "g1-desc": "桑名駅すぐの立ち飲みスタンド。ビールやサワー片手に、ジャンバラヤやジャークチキンをリーズナブルに。サクッと一杯どうぞ。", "g2-tag": "桑名名物はまぐり", "g2-name": "蛤将軍", "g2-desc": "桑名名物・天然はまぐりを味わうならここ。松阪牛や伊勢どりなど三重の名物が揃います。", "g3-tag": "海鮮・地酒", "g3-name": "三重人", "g3-desc": "三重の地酒と海鮮が楽しめる駅前の居酒屋。", "g4-tag": "浜焼き", "g4-name": "浜焼ノ栄友", "g4-desc": "海鮮を豪快に焼いて楽しむ浜焼きスタイルのお店。", "g5-tag": "ラム肉専門", "g5-name": "Rvambi", "g5-desc": "三重県唯一のラム肉専門店！ワイン・ビールと一緒に。", "g6-tag": "豚骨ラーメン", "g6-name": "五郎左", "g6-desc": "飲んだあとの締めにもうれしい豚骨ラーメン。", "g7-tag": "あいすまんじゅう", "g7-name": "マルマン", "g7-desc": "桑名名物「あいすまんじゅう」のお店。あんこ入りの昔ながらのアイスです。", "g8-tag": "ケーキ", "g8-name": "モナミ", "g8-desc": "当宿の目と鼻の先にあるケーキ屋さん。滞在中のおやつにどうぞ。",
     "fnav-amenities": "アメニティ",
     "fnav-rules": "ハウスルール",
     "fnav-booking": "予約する",
@@ -1274,7 +1274,7 @@ var translations = {
     "time-suzuka": " ── 車 約45分",
     "time-ise": " ── 車 約75分",
     "parking-title": "🅿️ 駐車場のご案内",
-    "parking-desc": "近隣に駐車場をご用意しています。<br>詳しい場所・利用方法は駐車場案内ページをご確認ください。",
+    "parking-desc": "専用駐車場はございません。お車の方は近隣のコインパーキングをご利用ください。<br>場所・料金は駐車場案内ページでご確認いただけます。",
     "parking-btn": "駐車場案内を見る →",
     "am-towel": "バスタオル・フェイスタオル",
     "am-toothbrush": "歯ブラシ",
@@ -1323,7 +1323,7 @@ var translations = {
     "sightseeing-desc": "MY HOUSE Timing is ideally located with excellent access to major sights in Mie, Aichi and Gifu. Just 3 min from Kuwana Station, you can easily reach each destination by train or car.",
     "gallery-title": "Facility <em>Gallery</em>",
     "fnav-access": "Access",
-    "fnav-parking": "Parking", "fnav-gourmet": "Nearby Gourmet", "gourmet-title": "Nearby <em>Gourmet</em>", "gourmet-desc": "We're in the lively area by Kuwana Station - famous clams, izakaya, ramen and sweets, all within walking distance.", "gourmet-more": "See All Shops →", "scroll-hint-g": "← Scroll to see all →", "g1-tag": "Wings · Delivery", "g1-name": "Stand Yodare", "g1-desc": "Chicken wing & drinks stand. They deliver, so you can enjoy it at the house.", "g2-tag": "Kuwana Clams", "g2-name": "Hamaguri Shogun", "g2-desc": "The place for Kuwana's famous wild clams, plus Matsusaka beef and Ise chicken.", "g3-tag": "Seafood & Sake", "g3-name": "Miebito", "g3-desc": "Izakaya near the station with Mie's local sake and fresh seafood.", "g4-tag": "Seaside BBQ", "g4-name": "Hamayaki no Eiyu", "g4-desc": "Grill fresh seafood right at your table, beach-shack style.", "g5-tag": "Lamb Specialty", "g5-name": "Rvambi", "g5-desc": "Mie's only lamb specialty restaurant! Great with wine or beer.", "g6-tag": "Tonkotsu Ramen", "g6-name": "Gorouza", "g6-desc": "Rich tonkotsu ramen - perfect to finish the night.", "g7-tag": "Ice Manju", "g7-name": "Maruman", "g7-desc": "Home of Ice Manju, Kuwana's classic red-bean ice cream bar.", "g8-tag": "Cakes", "g8-name": "Mon ami", "g8-desc": "A pastry shop just steps from our house.",
+    "fnav-parking": "Parking", "fnav-gourmet": "Nearby Gourmet", "gourmet-title": "Nearby <em>Gourmet</em>", "gourmet-desc": "We're in the lively area by Kuwana Station - famous clams, izakaya, ramen and sweets, all within walking distance.", "gourmet-more": "See All Shops →", "scroll-hint-g": "← Scroll to see all →", "g1-tag": "Standing Bar · Casual", "g1-name": "Stand Yodare", "g1-desc": "A casual standing bar by Kuwana Station. Beer or sour with jambalaya or jerk chicken at great prices — perfect for a quick drink.", "g2-tag": "Kuwana Clams", "g2-name": "Hamaguri Shogun", "g2-desc": "The place for Kuwana's famous wild clams, plus Matsusaka beef and Ise chicken.", "g3-tag": "Seafood & Sake", "g3-name": "Miebito", "g3-desc": "Izakaya near the station with Mie's local sake and fresh seafood.", "g4-tag": "Seaside BBQ", "g4-name": "Hamayaki no Eiyu", "g4-desc": "Grill fresh seafood right at your table, beach-shack style.", "g5-tag": "Lamb Specialty", "g5-name": "Rvambi", "g5-desc": "Mie's only lamb specialty restaurant! Great with wine or beer.", "g6-tag": "Tonkotsu Ramen", "g6-name": "Gorouza", "g6-desc": "Rich tonkotsu ramen - perfect to finish the night.", "g7-tag": "Ice Manju", "g7-name": "Maruman", "g7-desc": "Home of Ice Manju, Kuwana's classic red-bean ice cream bar.", "g8-tag": "Cakes", "g8-name": "Mon ami", "g8-desc": "A pastry shop just steps from our house.",
     "fnav-amenities": "Amenities",
     "fnav-rules": "House Rules",
     "fnav-booking": "Book Now",
@@ -1413,7 +1413,7 @@ var translations = {
     "time-suzuka": " ── ~45 min by car",
     "time-ise": " ── ~75 min by car",
     "parking-title": "🅿️ Parking Guide",
-    "parking-desc": "Parking is available nearby.<br>Please check the parking guide page for details.",
+    "parking-desc": "We do not have a private parking lot. Please use the nearby coin parking.<br>See the parking guide page for locations and rates.",
     "parking-btn": "View Parking Info →",
     "am-towel": "Bath & face towels",
     "am-toothbrush": "Toothbrush",
@@ -1462,7 +1462,7 @@ var translations = {
     "sightseeing-desc": "MY HOUSE Timing地理位置优越，方便前往三重、爱知、岐阜的主要景点。距桑名站步行3分钟，乘电车或开车都能轻松抵达各地。",
     "gallery-title": "设施<em>相册</em>",
     "fnav-access": "交通",
-    "fnav-parking": "停车场", "fnav-gourmet": "周边美食", "gourmet-title": "周边<em>美食</em>", "gourmet-desc": "本宿位于桑名站前繁华地段，步行范围内有桑名名产蛤蜊、居酒屋、拉面和甜点。", "gourmet-more": "查看全部店铺 →", "scroll-hint-g": "← 左右滑动查看全部 →", "g1-tag": "鸡翅・可外送", "g1-name": "Stand Yodare", "g1-desc": "鸡翅与酒的小店，提供外送，可在民宿慢慢享用。", "g2-tag": "桑名名产蛤蜊", "g2-name": "蛤将军", "g2-desc": "品尝桑名名产天然蛤蜊的好去处，还有松阪牛和伊势鸡。", "g3-tag": "海鲜・地酒", "g3-name": "三重人", "g3-desc": "站前居酒屋，供应三重的地方酒和新鲜海鲜。", "g4-tag": "海鲜烧烤", "g4-name": "滨烧之荣友", "g4-desc": "豪迈地烤制海鲜的滨烧风格餐厅。", "g5-tag": "羊肉专门", "g5-name": "Rvambi", "g5-desc": "三重县唯一的羊肉专门店！配红酒或啤酒。", "g6-tag": "豚骨拉面", "g6-name": "五郎左", "g6-desc": "豚骨拉面，作为夜宵收尾再合适不过。", "g7-tag": "冰馒头", "g7-name": "Maruman（丸万）", "g7-desc": "桑名名物冰馒头的店铺，加入红豆馅的传统冰品。", "g8-tag": "蛋糕", "g8-name": "Mon ami", "g8-desc": "距本宿咫尺之遥的蛋糕店。",
+    "fnav-parking": "停车场", "fnav-gourmet": "周边美食", "gourmet-title": "周边<em>美食</em>", "gourmet-desc": "本宿位于桑名站前繁华地段，步行范围内有桑名名产蛤蜊、居酒屋、拉面和甜点。", "gourmet-more": "查看全部店铺 →", "scroll-hint-g": "← 左右滑动查看全部 →", "g1-tag": "站立小酒馆・实惠", "g1-name": "Stand Yodare", "g1-desc": "桑名站旁的立饮小酒馆。点杯啤酒或沙瓦，配上什锦饭和香辣烤鸡，价格实惠，轻松小酌一杯。", "g2-tag": "桑名名产蛤蜊", "g2-name": "蛤将军", "g2-desc": "品尝桑名名产天然蛤蜊的好去处，还有松阪牛和伊势鸡。", "g3-tag": "海鲜・地酒", "g3-name": "三重人", "g3-desc": "站前居酒屋，供应三重的地方酒和新鲜海鲜。", "g4-tag": "海鲜烧烤", "g4-name": "滨烧之荣友", "g4-desc": "豪迈地烤制海鲜的滨烧风格餐厅。", "g5-tag": "羊肉专门", "g5-name": "Rvambi", "g5-desc": "三重县唯一的羊肉专门店！配红酒或啤酒。", "g6-tag": "豚骨拉面", "g6-name": "五郎左", "g6-desc": "豚骨拉面，作为夜宵收尾再合适不过。", "g7-tag": "冰馒头", "g7-name": "Maruman（丸万）", "g7-desc": "桑名名物冰馒头的店铺，加入红豆馅的传统冰品。", "g8-tag": "蛋糕", "g8-name": "Mon ami", "g8-desc": "距本宿咫尺之遥的蛋糕店。",
     "fnav-amenities": "设施用品",
     "fnav-rules": "住宿规则",
     "fnav-booking": "预订",
@@ -1552,7 +1552,7 @@ var translations = {
     "time-suzuka": " ── 驾车约45分钟",
     "time-ise": " ── 驾车约75分钟",
     "parking-title": "🅿️ 停车场指南",
-    "parking-desc": "附近有停车场可供使用。<br>详细位置及使用方法请查看停车场指南页面。",
+    "parking-desc": "本住宿没有专用停车场。自驾的客人请使用附近的收费停车场。<br>位置与费用请查看停车场指南页面。",
     "parking-btn": "查看停车场信息 →",
     "am-towel": "浴巾・毛巾",
     "am-toothbrush": "牙刷",
@@ -1601,7 +1601,7 @@ var translations = {
     "sightseeing-desc": "MY HOUSE 타이밍은 미에·아이치·기후의 주요 관광지 접근성이 뛰어난 최적의 위치입니다. 구와나역에서 도보 3분, 전철·자동차 어느 쪽으로도 편하게 이동할 수 있습니다.",
     "gallery-title": "시설 <em>갤러리</em>",
     "fnav-access": "오시는 길",
-    "fnav-parking": "주차장", "fnav-gourmet": "주변 맛집", "gourmet-title": "주변 <em>맛집</em>", "gourmet-desc": "구와나역 앞 번화가에 위치해 도보 거리에 명물 대합, 이자카야, 라멘, 디저트가 모여 있습니다.", "gourmet-more": "모든 가게 보기 →", "scroll-hint-g": "← 스크롤하여 모두 보기 →", "g1-tag": "닭날개・배달OK", "g1-name": "스탠드 요다레", "g1-desc": "닭날개와 술의 스탠드. 배달도 가능해 숙소에서 즐길 수 있습니다.", "g2-tag": "구와나 명물 대합", "g2-name": "하마구리 쇼군", "g2-desc": "구와나 명물 자연산 대합을 맛볼 수 있는 곳.", "g3-tag": "해산물・지자케", "g3-name": "미에비토", "g3-desc": "미에의 지역 술과 해산물을 즐길 수 있는 역 앞 이자카야.", "g4-tag": "하마야키", "g4-name": "하마야키노 에이유", "g4-desc": "해산물을 호쾌하게 구워 먹는 하마야키 스타일.", "g5-tag": "양고기 전문", "g5-name": "Rvambi", "g5-desc": "미에현 유일의 양고기 전문점!", "g6-tag": "돈코츠 라멘", "g6-name": "고로자", "g6-desc": "술자리 마무리로 좋은 돈코츠 라멘.", "g7-tag": "아이스만쥬", "g7-name": "마루만", "g7-desc": "구와나 명물 '아이스만쥬'의 가게.", "g8-tag": "케이크", "g8-name": "모나미", "g8-desc": "숙소 바로 앞 케이크 가게.",
+    "fnav-parking": "주차장", "fnav-gourmet": "주변 맛집", "gourmet-title": "주변 <em>맛집</em>", "gourmet-desc": "구와나역 앞 번화가에 위치해 도보 거리에 명물 대합, 이자카야, 라멘, 디저트가 모여 있습니다.", "gourmet-more": "모든 가게 보기 →", "scroll-hint-g": "← 스크롤하여 모두 보기 →", "g1-tag": "스탠딩 바・가성비", "g1-name": "스탠드 요다레", "g1-desc": "구와나역 바로 옆 스탠딩 바. 맥주나 사와에 잠발라야와 저크 치킨을 합리적인 가격으로. 가볍게 한잔하기 좋아요.", "g2-tag": "구와나 명물 대합", "g2-name": "하마구리 쇼군", "g2-desc": "구와나 명물 자연산 대합을 맛볼 수 있는 곳.", "g3-tag": "해산물・지자케", "g3-name": "미에비토", "g3-desc": "미에의 지역 술과 해산물을 즐길 수 있는 역 앞 이자카야.", "g4-tag": "하마야키", "g4-name": "하마야키노 에이유", "g4-desc": "해산물을 호쾌하게 구워 먹는 하마야키 스타일.", "g5-tag": "양고기 전문", "g5-name": "Rvambi", "g5-desc": "미에현 유일의 양고기 전문점!", "g6-tag": "돈코츠 라멘", "g6-name": "고로자", "g6-desc": "술자리 마무리로 좋은 돈코츠 라멘.", "g7-tag": "아이스만쥬", "g7-name": "마루만", "g7-desc": "구와나 명물 '아이스만쥬'의 가게.", "g8-tag": "케이크", "g8-name": "모나미", "g8-desc": "숙소 바로 앞 케이크 가게.",
     "fnav-amenities": "어메니티",
     "fnav-rules": "하우스 룰",
     "fnav-booking": "예약하기",
@@ -1691,7 +1691,7 @@ var translations = {
     "time-suzuka": " ── 자동차 약 45분",
     "time-ise": " ── 자동차 약 75분",
     "parking-title": "🅿️ 주차장 안내",
-    "parking-desc": "인근에 주차장을 준비해 드리고 있습니다.<br>자세한 위치 및 이용 방법은 주차장 안내 페이지를 확인해 주세요.",
+    "parking-desc": "전용 주차장은 없습니다. 차로 오시는 분은 인근 코인 주차장을 이용해 주세요.<br>위치와 요금은 주차장 안내 페이지에서 확인하실 수 있습니다.",
     "parking-btn": "주차장 안내 보기 →",
     "am-towel": "바스타월·페이스타월",
     "am-toothbrush": "칫솔",
